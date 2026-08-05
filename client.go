@@ -53,15 +53,11 @@ type APIClient struct {
 
 	AdminSearchAPI *AdminSearchAPIService
 
-	AliasAPI *AliasAPIService
-
 	ApplicationAPI *ApplicationAPIService
 
 	AuthenticationAPI *AuthenticationAPIService
 
 	CancerTypeFilterAPI *CancerTypeFilterAPIService
-
-	CategoryAPI *CategoryAPIService
 
 	CollectionsAPI *CollectionsAPIService
 
@@ -89,8 +85,6 @@ type APIClient struct {
 
 	DatasetsTestAPI *DatasetsTestAPIService
 
-	EnquiryThreadAPI *EnquiryThreadAPIService
-
 	FormHydrationAPI *FormHydrationAPIService
 
 	IntegrationCollectionsAPI *IntegrationCollectionsAPIService
@@ -99,13 +93,7 @@ type APIClient struct {
 
 	IntegrationsDatasetsTestAPI *IntegrationsDatasetsTestAPIService
 
-	KeywordAPI *KeywordAPIService
-
-	LibraryAPI *LibraryAPIService
-
 	LicenseAPI *LicenseAPIService
-
-	LogoutAPI *LogoutAPIService
 
 	MetricsAPI *MetricsAPIService
 
@@ -123,8 +111,6 @@ type APIClient struct {
 
 	ReviewsAPI *ReviewsAPIService
 
-	SavedSearchAPI *SavedSearchAPIService
-
 	SearchCollectionsAPI *SearchCollectionsAPIService
 
 	SearchDataCustodianNetworksAPI *SearchDataCustodianNetworksAPIService
@@ -141,8 +127,6 @@ type APIClient struct {
 
 	SearchToolsAPI *SearchToolsAPIService
 
-	TeamDashboardAPI *TeamDashboardAPIService
-
 	TeamDataAccessApplicationAPI *TeamDataAccessApplicationAPIService
 
 	TeamDataAccessTemplateAPI *TeamDataAccessTemplateAPIService
@@ -153,19 +137,11 @@ type APIClient struct {
 
 	TypeCategoryAPI *TypeCategoryAPIService
 
-	UploadAPI *UploadAPIService
-
-	UserDataAccessApplicationAPI *UserDataAccessApplicationAPIService
-
-	UserOrganisationAPI *UserOrganisationAPIService
-
 	UserRolesAPI *UserRolesAPIService
 
 	UsersAPI *UsersAPIService
 
 	WidgetsAPI *WidgetsAPIService
-
-	WorkgroupsAPI *WorkgroupsAPIService
 }
 
 type service struct {
@@ -186,11 +162,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AdminDataCustodianNetworksAPI = (*AdminDataCustodianNetworksAPIService)(&c.common)
 	c.AdminSearchAPI = (*AdminSearchAPIService)(&c.common)
-	c.AliasAPI = (*AliasAPIService)(&c.common)
 	c.ApplicationAPI = (*ApplicationAPIService)(&c.common)
 	c.AuthenticationAPI = (*AuthenticationAPIService)(&c.common)
 	c.CancerTypeFilterAPI = (*CancerTypeFilterAPIService)(&c.common)
-	c.CategoryAPI = (*CategoryAPIService)(&c.common)
 	c.CollectionsAPI = (*CollectionsAPIService)(&c.common)
 	c.CustomerSatisfactionAPI = (*CustomerSatisfactionAPIService)(&c.common)
 	c.DarIntegrationAPI = (*DarIntegrationAPIService)(&c.common)
@@ -204,15 +178,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DataUseRegistersAPI = (*DataUseRegistersAPIService)(&c.common)
 	c.DatasetsAPI = (*DatasetsAPIService)(&c.common)
 	c.DatasetsTestAPI = (*DatasetsTestAPIService)(&c.common)
-	c.EnquiryThreadAPI = (*EnquiryThreadAPIService)(&c.common)
 	c.FormHydrationAPI = (*FormHydrationAPIService)(&c.common)
 	c.IntegrationCollectionsAPI = (*IntegrationCollectionsAPIService)(&c.common)
 	c.IntegrationDataUseRegistersAPI = (*IntegrationDataUseRegistersAPIService)(&c.common)
 	c.IntegrationsDatasetsTestAPI = (*IntegrationsDatasetsTestAPIService)(&c.common)
-	c.KeywordAPI = (*KeywordAPIService)(&c.common)
-	c.LibraryAPI = (*LibraryAPIService)(&c.common)
 	c.LicenseAPI = (*LicenseAPIService)(&c.common)
-	c.LogoutAPI = (*LogoutAPIService)(&c.common)
 	c.MetricsAPI = (*MetricsAPIService)(&c.common)
 	c.NotificationAPI = (*NotificationAPIService)(&c.common)
 	c.ProgrammingLanguageAPI = (*ProgrammingLanguageAPIService)(&c.common)
@@ -221,7 +191,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PublicationAPI = (*PublicationAPIService)(&c.common)
 	c.QuestionBankAPI = (*QuestionBankAPIService)(&c.common)
 	c.ReviewsAPI = (*ReviewsAPIService)(&c.common)
-	c.SavedSearchAPI = (*SavedSearchAPIService)(&c.common)
 	c.SearchCollectionsAPI = (*SearchCollectionsAPIService)(&c.common)
 	c.SearchDataCustodianNetworksAPI = (*SearchDataCustodianNetworksAPIService)(&c.common)
 	c.SearchDataCustodiansAPI = (*SearchDataCustodiansAPIService)(&c.common)
@@ -230,19 +199,14 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SearchPublicationsAPI = (*SearchPublicationsAPIService)(&c.common)
 	c.SearchSimilarDatasetsAPI = (*SearchSimilarDatasetsAPIService)(&c.common)
 	c.SearchToolsAPI = (*SearchToolsAPIService)(&c.common)
-	c.TeamDashboardAPI = (*TeamDashboardAPIService)(&c.common)
 	c.TeamDataAccessApplicationAPI = (*TeamDataAccessApplicationAPIService)(&c.common)
 	c.TeamDataAccessTemplateAPI = (*TeamDataAccessTemplateAPIService)(&c.common)
 	c.TeamFederationsAPI = (*TeamFederationsAPIService)(&c.common)
 	c.ToolsAPI = (*ToolsAPIService)(&c.common)
 	c.TypeCategoryAPI = (*TypeCategoryAPIService)(&c.common)
-	c.UploadAPI = (*UploadAPIService)(&c.common)
-	c.UserDataAccessApplicationAPI = (*UserDataAccessApplicationAPIService)(&c.common)
-	c.UserOrganisationAPI = (*UserOrganisationAPIService)(&c.common)
 	c.UserRolesAPI = (*UserRolesAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WidgetsAPI = (*WidgetsAPIService)(&c.common)
-	c.WorkgroupsAPI = (*WorkgroupsAPIService)(&c.common)
 
 	return c
 }

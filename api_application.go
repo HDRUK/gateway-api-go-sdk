@@ -120,7 +120,7 @@ func (a *ApplicationAPIService) CreateApplicationsExecute(r ApiCreateApplication
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteApplicationsRequest struct {
 	id int32
 }
 
-func (r ApiDeleteApplicationsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteApplicationsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteApplicationsExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *ApplicationAPIService) DeleteApplications(ctx context.Context, id int32
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *ApplicationAPIService) DeleteApplicationsExecute(r ApiDeleteApplicationsRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *ApplicationAPIService) DeleteApplicationsExecute(r ApiDeleteApplicationsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationAPIService.DeleteApplications")
@@ -233,7 +233,7 @@ func (a *ApplicationAPIService) DeleteApplicationsExecute(r ApiDeleteApplication
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *ApplicationAPIService) DeleteApplicationsExecute(r ApiDeleteApplication
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (a *ApplicationAPIService) EditApplicationsExecute(r ApiEditApplicationsReq
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,7 +380,7 @@ func (a *ApplicationAPIService) EditApplicationsExecute(r ApiEditApplicationsReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -824,7 +824,7 @@ func (a *ApplicationAPIService) PatchApplicationsClientIdExecute(r ApiPatchAppli
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -835,7 +835,7 @@ func (a *ApplicationAPIService) PatchApplicationsClientIdExecute(r ApiPatchAppli
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -960,7 +960,7 @@ func (a *ApplicationAPIService) UpdateApplicationsExecute(r ApiUpdateApplication
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -971,7 +971,7 @@ func (a *ApplicationAPIService) UpdateApplicationsExecute(r ApiUpdateApplication
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

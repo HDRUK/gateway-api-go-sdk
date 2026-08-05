@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateLicenses
 
-> CreateCategories200Response CreateLicenses(ctx).CreateLicensesRequest(createLicensesRequest).Execute()
+> CreateDarIntegration201Response CreateLicenses(ctx).CreateLicensesRequest(createLicensesRequest).Execute()
 
 License@store
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `LicenseAPI.CreateLicenses``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateLicenses`: CreateCategories200Response
+	// response from `CreateLicenses`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `LicenseAPI.CreateLicenses`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## DeleteLicenses
 
-> DeleteAliases200Response DeleteLicenses(ctx, id).Execute()
+> DeleteApplications200Response DeleteLicenses(ctx, id).Execute()
 
 License@destroy
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `LicenseAPI.DeleteLicenses``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteLicenses`: DeleteAliases200Response
+	// response from `DeleteLicenses`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `LicenseAPI.DeleteLicenses`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

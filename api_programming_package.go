@@ -26,16 +26,16 @@ type ProgrammingPackageAPIService service
 type ApiCreateProgrammingPackagesRequest struct {
 	ctx context.Context
 	ApiService *ProgrammingPackageAPIService
-	createCategoriesRequest *CreateCategoriesRequest
+	createProgrammingLanguagesRequest *CreateProgrammingLanguagesRequest
 }
 
 // Programming package definition
-func (r ApiCreateProgrammingPackagesRequest) CreateCategoriesRequest(createCategoriesRequest CreateCategoriesRequest) ApiCreateProgrammingPackagesRequest {
-	r.createCategoriesRequest = &createCategoriesRequest
+func (r ApiCreateProgrammingPackagesRequest) CreateProgrammingLanguagesRequest(createProgrammingLanguagesRequest CreateProgrammingLanguagesRequest) ApiCreateProgrammingPackagesRequest {
+	r.createProgrammingLanguagesRequest = &createProgrammingLanguagesRequest
 	return r
 }
 
-func (r ApiCreateProgrammingPackagesRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateProgrammingPackagesRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateProgrammingPackagesExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *ProgrammingPackageAPIService) CreateProgrammingPackages(ctx context.Con
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *ProgrammingPackageAPIService) CreateProgrammingPackagesExecute(r ApiCreateProgrammingPackagesRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *ProgrammingPackageAPIService) CreateProgrammingPackagesExecute(r ApiCreateProgrammingPackagesRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProgrammingPackageAPIService.CreateProgrammingPackages")
@@ -74,8 +74,8 @@ func (a *ProgrammingPackageAPIService) CreateProgrammingPackagesExecute(r ApiCre
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createCategoriesRequest == nil {
-		return localVarReturnValue, nil, reportError("createCategoriesRequest is required and must be specified")
+	if r.createProgrammingLanguagesRequest == nil {
+		return localVarReturnValue, nil, reportError("createProgrammingLanguagesRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -96,7 +96,7 @@ func (a *ProgrammingPackageAPIService) CreateProgrammingPackagesExecute(r ApiCre
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createCategoriesRequest
+	localVarPostBody = r.createProgrammingLanguagesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -120,7 +120,7 @@ func (a *ProgrammingPackageAPIService) CreateProgrammingPackagesExecute(r ApiCre
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteProgrammingPackagesRequest struct {
 	id int32
 }
 
-func (r ApiDeleteProgrammingPackagesRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteProgrammingPackagesRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteProgrammingPackagesExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *ProgrammingPackageAPIService) DeleteProgrammingPackages(ctx context.Con
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *ProgrammingPackageAPIService) DeleteProgrammingPackagesExecute(r ApiDeleteProgrammingPackagesRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *ProgrammingPackageAPIService) DeleteProgrammingPackagesExecute(r ApiDeleteProgrammingPackagesRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProgrammingPackageAPIService.DeleteProgrammingPackages")
@@ -233,7 +233,7 @@ func (a *ProgrammingPackageAPIService) DeleteProgrammingPackagesExecute(r ApiDel
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *ProgrammingPackageAPIService) DeleteProgrammingPackagesExecute(r ApiDel
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -272,12 +272,12 @@ type ApiEditProgrammingPackagesRequest struct {
 	ctx context.Context
 	ApiService *ProgrammingPackageAPIService
 	id int32
-	editCategoriesRequest *EditCategoriesRequest
+	editProgrammingLanguagesRequest *EditProgrammingLanguagesRequest
 }
 
 // ProgrammingPackage definition
-func (r ApiEditProgrammingPackagesRequest) EditCategoriesRequest(editCategoriesRequest EditCategoriesRequest) ApiEditProgrammingPackagesRequest {
-	r.editCategoriesRequest = &editCategoriesRequest
+func (r ApiEditProgrammingPackagesRequest) EditProgrammingLanguagesRequest(editProgrammingLanguagesRequest EditProgrammingLanguagesRequest) ApiEditProgrammingPackagesRequest {
+	r.editProgrammingLanguagesRequest = &editProgrammingLanguagesRequest
 	return r
 }
 
@@ -323,8 +323,8 @@ func (a *ProgrammingPackageAPIService) EditProgrammingPackagesExecute(r ApiEditP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.editCategoriesRequest == nil {
-		return localVarReturnValue, nil, reportError("editCategoriesRequest is required and must be specified")
+	if r.editProgrammingLanguagesRequest == nil {
+		return localVarReturnValue, nil, reportError("editProgrammingLanguagesRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -345,7 +345,7 @@ func (a *ProgrammingPackageAPIService) EditProgrammingPackagesExecute(r ApiEditP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.editCategoriesRequest
+	localVarPostBody = r.editProgrammingLanguagesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -369,7 +369,7 @@ func (a *ProgrammingPackageAPIService) EditProgrammingPackagesExecute(r ApiEditP
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,219 +380,7 @@ func (a *ProgrammingPackageAPIService) EditProgrammingPackagesExecute(r ApiEditP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchAllProgrammingPackagesRequest struct {
-	ctx context.Context
-	ApiService *ProgrammingPackageAPIService
-}
-
-func (r ApiFetchAllProgrammingPackagesRequest) Execute() (*FetchAllProgrammingPackages200Response, *http.Response, error) {
-	return r.ApiService.FetchAllProgrammingPackagesExecute(r)
-}
-
-/*
-FetchAllProgrammingPackages ProgrammingPackage@index
-
-Returns a list of programming packages enabled on the system
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchAllProgrammingPackagesRequest
-*/
-func (a *ProgrammingPackageAPIService) FetchAllProgrammingPackages(ctx context.Context) ApiFetchAllProgrammingPackagesRequest {
-	return ApiFetchAllProgrammingPackagesRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return FetchAllProgrammingPackages200Response
-func (a *ProgrammingPackageAPIService) FetchAllProgrammingPackagesExecute(r ApiFetchAllProgrammingPackagesRequest) (*FetchAllProgrammingPackages200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchAllProgrammingPackages200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProgrammingPackageAPIService.FetchAllProgrammingPackages")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/programming_packages"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchProgrammingPackagesRequest struct {
-	ctx context.Context
-	ApiService *ProgrammingPackageAPIService
-	id int32
-}
-
-func (r ApiFetchProgrammingPackagesRequest) Execute() (*FetchProgrammingPackages200Response, *http.Response, error) {
-	return r.ApiService.FetchProgrammingPackagesExecute(r)
-}
-
-/*
-FetchProgrammingPackages ProgrammingPackage@show
-
-Return a single system programming package
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id programming package id
- @return ApiFetchProgrammingPackagesRequest
-*/
-func (a *ProgrammingPackageAPIService) FetchProgrammingPackages(ctx context.Context, id int32) ApiFetchProgrammingPackagesRequest {
-	return ApiFetchProgrammingPackagesRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchProgrammingPackages200Response
-func (a *ProgrammingPackageAPIService) FetchProgrammingPackagesExecute(r ApiFetchProgrammingPackagesRequest) (*FetchProgrammingPackages200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchProgrammingPackages200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProgrammingPackageAPIService.FetchProgrammingPackages")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/programming_packages/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -620,12 +408,12 @@ type ApiUpdateProgrammingPackagesRequest struct {
 	ctx context.Context
 	ApiService *ProgrammingPackageAPIService
 	id int32
-	updateCategoriesRequest *UpdateCategoriesRequest
+	updateProgrammingLanguagesRequest *UpdateProgrammingLanguagesRequest
 }
 
 // ProgrammingPackage definition
-func (r ApiUpdateProgrammingPackagesRequest) UpdateCategoriesRequest(updateCategoriesRequest UpdateCategoriesRequest) ApiUpdateProgrammingPackagesRequest {
-	r.updateCategoriesRequest = &updateCategoriesRequest
+func (r ApiUpdateProgrammingPackagesRequest) UpdateProgrammingLanguagesRequest(updateProgrammingLanguagesRequest UpdateProgrammingLanguagesRequest) ApiUpdateProgrammingPackagesRequest {
+	r.updateProgrammingLanguagesRequest = &updateProgrammingLanguagesRequest
 	return r
 }
 
@@ -671,8 +459,8 @@ func (a *ProgrammingPackageAPIService) UpdateProgrammingPackagesExecute(r ApiUpd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateCategoriesRequest == nil {
-		return localVarReturnValue, nil, reportError("updateCategoriesRequest is required and must be specified")
+	if r.updateProgrammingLanguagesRequest == nil {
+		return localVarReturnValue, nil, reportError("updateProgrammingLanguagesRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -693,7 +481,7 @@ func (a *ProgrammingPackageAPIService) UpdateProgrammingPackagesExecute(r ApiUpd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateCategoriesRequest
+	localVarPostBody = r.updateProgrammingLanguagesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -717,7 +505,7 @@ func (a *ProgrammingPackageAPIService) UpdateProgrammingPackagesExecute(r ApiUpd
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -728,7 +516,7 @@ func (a *ProgrammingPackageAPIService) UpdateProgrammingPackagesExecute(r ApiUpd
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

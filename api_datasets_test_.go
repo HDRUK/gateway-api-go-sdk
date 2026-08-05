@@ -34,7 +34,7 @@ func (r ApiDatasetsTestRequest) DatasetsTestRequest(datasetsTestRequest Datasets
 	return r
 }
 
-func (r ApiDatasetsTestRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiDatasetsTestRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.DatasetsTestExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *DatasetsTestAPIService) DatasetsTest(ctx context.Context) ApiDatasetsTe
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DatasetsTestAPIService) DatasetsTestExecute(r ApiDatasetsTestRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DatasetsTestAPIService) DatasetsTestExecute(r ApiDatasetsTestRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsTestAPIService.DatasetsTest")
@@ -119,7 +119,7 @@ func (a *DatasetsTestAPIService) DatasetsTestExecute(r ApiDatasetsTestRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -130,7 +130,7 @@ func (a *DatasetsTestAPIService) DatasetsTestExecute(r ApiDatasetsTestRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -35,7 +35,7 @@ func (r ApiCreateDurIntegrationsRequest) CreateDurIntegrationsRequest(createDurI
 	return r
 }
 
-func (r ApiCreateDurIntegrationsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDurIntegrationsRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDurIntegrationsExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *IntegrationDataUseRegistersAPIService) CreateDurIntegrations(ctx contex
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *IntegrationDataUseRegistersAPIService) CreateDurIntegrationsExecute(r ApiCreateDurIntegrationsRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *IntegrationDataUseRegistersAPIService) CreateDurIntegrationsExecute(r ApiCreateDurIntegrationsRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IntegrationDataUseRegistersAPIService.CreateDurIntegrations")
@@ -120,7 +120,7 @@ func (a *IntegrationDataUseRegistersAPIService) CreateDurIntegrationsExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -131,7 +131,7 @@ func (a *IntegrationDataUseRegistersAPIService) CreateDurIntegrationsExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -161,7 +161,7 @@ type ApiDeleteDurIntegrationsRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDurIntegrationsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDurIntegrationsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDurIntegrationsExecute(r)
 }
 
@@ -185,14 +185,14 @@ func (a *IntegrationDataUseRegistersAPIService) DeleteDurIntegrations(ctx contex
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
+//  @return DeleteApplications200Response
 // Deprecated
-func (a *IntegrationDataUseRegistersAPIService) DeleteDurIntegrationsExecute(r ApiDeleteDurIntegrationsRequest) (*DeleteAliases200Response, *http.Response, error) {
+func (a *IntegrationDataUseRegistersAPIService) DeleteDurIntegrationsExecute(r ApiDeleteDurIntegrationsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IntegrationDataUseRegistersAPIService.DeleteDurIntegrations")
@@ -247,7 +247,7 @@ func (a *IntegrationDataUseRegistersAPIService) DeleteDurIntegrationsExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -258,7 +258,7 @@ func (a *IntegrationDataUseRegistersAPIService) DeleteDurIntegrationsExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -386,7 +386,7 @@ func (a *IntegrationDataUseRegistersAPIService) EditDurIntegrationsExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -397,7 +397,7 @@ func (a *IntegrationDataUseRegistersAPIService) EditDurIntegrationsExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -753,7 +753,7 @@ func (a *IntegrationDataUseRegistersAPIService) UpdateDurIntegrationsExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -764,7 +764,7 @@ func (a *IntegrationDataUseRegistersAPIService) UpdateDurIntegrationsExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

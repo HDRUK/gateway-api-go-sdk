@@ -23,113 +23,6 @@ import (
 // DatasetsAPIService DatasetsAPI service
 type DatasetsAPIService service
 
-type ApiCountTeamUniqueFieldsDatasetsV2Request struct {
-	ctx context.Context
-	ApiService *DatasetsAPIService
-	teamId int32
-	field string
-}
-
-func (r ApiCountTeamUniqueFieldsDatasetsV2Request) Execute() (*CountUniqueFieldsCollections200Response, *http.Response, error) {
-	return r.ApiService.CountTeamUniqueFieldsDatasetsV2Execute(r)
-}
-
-/*
-CountTeamUniqueFieldsDatasetsV2 TeamDatasetController@count
-
-Get team counts for distinct entries of a field in the model
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param teamId team id
- @param field name of the field to perform a count on
- @return ApiCountTeamUniqueFieldsDatasetsV2Request
-*/
-func (a *DatasetsAPIService) CountTeamUniqueFieldsDatasetsV2(ctx context.Context, teamId int32, field string) ApiCountTeamUniqueFieldsDatasetsV2Request {
-	return ApiCountTeamUniqueFieldsDatasetsV2Request{
-		ApiService: a,
-		ctx: ctx,
-		teamId: teamId,
-		field: field,
-	}
-}
-
-// Execute executes the request
-//  @return CountUniqueFieldsCollections200Response
-func (a *DatasetsAPIService) CountTeamUniqueFieldsDatasetsV2Execute(r ApiCountTeamUniqueFieldsDatasetsV2Request) (*CountUniqueFieldsCollections200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CountUniqueFieldsCollections200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.CountTeamUniqueFieldsDatasetsV2")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/teams/{teamId}/datasets/count/{field}"
-	localVarPath = strings.Replace(localVarPath, "{"+"teamId"+"}", url.PathEscape(parameterValueToString(r.teamId, "teamId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"field"+"}", url.PathEscape(parameterValueToString(r.field, "field")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiCountUniqueFieldsRequest struct {
 	ctx context.Context
 	ApiService *DatasetsAPIService
@@ -259,7 +152,7 @@ func (r ApiCreateDatasetsRequest) CreateDatasetsRequest(createDatasetsRequest Cr
 	return r
 }
 
-func (r ApiCreateDatasetsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDatasetsRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDatasetsExecute(r)
 }
 
@@ -281,14 +174,14 @@ func (a *DatasetsAPIService) CreateDatasets(ctx context.Context) ApiCreateDatase
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
+//  @return CreateDarIntegration201Response
 // Deprecated
-func (a *DatasetsAPIService) CreateDatasetsExecute(r ApiCreateDatasetsRequest) (*CreateCategories200Response, *http.Response, error) {
+func (a *DatasetsAPIService) CreateDatasetsExecute(r ApiCreateDatasetsRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.CreateDatasets")
@@ -347,7 +240,7 @@ func (a *DatasetsAPIService) CreateDatasetsExecute(r ApiCreateDatasetsRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -358,7 +251,7 @@ func (a *DatasetsAPIService) CreateDatasetsExecute(r ApiCreateDatasetsRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -408,7 +301,7 @@ func (r ApiCreateDatasetsIntegrationsRequest) InputVersion(inputVersion string) 
 	return r
 }
 
-func (r ApiCreateDatasetsIntegrationsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDatasetsIntegrationsRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDatasetsIntegrationsExecute(r)
 }
 
@@ -430,14 +323,14 @@ func (a *DatasetsAPIService) CreateDatasetsIntegrations(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
+//  @return CreateDarIntegration201Response
 // Deprecated
-func (a *DatasetsAPIService) CreateDatasetsIntegrationsExecute(r ApiCreateDatasetsIntegrationsRequest) (*CreateCategories200Response, *http.Response, error) {
+func (a *DatasetsAPIService) CreateDatasetsIntegrationsExecute(r ApiCreateDatasetsIntegrationsRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.CreateDatasetsIntegrations")
@@ -502,7 +395,7 @@ func (a *DatasetsAPIService) CreateDatasetsIntegrationsExecute(r ApiCreateDatase
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -513,7 +406,7 @@ func (a *DatasetsAPIService) CreateDatasetsIntegrationsExecute(r ApiCreateDatase
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -822,7 +715,7 @@ func (r ApiCreateDatasetsV2Request) CreateDatasetsV2Request(createDatasetsV2Requ
 	return r
 }
 
-func (r ApiCreateDatasetsV2Request) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDatasetsV2Request) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDatasetsV2Execute(r)
 }
 
@@ -842,13 +735,13 @@ func (a *DatasetsAPIService) CreateDatasetsV2(ctx context.Context) ApiCreateData
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Request) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Request) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.CreateDatasetsV2")
@@ -907,7 +800,7 @@ func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Reques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -918,7 +811,7 @@ func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Reques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -955,7 +848,7 @@ func (r ApiCreateTeamDatasetsV2Request) CreateTeamDatasetsV2Request(createTeamDa
 	return r
 }
 
-func (r ApiCreateTeamDatasetsV2Request) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateTeamDatasetsV2Request) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateTeamDatasetsV2Execute(r)
 }
 
@@ -977,13 +870,13 @@ func (a *DatasetsAPIService) CreateTeamDatasetsV2(ctx context.Context, teamId in
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasetsV2Request) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasetsV2Request) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.CreateTeamDatasetsV2")
@@ -1043,7 +936,7 @@ func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasets
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1054,7 +947,7 @@ func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1084,7 +977,7 @@ type ApiDeleteDatasetsRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDatasetsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDatasetsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDatasetsExecute(r)
 }
 
@@ -1108,14 +1001,14 @@ func (a *DatasetsAPIService) DeleteDatasets(ctx context.Context, id int32) ApiDe
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
+//  @return DeleteApplications200Response
 // Deprecated
-func (a *DatasetsAPIService) DeleteDatasetsExecute(r ApiDeleteDatasetsRequest) (*DeleteAliases200Response, *http.Response, error) {
+func (a *DatasetsAPIService) DeleteDatasetsExecute(r ApiDeleteDatasetsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.DeleteDatasets")
@@ -1170,7 +1063,7 @@ func (a *DatasetsAPIService) DeleteDatasetsExecute(r ApiDeleteDatasetsRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1181,7 +1074,7 @@ func (a *DatasetsAPIService) DeleteDatasetsExecute(r ApiDeleteDatasetsRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1211,7 +1104,7 @@ type ApiDeleteDatasetsIntegrationsRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDatasetsIntegrationsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDatasetsIntegrationsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDatasetsIntegrationsExecute(r)
 }
 
@@ -1235,14 +1128,14 @@ func (a *DatasetsAPIService) DeleteDatasetsIntegrations(ctx context.Context, id 
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
+//  @return DeleteApplications200Response
 // Deprecated
-func (a *DatasetsAPIService) DeleteDatasetsIntegrationsExecute(r ApiDeleteDatasetsIntegrationsRequest) (*DeleteAliases200Response, *http.Response, error) {
+func (a *DatasetsAPIService) DeleteDatasetsIntegrationsExecute(r ApiDeleteDatasetsIntegrationsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.DeleteDatasetsIntegrations")
@@ -1297,7 +1190,7 @@ func (a *DatasetsAPIService) DeleteDatasetsIntegrationsExecute(r ApiDeleteDatase
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1308,7 +1201,7 @@ func (a *DatasetsAPIService) DeleteDatasetsIntegrationsExecute(r ApiDeleteDatase
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1338,7 +1231,7 @@ type ApiDeleteDatasetsV2Request struct {
 	id int32
 }
 
-func (r ApiDeleteDatasetsV2Request) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDatasetsV2Request) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDatasetsV2Execute(r)
 }
 
@@ -1360,13 +1253,13 @@ func (a *DatasetsAPIService) DeleteDatasetsV2(ctx context.Context, id int32) Api
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DatasetsAPIService) DeleteDatasetsV2Execute(r ApiDeleteDatasetsV2Request) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DatasetsAPIService) DeleteDatasetsV2Execute(r ApiDeleteDatasetsV2Request) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.DeleteDatasetsV2")
@@ -1421,7 +1314,7 @@ func (a *DatasetsAPIService) DeleteDatasetsV2Execute(r ApiDeleteDatasetsV2Reques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1432,7 +1325,7 @@ func (a *DatasetsAPIService) DeleteDatasetsV2Execute(r ApiDeleteDatasetsV2Reques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1463,7 +1356,7 @@ type ApiDeleteTeamDatasetsV2Request struct {
 	id int32
 }
 
-func (r ApiDeleteTeamDatasetsV2Request) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTeamDatasetsV2Request) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTeamDatasetsV2Execute(r)
 }
 
@@ -1487,13 +1380,13 @@ func (a *DatasetsAPIService) DeleteTeamDatasetsV2(ctx context.Context, teamId in
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DatasetsAPIService) DeleteTeamDatasetsV2Execute(r ApiDeleteTeamDatasetsV2Request) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DatasetsAPIService) DeleteTeamDatasetsV2Execute(r ApiDeleteTeamDatasetsV2Request) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.DeleteTeamDatasetsV2")
@@ -1549,7 +1442,7 @@ func (a *DatasetsAPIService) DeleteTeamDatasetsV2Execute(r ApiDeleteTeamDatasets
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1560,7 +1453,7 @@ func (a *DatasetsAPIService) DeleteTeamDatasetsV2Execute(r ApiDeleteTeamDatasets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1814,7 +1707,7 @@ func (a *DatasetsAPIService) ExportDatasetsExecute(r ApiExportDatasetsRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1944,7 +1837,7 @@ func (a *DatasetsAPIService) ExportDurExecute(r ApiExportDurRequest) (string, *h
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2064,7 +1957,7 @@ func (a *DatasetsAPIService) ExportMockDatasetExecute(r ApiExportMockDatasetRequ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2194,7 +2087,7 @@ func (a *DatasetsAPIService) ExportMockDatasetV2Execute(r ApiExportMockDatasetV2
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2796,7 +2689,7 @@ func (a *DatasetsAPIService) FetchDatasetsExecute(r ApiFetchDatasetsRequest) (*F
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2807,7 +2700,7 @@ func (a *DatasetsAPIService) FetchDatasetsExecute(r ApiFetchDatasetsRequest) (*F
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2943,7 +2836,7 @@ func (a *DatasetsAPIService) FetchDatasetsIntegrationsExecute(r ApiFetchDatasets
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2954,7 +2847,7 @@ func (a *DatasetsAPIService) FetchDatasetsIntegrationsExecute(r ApiFetchDatasets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3097,7 +2990,7 @@ func (a *DatasetsAPIService) FetchDatasetsV2Execute(r ApiFetchDatasetsV2Request)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3108,292 +3001,7 @@ func (a *DatasetsAPIService) FetchDatasetsV2Execute(r ApiFetchDatasetsV2Request)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchTeamDatasetsStatusRequest struct {
-	ctx context.Context
-	ApiService *DatasetsAPIService
-	teamId int32
-	status string
-	sort *string
-	withMetadata *string
-}
-
-// Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt;
-func (r ApiFetchTeamDatasetsStatusRequest) Sort(sort string) ApiFetchTeamDatasetsStatusRequest {
-	r.sort = &sort
-	return r
-}
-
-// Boolean whether to return dataset metadata
-func (r ApiFetchTeamDatasetsStatusRequest) WithMetadata(withMetadata string) ApiFetchTeamDatasetsStatusRequest {
-	r.withMetadata = &withMetadata
-	return r
-}
-
-func (r ApiFetchTeamDatasetsStatusRequest) Execute() (*FetchAllDatasets200Response, *http.Response, error) {
-	return r.ApiService.FetchTeamDatasetsStatusExecute(r)
-}
-
-/*
-FetchTeamDatasetsStatus TeamDatasetController@indexStatus
-
-Returns a list of a team's datasets with the given status
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param teamId ID of the team to filter by
- @param status Status of the dataset (active, draft, or archived). Defaults to active if not provided.
- @return ApiFetchTeamDatasetsStatusRequest
-*/
-func (a *DatasetsAPIService) FetchTeamDatasetsStatus(ctx context.Context, teamId int32, status string) ApiFetchTeamDatasetsStatusRequest {
-	return ApiFetchTeamDatasetsStatusRequest{
-		ApiService: a,
-		ctx: ctx,
-		teamId: teamId,
-		status: status,
-	}
-}
-
-// Execute executes the request
-//  @return FetchAllDatasets200Response
-func (a *DatasetsAPIService) FetchTeamDatasetsStatusExecute(r ApiFetchTeamDatasetsStatusRequest) (*FetchAllDatasets200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchAllDatasets200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.FetchTeamDatasetsStatus")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/teams/{teamId}/datasets/status/{status}"
-	localVarPath = strings.Replace(localVarPath, "{"+"teamId"+"}", url.PathEscape(parameterValueToString(r.teamId, "teamId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterValueToString(r.status, "status")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.sort != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
-	}
-	if r.withMetadata != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "with_metadata", r.withMetadata, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchTeamDatasetsV2Request struct {
-	ctx context.Context
-	ApiService *DatasetsAPIService
-	teamId int32
-	id int32
-	export *string
-	schemaModel *string
-	schemaVersion *string
-}
-
-// Alternative output schema model.
-func (r ApiFetchTeamDatasetsV2Request) Export(export string) ApiFetchTeamDatasetsV2Request {
-	r.export = &export
-	return r
-}
-
-// Alternative output schema model.
-func (r ApiFetchTeamDatasetsV2Request) SchemaModel(schemaModel string) ApiFetchTeamDatasetsV2Request {
-	r.schemaModel = &schemaModel
-	return r
-}
-
-// Alternative output schema version.
-func (r ApiFetchTeamDatasetsV2Request) SchemaVersion(schemaVersion string) ApiFetchTeamDatasetsV2Request {
-	r.schemaVersion = &schemaVersion
-	return r
-}
-
-func (r ApiFetchTeamDatasetsV2Request) Execute() (*FetchDatasets200Response, *http.Response, error) {
-	return r.ApiService.FetchTeamDatasetsV2Execute(r)
-}
-
-/*
-FetchTeamDatasetsV2 TeamDatasetController@show
-
-Get dataset by id
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param teamId team id
- @param id dataset id
- @return ApiFetchTeamDatasetsV2Request
-*/
-func (a *DatasetsAPIService) FetchTeamDatasetsV2(ctx context.Context, teamId int32, id int32) ApiFetchTeamDatasetsV2Request {
-	return ApiFetchTeamDatasetsV2Request{
-		ApiService: a,
-		ctx: ctx,
-		teamId: teamId,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchDatasets200Response
-func (a *DatasetsAPIService) FetchTeamDatasetsV2Execute(r ApiFetchTeamDatasetsV2Request) (*FetchDatasets200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchDatasets200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.FetchTeamDatasetsV2")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/teams/{teamId}/datasets/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"teamId"+"}", url.PathEscape(parameterValueToString(r.teamId, "teamId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.export != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "export", r.export, "form", "")
-	}
-	if r.schemaModel != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "schema_model", r.schemaModel, "form", "")
-	}
-	if r.schemaVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "schema_version", r.schemaVersion, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3430,7 +3038,7 @@ func (r ApiPatchDatasetsRequest) Unarchive(unarchive string) ApiPatchDatasetsReq
 	return r
 }
 
-func (r ApiPatchDatasetsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiPatchDatasetsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.PatchDatasetsExecute(r)
 }
 
@@ -3454,14 +3062,14 @@ func (a *DatasetsAPIService) PatchDatasets(ctx context.Context, id int32) ApiPat
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
+//  @return DeleteApplications200Response
 // Deprecated
-func (a *DatasetsAPIService) PatchDatasetsExecute(r ApiPatchDatasetsRequest) (*DeleteAliases200Response, *http.Response, error) {
+func (a *DatasetsAPIService) PatchDatasetsExecute(r ApiPatchDatasetsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.PatchDatasets")
@@ -3519,7 +3127,7 @@ func (a *DatasetsAPIService) PatchDatasetsExecute(r ApiPatchDatasetsRequest) (*D
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3556,7 +3164,7 @@ func (r ApiPatchDatasetsIntegrationsRequest) Unarchive(unarchive string) ApiPatc
 	return r
 }
 
-func (r ApiPatchDatasetsIntegrationsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiPatchDatasetsIntegrationsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.PatchDatasetsIntegrationsExecute(r)
 }
 
@@ -3580,14 +3188,14 @@ func (a *DatasetsAPIService) PatchDatasetsIntegrations(ctx context.Context, id i
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
+//  @return DeleteApplications200Response
 // Deprecated
-func (a *DatasetsAPIService) PatchDatasetsIntegrationsExecute(r ApiPatchDatasetsIntegrationsRequest) (*DeleteAliases200Response, *http.Response, error) {
+func (a *DatasetsAPIService) PatchDatasetsIntegrationsExecute(r ApiPatchDatasetsIntegrationsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.PatchDatasetsIntegrations")
@@ -3645,7 +3253,7 @@ func (a *DatasetsAPIService) PatchDatasetsIntegrationsExecute(r ApiPatchDatasets
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3681,7 +3289,7 @@ func (r ApiPatchDatasetsV2Request) PatchDatasetsV2Request(patchDatasetsV2Request
 	return r
 }
 
-func (r ApiPatchDatasetsV2Request) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiPatchDatasetsV2Request) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.PatchDatasetsV2Execute(r)
 }
 
@@ -3703,13 +3311,13 @@ func (a *DatasetsAPIService) PatchDatasetsV2(ctx context.Context, id int32) ApiP
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DatasetsAPIService) PatchDatasetsV2Execute(r ApiPatchDatasetsV2Request) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DatasetsAPIService) PatchDatasetsV2Execute(r ApiPatchDatasetsV2Request) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.PatchDatasetsV2")
@@ -3769,7 +3377,7 @@ func (a *DatasetsAPIService) PatchDatasetsV2Execute(r ApiPatchDatasetsV2Request)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3807,7 +3415,7 @@ func (r ApiPatchTeamDatasetsV2Request) PatchDatasetsV2Request(patchDatasetsV2Req
 	return r
 }
 
-func (r ApiPatchTeamDatasetsV2Request) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiPatchTeamDatasetsV2Request) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.PatchTeamDatasetsV2Execute(r)
 }
 
@@ -3831,13 +3439,13 @@ func (a *DatasetsAPIService) PatchTeamDatasetsV2(ctx context.Context, teamId int
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DatasetsAPIService) PatchTeamDatasetsV2Execute(r ApiPatchTeamDatasetsV2Request) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DatasetsAPIService) PatchTeamDatasetsV2Execute(r ApiPatchTeamDatasetsV2Request) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.PatchTeamDatasetsV2")
@@ -3898,7 +3506,7 @@ func (a *DatasetsAPIService) PatchTeamDatasetsV2Execute(r ApiPatchTeamDatasetsV2
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3935,7 +3543,7 @@ func (r ApiUpdateDatasetsRequest) UpdateDatasetsRequest(updateDatasetsRequest Up
 	return r
 }
 
-func (r ApiUpdateDatasetsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiUpdateDatasetsRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.UpdateDatasetsExecute(r)
 }
 
@@ -3959,14 +3567,14 @@ func (a *DatasetsAPIService) UpdateDatasets(ctx context.Context, id int32) ApiUp
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
+//  @return CreateDarIntegration201Response
 // Deprecated
-func (a *DatasetsAPIService) UpdateDatasetsExecute(r ApiUpdateDatasetsRequest) (*CreateCategories200Response, *http.Response, error) {
+func (a *DatasetsAPIService) UpdateDatasetsExecute(r ApiUpdateDatasetsRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.UpdateDatasets")
@@ -4026,7 +3634,7 @@ func (a *DatasetsAPIService) UpdateDatasetsExecute(r ApiUpdateDatasetsRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4037,7 +3645,7 @@ func (a *DatasetsAPIService) UpdateDatasetsExecute(r ApiUpdateDatasetsRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4185,7 +3793,7 @@ func (a *DatasetsAPIService) UpdateDatasetsIntegrationsExecute(r ApiUpdateDatase
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4196,7 +3804,7 @@ func (a *DatasetsAPIService) UpdateDatasetsIntegrationsExecute(r ApiUpdateDatase
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4232,7 +3840,7 @@ func (r ApiUpdateDatasetsV2Request) UpdateDatasetsRequest(updateDatasetsRequest 
 	return r
 }
 
-func (r ApiUpdateDatasetsV2Request) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiUpdateDatasetsV2Request) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.UpdateDatasetsV2Execute(r)
 }
 
@@ -4254,13 +3862,13 @@ func (a *DatasetsAPIService) UpdateDatasetsV2(ctx context.Context, id int32) Api
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DatasetsAPIService) UpdateDatasetsV2Execute(r ApiUpdateDatasetsV2Request) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DatasetsAPIService) UpdateDatasetsV2Execute(r ApiUpdateDatasetsV2Request) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.UpdateDatasetsV2")
@@ -4320,7 +3928,7 @@ func (a *DatasetsAPIService) UpdateDatasetsV2Execute(r ApiUpdateDatasetsV2Reques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4331,7 +3939,7 @@ func (a *DatasetsAPIService) UpdateDatasetsV2Execute(r ApiUpdateDatasetsV2Reques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4369,7 +3977,7 @@ func (r ApiUpdateTeamDatasetsV2Request) PatchDatasetsV2Request(patchDatasetsV2Re
 	return r
 }
 
-func (r ApiUpdateTeamDatasetsV2Request) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiUpdateTeamDatasetsV2Request) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.UpdateTeamDatasetsV2Execute(r)
 }
 
@@ -4393,13 +4001,13 @@ func (a *DatasetsAPIService) UpdateTeamDatasetsV2(ctx context.Context, teamId in
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DatasetsAPIService) UpdateTeamDatasetsV2Execute(r ApiUpdateTeamDatasetsV2Request) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DatasetsAPIService) UpdateTeamDatasetsV2Execute(r ApiUpdateTeamDatasetsV2Request) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetsAPIService.UpdateTeamDatasetsV2")
@@ -4460,7 +4068,7 @@ func (a *DatasetsAPIService) UpdateTeamDatasetsV2Execute(r ApiUpdateTeamDatasets
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4471,7 +4079,7 @@ func (a *DatasetsAPIService) UpdateTeamDatasetsV2Execute(r ApiUpdateTeamDatasets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -36,7 +36,7 @@ func (r ApiCreateFederationTeamRequest) CreateFederationTeamRequest(createFedera
 	return r
 }
 
-func (r ApiCreateFederationTeamRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateFederationTeamRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateFederationTeamExecute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *TeamFederationsAPIService) CreateFederationTeam(ctx context.Context, te
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *TeamFederationsAPIService) CreateFederationTeamExecute(r ApiCreateFederationTeamRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *TeamFederationsAPIService) CreateFederationTeamExecute(r ApiCreateFederationTeamRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamFederationsAPIService.CreateFederationTeam")
@@ -124,7 +124,7 @@ func (a *TeamFederationsAPIService) CreateFederationTeamExecute(r ApiCreateFeder
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -135,7 +135,7 @@ func (a *TeamFederationsAPIService) CreateFederationTeamExecute(r ApiCreateFeder
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -263,7 +263,7 @@ func (a *TeamFederationsAPIService) DeleteFederationExecute(r ApiDeleteFederatio
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -274,7 +274,7 @@ func (a *TeamFederationsAPIService) DeleteFederationExecute(r ApiDeleteFederatio
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -312,7 +312,7 @@ func (r ApiEditFederationTeamRequest) CreateFederationTeamRequest(createFederati
 	return r
 }
 
-func (r ApiEditFederationTeamRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiEditFederationTeamRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.EditFederationTeamExecute(r)
 }
 
@@ -336,13 +336,13 @@ func (a *TeamFederationsAPIService) EditFederationTeam(ctx context.Context, team
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *TeamFederationsAPIService) EditFederationTeamExecute(r ApiEditFederationTeamRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *TeamFederationsAPIService) EditFederationTeamExecute(r ApiEditFederationTeamRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamFederationsAPIService.EditFederationTeam")
@@ -403,7 +403,7 @@ func (a *TeamFederationsAPIService) EditFederationTeamExecute(r ApiEditFederatio
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -414,7 +414,7 @@ func (a *TeamFederationsAPIService) EditFederationTeamExecute(r ApiEditFederatio
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -989,7 +989,7 @@ func (r ApiUpdateFederationTeamRequest) UpdateFederationTeamRequest(updateFedera
 	return r
 }
 
-func (r ApiUpdateFederationTeamRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiUpdateFederationTeamRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.UpdateFederationTeamExecute(r)
 }
 
@@ -1013,13 +1013,13 @@ func (a *TeamFederationsAPIService) UpdateFederationTeam(ctx context.Context, te
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *TeamFederationsAPIService) UpdateFederationTeamExecute(r ApiUpdateFederationTeamRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *TeamFederationsAPIService) UpdateFederationTeamExecute(r ApiUpdateFederationTeamRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamFederationsAPIService.UpdateFederationTeam")
@@ -1080,7 +1080,7 @@ func (a *TeamFederationsAPIService) UpdateFederationTeamExecute(r ApiUpdateFeder
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1091,7 +1091,7 @@ func (a *TeamFederationsAPIService) UpdateFederationTeamExecute(r ApiUpdateFeder
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

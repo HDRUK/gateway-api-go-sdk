@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## CreateCsat
 
-> DeleteAliases200Response CreateCsat(ctx).CreateCsatRequest(createCsatRequest).Execute()
+> DeleteApplications200Response CreateCsat(ctx).CreateCsatRequest(createCsatRequest).Execute()
 
 Create Customer Satisfaction Score
 
@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomerSatisfactionAPI.CreateCsat``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCsat`: DeleteAliases200Response
+	// response from `CreateCsat`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `CustomerSatisfactionAPI.CreateCsat`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

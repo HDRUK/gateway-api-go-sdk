@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## CreateFederationTeam
 
-> CreateCategories200Response CreateFederationTeam(ctx, teamId).CreateFederationTeamRequest(createFederationTeamRequest).Execute()
+> CreateDarIntegration201Response CreateFederationTeam(ctx, teamId).CreateFederationTeamRequest(createFederationTeamRequest).Execute()
 
 FederationController@store
 
@@ -47,7 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TeamFederationsAPI.CreateFederationTeam``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateFederationTeam`: CreateCategories200Response
+	// response from `CreateFederationTeam`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `TeamFederationsAPI.CreateFederationTeam`: %v\n", resp)
 }
 ```
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## EditFederationTeam
 
-> CreateCategories200Response EditFederationTeam(ctx, teamId, federationId).CreateFederationTeamRequest(createFederationTeamRequest).Execute()
+> CreateDarIntegration201Response EditFederationTeam(ctx, teamId, federationId).CreateFederationTeamRequest(createFederationTeamRequest).Execute()
 
 FederationController@edit
 
@@ -193,7 +193,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TeamFederationsAPI.EditFederationTeam``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EditFederationTeam`: CreateCategories200Response
+	// response from `EditFederationTeam`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `TeamFederationsAPI.EditFederationTeam`: %v\n", resp)
 }
 ```
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -599,7 +599,7 @@ Name | Type | Description  | Notes
 
 ## UpdateFederationTeam
 
-> CreateCategories200Response UpdateFederationTeam(ctx, teamId, federationId).UpdateFederationTeamRequest(updateFederationTeamRequest).Execute()
+> CreateDarIntegration201Response UpdateFederationTeam(ctx, teamId, federationId).UpdateFederationTeamRequest(updateFederationTeamRequest).Execute()
 
 FederationController@update
 
@@ -629,7 +629,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TeamFederationsAPI.UpdateFederationTeam``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateFederationTeam`: CreateCategories200Response
+	// response from `UpdateFederationTeam`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `TeamFederationsAPI.UpdateFederationTeam`: %v\n", resp)
 }
 ```
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

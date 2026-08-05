@@ -22,21 +22,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ToolsAPIService CountTeamUniqueFieldsToolsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var field string
-
-		resp, httpRes, err := apiClient.ToolsAPI.CountTeamUniqueFieldsToolsV2(context.Background(), teamId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ToolsAPIService CountUniqueFieldsTools", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -44,21 +29,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 		var field string
 
 		resp, httpRes, err := apiClient.ToolsAPI.CountUniqueFieldsTools(context.Background(), field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService CountUserUniqueFieldsToolsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var field string
-
-		resp, httpRes, err := apiClient.ToolsAPI.CountUserUniqueFieldsToolsV2(context.Background(), userId, field).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -85,20 +55,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 		var teamId int32
 
 		resp, httpRes, err := apiClient.ToolsAPI.CreateToolsByTeamV2(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService CreateToolsByUserV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.CreateToolsByUserV2(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -140,21 +96,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.ToolsAPI.DeleteToolsByTeamidV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService DeleteToolsByUserV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.DeleteToolsByUserV2(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -205,21 +146,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ToolsAPIService EditToolsByUserV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.EditToolsByUserV2(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ToolsAPIService EditToolsIntegrations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -227,36 +153,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.ToolsAPI.EditToolsIntegrations(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService FetchAllToolByTeamAndStatusV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int64
-		var status string
-
-		resp, httpRes, err := apiClient.ToolsAPI.FetchAllToolByTeamAndStatusV2(context.Background(), teamId, status).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService FetchAllToolByUserAndStatusV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var status string
-
-		resp, httpRes, err := apiClient.ToolsAPI.FetchAllToolByUserAndStatusV2(context.Background(), userId, status).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -314,36 +210,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ToolsAPIService FetchToolsByTeamAndByIdV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.FetchToolsByTeamAndByIdV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService FetchToolsByUserAndByIdV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.FetchToolsByUserAndByIdV2(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ToolsAPIService FetchToolsIntegrations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -394,21 +260,6 @@ func Test_gatewayapisdk_ToolsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.ToolsAPI.UpdateToolsByTeamidV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ToolsAPIService UpdateToolsByUserV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.ToolsAPI.UpdateToolsByUserV2(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

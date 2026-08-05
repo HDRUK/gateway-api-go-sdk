@@ -66,21 +66,6 @@ func Test_gatewayapisdk_TeamDataAccessApplicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TeamDataAccessApplicationAPIService FetchTeamDarApplicationHeader", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.TeamDataAccessApplicationAPI.FetchTeamDarApplicationHeader(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test TeamDataAccessApplicationAPIService FetchTeamDarApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -7,15 +7,13 @@ Method | HTTP request | Description
 [**CreateProgrammingPackages**](ProgrammingPackageAPI.md#CreateProgrammingPackages) | **Post** /api/v1/programming_packages | ProgrammingPackage@store
 [**DeleteProgrammingPackages**](ProgrammingPackageAPI.md#DeleteProgrammingPackages) | **Delete** /api/v1/programming_packages/{id} | ProgrammingPackage@destroy
 [**EditProgrammingPackages**](ProgrammingPackageAPI.md#EditProgrammingPackages) | **Patch** /api/v1/programming_packages/{id} | ProgrammingPackage@update
-[**FetchAllProgrammingPackages**](ProgrammingPackageAPI.md#FetchAllProgrammingPackages) | **Get** /api/v1/programming_packages | ProgrammingPackage@index
-[**FetchProgrammingPackages**](ProgrammingPackageAPI.md#FetchProgrammingPackages) | **Get** /api/v1/programming_packages/{id} | ProgrammingPackage@show
 [**UpdateProgrammingPackages**](ProgrammingPackageAPI.md#UpdateProgrammingPackages) | **Put** /api/v1/programming_packages/{id} | ProgrammingPackage@update
 
 
 
 ## CreateProgrammingPackages
 
-> CreateCategories200Response CreateProgrammingPackages(ctx).CreateCategoriesRequest(createCategoriesRequest).Execute()
+> CreateDarIntegration201Response CreateProgrammingPackages(ctx).CreateProgrammingLanguagesRequest(createProgrammingLanguagesRequest).Execute()
 
 ProgrammingPackage@store
 
@@ -34,16 +32,16 @@ import (
 )
 
 func main() {
-	createCategoriesRequest := *openapiclient.NewCreateCategoriesRequest("Name", true) // CreateCategoriesRequest | Programming package definition
+	createProgrammingLanguagesRequest := *openapiclient.NewCreateProgrammingLanguagesRequest("Name", true) // CreateProgrammingLanguagesRequest | Programming package definition
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProgrammingPackageAPI.CreateProgrammingPackages(context.Background()).CreateCategoriesRequest(createCategoriesRequest).Execute()
+	resp, r, err := apiClient.ProgrammingPackageAPI.CreateProgrammingPackages(context.Background()).CreateProgrammingLanguagesRequest(createProgrammingLanguagesRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.CreateProgrammingPackages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProgrammingPackages`: CreateCategories200Response
+	// response from `CreateProgrammingPackages`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `ProgrammingPackageAPI.CreateProgrammingPackages`: %v\n", resp)
 }
 ```
@@ -59,11 +57,11 @@ Other parameters are passed through a pointer to a apiCreateProgrammingPackagesR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCategoriesRequest** | [**CreateCategoriesRequest**](CreateCategoriesRequest.md) | Programming package definition | 
+ **createProgrammingLanguagesRequest** | [**CreateProgrammingLanguagesRequest**](CreateProgrammingLanguagesRequest.md) | Programming package definition | 
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## DeleteProgrammingPackages
 
-> DeleteAliases200Response DeleteProgrammingPackages(ctx, id).Execute()
+> DeleteApplications200Response DeleteProgrammingPackages(ctx, id).Execute()
 
 ProgrammingPackage@destroy
 
@@ -109,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.DeleteProgrammingPackages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteProgrammingPackages`: DeleteAliases200Response
+	// response from `DeleteProgrammingPackages`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `ProgrammingPackageAPI.DeleteProgrammingPackages`: %v\n", resp)
 }
 ```
@@ -133,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -151,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## EditProgrammingPackages
 
-> UpdateProgrammingPackages200Response EditProgrammingPackages(ctx, id).EditCategoriesRequest(editCategoriesRequest).Execute()
+> UpdateProgrammingPackages200Response EditProgrammingPackages(ctx, id).EditProgrammingLanguagesRequest(editProgrammingLanguagesRequest).Execute()
 
 ProgrammingPackage@update
 
@@ -171,11 +169,11 @@ import (
 
 func main() {
 	id := int32(1) // int32 | programming package id
-	editCategoriesRequest := *openapiclient.NewEditCategoriesRequest() // EditCategoriesRequest | ProgrammingPackage definition
+	editProgrammingLanguagesRequest := *openapiclient.NewEditProgrammingLanguagesRequest() // EditProgrammingLanguagesRequest | ProgrammingPackage definition
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProgrammingPackageAPI.EditProgrammingPackages(context.Background(), id).EditCategoriesRequest(editCategoriesRequest).Execute()
+	resp, r, err := apiClient.ProgrammingPackageAPI.EditProgrammingPackages(context.Background(), id).EditProgrammingLanguagesRequest(editProgrammingLanguagesRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.EditProgrammingPackages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +199,7 @@ Other parameters are passed through a pointer to a apiEditProgrammingPackagesReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **editCategoriesRequest** | [**EditCategoriesRequest**](EditCategoriesRequest.md) | ProgrammingPackage definition | 
+ **editProgrammingLanguagesRequest** | [**EditProgrammingLanguagesRequest**](EditProgrammingLanguagesRequest.md) | ProgrammingPackage definition | 
 
 ### Return type
 
@@ -221,140 +219,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## FetchAllProgrammingPackages
-
-> FetchAllProgrammingPackages200Response FetchAllProgrammingPackages(ctx).Execute()
-
-ProgrammingPackage@index
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProgrammingPackageAPI.FetchAllProgrammingPackages(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.FetchAllProgrammingPackages``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FetchAllProgrammingPackages`: FetchAllProgrammingPackages200Response
-	fmt.Fprintf(os.Stdout, "Response from `ProgrammingPackageAPI.FetchAllProgrammingPackages`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFetchAllProgrammingPackagesRequest struct via the builder pattern
-
-
-### Return type
-
-[**FetchAllProgrammingPackages200Response**](FetchAllProgrammingPackages200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## FetchProgrammingPackages
-
-> FetchProgrammingPackages200Response FetchProgrammingPackages(ctx, id).Execute()
-
-ProgrammingPackage@show
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-	id := int32(1) // int32 | programming package id
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProgrammingPackageAPI.FetchProgrammingPackages(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.FetchProgrammingPackages``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FetchProgrammingPackages`: FetchProgrammingPackages200Response
-	fmt.Fprintf(os.Stdout, "Response from `ProgrammingPackageAPI.FetchProgrammingPackages`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | programming package id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFetchProgrammingPackagesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**FetchProgrammingPackages200Response**](FetchProgrammingPackages200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## UpdateProgrammingPackages
 
-> UpdateProgrammingPackages200Response UpdateProgrammingPackages(ctx, id).UpdateCategoriesRequest(updateCategoriesRequest).Execute()
+> UpdateProgrammingPackages200Response UpdateProgrammingPackages(ctx, id).UpdateProgrammingLanguagesRequest(updateProgrammingLanguagesRequest).Execute()
 
 ProgrammingPackage@update
 
@@ -374,11 +241,11 @@ import (
 
 func main() {
 	id := int32(1) // int32 | programming package id
-	updateCategoriesRequest := *openapiclient.NewUpdateCategoriesRequest("Name", "true") // UpdateCategoriesRequest | ProgrammingPackage definition
+	updateProgrammingLanguagesRequest := *openapiclient.NewUpdateProgrammingLanguagesRequest("Name", "true") // UpdateProgrammingLanguagesRequest | ProgrammingPackage definition
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProgrammingPackageAPI.UpdateProgrammingPackages(context.Background(), id).UpdateCategoriesRequest(updateCategoriesRequest).Execute()
+	resp, r, err := apiClient.ProgrammingPackageAPI.UpdateProgrammingPackages(context.Background(), id).UpdateProgrammingLanguagesRequest(updateProgrammingLanguagesRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProgrammingPackageAPI.UpdateProgrammingPackages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -404,7 +271,7 @@ Other parameters are passed through a pointer to a apiUpdateProgrammingPackagesR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCategoriesRequest** | [**UpdateCategoriesRequest**](UpdateCategoriesRequest.md) | ProgrammingPackage definition | 
+ **updateProgrammingLanguagesRequest** | [**UpdateProgrammingLanguagesRequest**](UpdateProgrammingLanguagesRequest.md) | ProgrammingPackage definition | 
 
 ### Return type
 

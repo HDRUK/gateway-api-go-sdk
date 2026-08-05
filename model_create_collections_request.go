@@ -24,10 +24,10 @@ type CreateCollectionsRequest struct {
 	ImageLink *string `json:"image_link,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
 	Keywords []string `json:"keywords,omitempty"`
-	Datasets []CreateTeamCollectionsRequestDatasetsInner `json:"datasets,omitempty"`
-	Tools []CreateTeamCollectionsRequestDatasetsInner `json:"tools,omitempty"`
-	Dur []CreateTeamCollectionsRequestDatasetsInner `json:"dur,omitempty"`
-	Publications []CreateTeamCollectionsRequestDatasetsInner `json:"publications,omitempty"`
+	Datasets []CreateCollectionsIntegrationsRequestDatasetsInner `json:"datasets,omitempty"`
+	Tools []CreateCollectionsIntegrationsRequestDatasetsInner `json:"tools,omitempty"`
+	Dur []CreateCollectionsIntegrationsRequestDatasetsInner `json:"dur,omitempty"`
+	Publications []CreateCollectionsIntegrationsRequestDatasetsInner `json:"publications,omitempty"`
 	Collaborators []int32 `json:"collaborators,omitempty"`
 	Public *bool `json:"public,omitempty"`
 }
@@ -210,9 +210,9 @@ func (o *CreateCollectionsRequest) SetKeywords(v []string) {
 }
 
 // GetDatasets returns the Datasets field value if set, zero value otherwise.
-func (o *CreateCollectionsRequest) GetDatasets() []CreateTeamCollectionsRequestDatasetsInner {
+func (o *CreateCollectionsRequest) GetDatasets() []CreateCollectionsIntegrationsRequestDatasetsInner {
 	if o == nil || IsNil(o.Datasets) {
-		var ret []CreateTeamCollectionsRequestDatasetsInner
+		var ret []CreateCollectionsIntegrationsRequestDatasetsInner
 		return ret
 	}
 	return o.Datasets
@@ -220,7 +220,7 @@ func (o *CreateCollectionsRequest) GetDatasets() []CreateTeamCollectionsRequestD
 
 // GetDatasetsOk returns a tuple with the Datasets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCollectionsRequest) GetDatasetsOk() ([]CreateTeamCollectionsRequestDatasetsInner, bool) {
+func (o *CreateCollectionsRequest) GetDatasetsOk() ([]CreateCollectionsIntegrationsRequestDatasetsInner, bool) {
 	if o == nil || IsNil(o.Datasets) {
 		return nil, false
 	}
@@ -236,15 +236,15 @@ func (o *CreateCollectionsRequest) HasDatasets() bool {
 	return false
 }
 
-// SetDatasets gets a reference to the given []CreateTeamCollectionsRequestDatasetsInner and assigns it to the Datasets field.
-func (o *CreateCollectionsRequest) SetDatasets(v []CreateTeamCollectionsRequestDatasetsInner) {
+// SetDatasets gets a reference to the given []CreateCollectionsIntegrationsRequestDatasetsInner and assigns it to the Datasets field.
+func (o *CreateCollectionsRequest) SetDatasets(v []CreateCollectionsIntegrationsRequestDatasetsInner) {
 	o.Datasets = v
 }
 
 // GetTools returns the Tools field value if set, zero value otherwise.
-func (o *CreateCollectionsRequest) GetTools() []CreateTeamCollectionsRequestDatasetsInner {
+func (o *CreateCollectionsRequest) GetTools() []CreateCollectionsIntegrationsRequestDatasetsInner {
 	if o == nil || IsNil(o.Tools) {
-		var ret []CreateTeamCollectionsRequestDatasetsInner
+		var ret []CreateCollectionsIntegrationsRequestDatasetsInner
 		return ret
 	}
 	return o.Tools
@@ -252,7 +252,7 @@ func (o *CreateCollectionsRequest) GetTools() []CreateTeamCollectionsRequestData
 
 // GetToolsOk returns a tuple with the Tools field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCollectionsRequest) GetToolsOk() ([]CreateTeamCollectionsRequestDatasetsInner, bool) {
+func (o *CreateCollectionsRequest) GetToolsOk() ([]CreateCollectionsIntegrationsRequestDatasetsInner, bool) {
 	if o == nil || IsNil(o.Tools) {
 		return nil, false
 	}
@@ -268,15 +268,15 @@ func (o *CreateCollectionsRequest) HasTools() bool {
 	return false
 }
 
-// SetTools gets a reference to the given []CreateTeamCollectionsRequestDatasetsInner and assigns it to the Tools field.
-func (o *CreateCollectionsRequest) SetTools(v []CreateTeamCollectionsRequestDatasetsInner) {
+// SetTools gets a reference to the given []CreateCollectionsIntegrationsRequestDatasetsInner and assigns it to the Tools field.
+func (o *CreateCollectionsRequest) SetTools(v []CreateCollectionsIntegrationsRequestDatasetsInner) {
 	o.Tools = v
 }
 
 // GetDur returns the Dur field value if set, zero value otherwise.
-func (o *CreateCollectionsRequest) GetDur() []CreateTeamCollectionsRequestDatasetsInner {
+func (o *CreateCollectionsRequest) GetDur() []CreateCollectionsIntegrationsRequestDatasetsInner {
 	if o == nil || IsNil(o.Dur) {
-		var ret []CreateTeamCollectionsRequestDatasetsInner
+		var ret []CreateCollectionsIntegrationsRequestDatasetsInner
 		return ret
 	}
 	return o.Dur
@@ -284,7 +284,7 @@ func (o *CreateCollectionsRequest) GetDur() []CreateTeamCollectionsRequestDatase
 
 // GetDurOk returns a tuple with the Dur field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCollectionsRequest) GetDurOk() ([]CreateTeamCollectionsRequestDatasetsInner, bool) {
+func (o *CreateCollectionsRequest) GetDurOk() ([]CreateCollectionsIntegrationsRequestDatasetsInner, bool) {
 	if o == nil || IsNil(o.Dur) {
 		return nil, false
 	}
@@ -300,15 +300,15 @@ func (o *CreateCollectionsRequest) HasDur() bool {
 	return false
 }
 
-// SetDur gets a reference to the given []CreateTeamCollectionsRequestDatasetsInner and assigns it to the Dur field.
-func (o *CreateCollectionsRequest) SetDur(v []CreateTeamCollectionsRequestDatasetsInner) {
+// SetDur gets a reference to the given []CreateCollectionsIntegrationsRequestDatasetsInner and assigns it to the Dur field.
+func (o *CreateCollectionsRequest) SetDur(v []CreateCollectionsIntegrationsRequestDatasetsInner) {
 	o.Dur = v
 }
 
 // GetPublications returns the Publications field value if set, zero value otherwise.
-func (o *CreateCollectionsRequest) GetPublications() []CreateTeamCollectionsRequestDatasetsInner {
+func (o *CreateCollectionsRequest) GetPublications() []CreateCollectionsIntegrationsRequestDatasetsInner {
 	if o == nil || IsNil(o.Publications) {
-		var ret []CreateTeamCollectionsRequestDatasetsInner
+		var ret []CreateCollectionsIntegrationsRequestDatasetsInner
 		return ret
 	}
 	return o.Publications
@@ -316,7 +316,7 @@ func (o *CreateCollectionsRequest) GetPublications() []CreateTeamCollectionsRequ
 
 // GetPublicationsOk returns a tuple with the Publications field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCollectionsRequest) GetPublicationsOk() ([]CreateTeamCollectionsRequestDatasetsInner, bool) {
+func (o *CreateCollectionsRequest) GetPublicationsOk() ([]CreateCollectionsIntegrationsRequestDatasetsInner, bool) {
 	if o == nil || IsNil(o.Publications) {
 		return nil, false
 	}
@@ -332,8 +332,8 @@ func (o *CreateCollectionsRequest) HasPublications() bool {
 	return false
 }
 
-// SetPublications gets a reference to the given []CreateTeamCollectionsRequestDatasetsInner and assigns it to the Publications field.
-func (o *CreateCollectionsRequest) SetPublications(v []CreateTeamCollectionsRequestDatasetsInner) {
+// SetPublications gets a reference to the given []CreateCollectionsIntegrationsRequestDatasetsInner and assigns it to the Publications field.
+func (o *CreateCollectionsRequest) SetPublications(v []CreateCollectionsIntegrationsRequestDatasetsInner) {
 	o.Publications = v
 }
 

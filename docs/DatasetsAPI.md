@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountTeamUniqueFieldsDatasetsV2**](DatasetsAPI.md#CountTeamUniqueFieldsDatasetsV2) | **Get** /api/v2/teams/{teamId}/datasets/count/{field} | TeamDatasetController@count
 [**CountUniqueFields**](DatasetsAPI.md#CountUniqueFields) | **Get** /api/v1/datasets/count/{field} | DatasetController@count
 [**CreateDatasets**](DatasetsAPI.md#CreateDatasets) | **Post** /api/v1/datasets | DatasetController@store
 [**CreateDatasetsIntegrations**](DatasetsAPI.md#CreateDatasetsIntegrations) | **Post** /api/v1/integrations/datasets | IntegrationDatasetController@store
@@ -27,8 +26,6 @@ Method | HTTP request | Description
 [**FetchDatasets**](DatasetsAPI.md#FetchDatasets) | **Get** /api/v1/datasets/{id} | DatasetController@show
 [**FetchDatasetsIntegrations**](DatasetsAPI.md#FetchDatasetsIntegrations) | **Get** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@show
 [**FetchDatasetsV2**](DatasetsAPI.md#FetchDatasetsV2) | **Get** /api/v2/datasets/{id} | DatasetController@showActive
-[**FetchTeamDatasetsStatus**](DatasetsAPI.md#FetchTeamDatasetsStatus) | **Get** /api/v2/teams/{teamId}/datasets/status/{status} | TeamDatasetController@indexStatus
-[**FetchTeamDatasetsV2**](DatasetsAPI.md#FetchTeamDatasetsV2) | **Get** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@show
 [**PatchDatasets**](DatasetsAPI.md#PatchDatasets) | **Patch** /api/v1/datasets/{id} | DatasetController@edit
 [**PatchDatasetsIntegrations**](DatasetsAPI.md#PatchDatasetsIntegrations) | **Patch** /api/v1/integrations/datasets/{id} | IntegrationDatasetController@edit
 [**PatchDatasetsV2**](DatasetsAPI.md#PatchDatasetsV2) | **Patch** /api/v2/datasets/{id} | DatasetController@edit
@@ -38,79 +35,6 @@ Method | HTTP request | Description
 [**UpdateDatasetsV2**](DatasetsAPI.md#UpdateDatasetsV2) | **Put** /api/v2/datasets/{id} | DatasetController@update
 [**UpdateTeamDatasetsV2**](DatasetsAPI.md#UpdateTeamDatasetsV2) | **Put** /api/v2/teams/{teamId}/datasets/{id} | TeamDatasetController@update
 
-
-
-## CountTeamUniqueFieldsDatasetsV2
-
-> CountUniqueFieldsCollections200Response CountTeamUniqueFieldsDatasetsV2(ctx, teamId, field).Execute()
-
-TeamDatasetController@count
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-	teamId := int32(1) // int32 | team id
-	field := "status" // string | name of the field to perform a count on
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.CountTeamUniqueFieldsDatasetsV2(context.Background(), teamId, field).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CountTeamUniqueFieldsDatasetsV2``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CountTeamUniqueFieldsDatasetsV2`: CountUniqueFieldsCollections200Response
-	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.CountTeamUniqueFieldsDatasetsV2`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**teamId** | **int32** | team id | 
-**field** | **string** | name of the field to perform a count on | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCountTeamUniqueFieldsDatasetsV2Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**CountUniqueFieldsCollections200Response**](CountUniqueFieldsCollections200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## CountUniqueFields
@@ -187,7 +111,7 @@ Name | Type | Description  | Notes
 
 ## CreateDatasets
 
-> CreateCategories200Response CreateDatasets(ctx).CreateDatasetsRequest(createDatasetsRequest).Execute()
+> CreateDarIntegration201Response CreateDatasets(ctx).CreateDatasetsRequest(createDatasetsRequest).Execute()
 
 DatasetController@store
 
@@ -215,7 +139,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateDatasets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDatasets`: CreateCategories200Response
+	// response from `CreateDatasets`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.CreateDatasets`: %v\n", resp)
 }
 ```
@@ -235,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -253,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## CreateDatasetsIntegrations
 
-> CreateCategories200Response CreateDatasetsIntegrations(ctx).DatasetsTestRequest(datasetsTestRequest).InputSchema(inputSchema).InputVersion(inputVersion).Execute()
+> CreateDarIntegration201Response CreateDatasetsIntegrations(ctx).DatasetsTestRequest(datasetsTestRequest).InputSchema(inputSchema).InputVersion(inputVersion).Execute()
 
 IntegrationDatasetController@store
 
@@ -283,7 +207,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateDatasetsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDatasetsIntegrations`: CreateCategories200Response
+	// response from `CreateDatasetsIntegrations`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.CreateDatasetsIntegrations`: %v\n", resp)
 }
 ```
@@ -305,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -461,7 +385,7 @@ No authorization required
 
 ## CreateDatasetsV2
 
-> CreateCategories200Response CreateDatasetsV2(ctx).CreateDatasetsV2Request(createDatasetsV2Request).Execute()
+> CreateDarIntegration201Response CreateDatasetsV2(ctx).CreateDatasetsV2Request(createDatasetsV2Request).Execute()
 
 DatasetController@store
 
@@ -489,7 +413,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDatasetsV2`: CreateCategories200Response
+	// response from `CreateDatasetsV2`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.CreateDatasetsV2`: %v\n", resp)
 }
 ```
@@ -509,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -527,7 +451,7 @@ Name | Type | Description  | Notes
 
 ## CreateTeamDatasetsV2
 
-> CreateCategories200Response CreateTeamDatasetsV2(ctx, teamId).CreateTeamDatasetsV2Request(createTeamDatasetsV2Request).Execute()
+> CreateDarIntegration201Response CreateTeamDatasetsV2(ctx, teamId).CreateTeamDatasetsV2Request(createTeamDatasetsV2Request).Execute()
 
 TeamDatasetController@store
 
@@ -556,7 +480,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateTeamDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTeamDatasetsV2`: CreateCategories200Response
+	// response from `CreateTeamDatasetsV2`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.CreateTeamDatasetsV2`: %v\n", resp)
 }
 ```
@@ -581,7 +505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -599,7 +523,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDatasets
 
-> DeleteAliases200Response DeleteDatasets(ctx, id).Execute()
+> DeleteApplications200Response DeleteDatasets(ctx, id).Execute()
 
 DatasetController@destroy
 
@@ -627,7 +551,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.DeleteDatasets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDatasets`: DeleteAliases200Response
+	// response from `DeleteDatasets`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.DeleteDatasets`: %v\n", resp)
 }
 ```
@@ -651,7 +575,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -669,7 +593,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDatasetsIntegrations
 
-> DeleteAliases200Response DeleteDatasetsIntegrations(ctx, id).Execute()
+> DeleteApplications200Response DeleteDatasetsIntegrations(ctx, id).Execute()
 
 IntegrationDatasetController@destroy
 
@@ -697,7 +621,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.DeleteDatasetsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDatasetsIntegrations`: DeleteAliases200Response
+	// response from `DeleteDatasetsIntegrations`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.DeleteDatasetsIntegrations`: %v\n", resp)
 }
 ```
@@ -721,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -739,7 +663,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDatasetsV2
 
-> DeleteAliases200Response DeleteDatasetsV2(ctx, id).Execute()
+> DeleteApplications200Response DeleteDatasetsV2(ctx, id).Execute()
 
 Delete a dataset
 
@@ -767,7 +691,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.DeleteDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDatasetsV2`: DeleteAliases200Response
+	// response from `DeleteDatasetsV2`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.DeleteDatasetsV2`: %v\n", resp)
 }
 ```
@@ -791,7 +715,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -809,7 +733,7 @@ Name | Type | Description  | Notes
 
 ## DeleteTeamDatasetsV2
 
-> DeleteAliases200Response DeleteTeamDatasetsV2(ctx, teamId, id).Execute()
+> DeleteApplications200Response DeleteTeamDatasetsV2(ctx, teamId, id).Execute()
 
 TeamDatasetController@destroy
 
@@ -838,7 +762,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.DeleteTeamDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTeamDatasetsV2`: DeleteAliases200Response
+	// response from `DeleteTeamDatasetsV2`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.DeleteTeamDatasetsV2`: %v\n", resp)
 }
 ```
@@ -864,7 +788,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1666,165 +1590,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## FetchTeamDatasetsStatus
-
-> FetchAllDatasets200Response FetchTeamDatasetsStatus(ctx, teamId, status).Sort(sort).WithMetadata(withMetadata).Execute()
-
-TeamDatasetController@indexStatus
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-	teamId := int32(1) // int32 | ID of the team to filter by
-	status := "status_example" // string | Status of the dataset (active, draft, or archived). Defaults to active if not provided. (default to "active")
-	sort := "created:desc" // string | Field and direction (colon separated) to sort by (default: 'created:desc') ... <br/> <br/>         - ?sort=\\<field\\>:\\<direction\\> <br/>         - \\<direction\\> can only be 'asc' or 'desc'  <br/>         - \\<field\\> can only be a valid field for the dataset table that can be ordered on  <br/>         - \\<field\\> can start with the prefix 'metadata.' so that nested values within the field 'metadata'  <br/>             (represented by the GWDM JSON structure) can be used to order on.  <br/>  <br/> (optional)
-	withMetadata := "true" // string | Boolean whether to return dataset metadata (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.FetchTeamDatasetsStatus(context.Background(), teamId, status).Sort(sort).WithMetadata(withMetadata).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.FetchTeamDatasetsStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FetchTeamDatasetsStatus`: FetchAllDatasets200Response
-	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.FetchTeamDatasetsStatus`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**teamId** | **int32** | ID of the team to filter by | 
-**status** | **string** | Status of the dataset (active, draft, or archived). Defaults to active if not provided. | [default to &quot;active&quot;]
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFetchTeamDatasetsStatusRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **sort** | **string** | Field and direction (colon separated) to sort by (default: &#39;created:desc&#39;) ... &lt;br/&gt; &lt;br/&gt;         - ?sort&#x3D;\\&lt;field\\&gt;:\\&lt;direction\\&gt; &lt;br/&gt;         - \\&lt;direction\\&gt; can only be &#39;asc&#39; or &#39;desc&#39;  &lt;br/&gt;         - \\&lt;field\\&gt; can only be a valid field for the dataset table that can be ordered on  &lt;br/&gt;         - \\&lt;field\\&gt; can start with the prefix &#39;metadata.&#39; so that nested values within the field &#39;metadata&#39;  &lt;br/&gt;             (represented by the GWDM JSON structure) can be used to order on.  &lt;br/&gt;  &lt;br/&gt; | 
- **withMetadata** | **string** | Boolean whether to return dataset metadata | 
-
-### Return type
-
-[**FetchAllDatasets200Response**](FetchAllDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## FetchTeamDatasetsV2
-
-> FetchDatasets200Response FetchTeamDatasetsV2(ctx, teamId, id).Export(export).SchemaModel(schemaModel).SchemaVersion(schemaVersion).Execute()
-
-TeamDatasetController@show
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-	teamId := int32(1) // int32 | team id
-	id := int32(1) // int32 | dataset id
-	export := "structuralMetadata" // string | Alternative output schema model. (optional)
-	schemaModel := "schemaModel_example" // string | Alternative output schema model. (optional)
-	schemaVersion := "schemaVersion_example" // string | Alternative output schema version. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.FetchTeamDatasetsV2(context.Background(), teamId, id).Export(export).SchemaModel(schemaModel).SchemaVersion(schemaVersion).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.FetchTeamDatasetsV2``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FetchTeamDatasetsV2`: FetchDatasets200Response
-	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.FetchTeamDatasetsV2`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**teamId** | **int32** | team id | 
-**id** | **int32** | dataset id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFetchTeamDatasetsV2Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **export** | **string** | Alternative output schema model. | 
- **schemaModel** | **string** | Alternative output schema model. | 
- **schemaVersion** | **string** | Alternative output schema version. | 
-
-### Return type
-
-[**FetchDatasets200Response**](FetchDatasets200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## PatchDatasets
 
-> DeleteAliases200Response PatchDatasets(ctx, id).Unarchive(unarchive).Execute()
+> DeleteApplications200Response PatchDatasets(ctx, id).Unarchive(unarchive).Execute()
 
 DatasetController@edit
 
@@ -1853,7 +1621,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.PatchDatasets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchDatasets`: DeleteAliases200Response
+	// response from `PatchDatasets`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.PatchDatasets`: %v\n", resp)
 }
 ```
@@ -1878,7 +1646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1896,7 +1664,7 @@ Name | Type | Description  | Notes
 
 ## PatchDatasetsIntegrations
 
-> DeleteAliases200Response PatchDatasetsIntegrations(ctx, id).Unarchive(unarchive).Execute()
+> DeleteApplications200Response PatchDatasetsIntegrations(ctx, id).Unarchive(unarchive).Execute()
 
 IntegrationDatasetController@edit
 
@@ -1925,7 +1693,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.PatchDatasetsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchDatasetsIntegrations`: DeleteAliases200Response
+	// response from `PatchDatasetsIntegrations`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.PatchDatasetsIntegrations`: %v\n", resp)
 }
 ```
@@ -1950,7 +1718,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -1968,7 +1736,7 @@ Name | Type | Description  | Notes
 
 ## PatchDatasetsV2
 
-> DeleteAliases200Response PatchDatasetsV2(ctx, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
+> DeleteApplications200Response PatchDatasetsV2(ctx, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
 
 DatasetController@edit
 
@@ -1997,7 +1765,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.PatchDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchDatasetsV2`: DeleteAliases200Response
+	// response from `PatchDatasetsV2`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.PatchDatasetsV2`: %v\n", resp)
 }
 ```
@@ -2022,7 +1790,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2040,7 +1808,7 @@ Name | Type | Description  | Notes
 
 ## PatchTeamDatasetsV2
 
-> DeleteAliases200Response PatchTeamDatasetsV2(ctx, teamId, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
+> DeleteApplications200Response PatchTeamDatasetsV2(ctx, teamId, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
 
 TeamDatasetController@edit
 
@@ -2070,7 +1838,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.PatchTeamDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchTeamDatasetsV2`: DeleteAliases200Response
+	// response from `PatchTeamDatasetsV2`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.PatchTeamDatasetsV2`: %v\n", resp)
 }
 ```
@@ -2097,7 +1865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -2115,7 +1883,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDatasets
 
-> CreateCategories200Response UpdateDatasets(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
+> CreateDarIntegration201Response UpdateDatasets(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
 
 DatasetController@update
 
@@ -2144,7 +1912,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.UpdateDatasets``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateDatasets`: CreateCategories200Response
+	// response from `UpdateDatasets`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.UpdateDatasets`: %v\n", resp)
 }
 ```
@@ -2169,7 +1937,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2263,7 +2031,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDatasetsV2
 
-> CreateCategories200Response UpdateDatasetsV2(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
+> CreateDarIntegration201Response UpdateDatasetsV2(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
 
 DatasetController@update
 
@@ -2292,7 +2060,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.UpdateDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateDatasetsV2`: CreateCategories200Response
+	// response from `UpdateDatasetsV2`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.UpdateDatasetsV2`: %v\n", resp)
 }
 ```
@@ -2317,7 +2085,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -2335,7 +2103,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTeamDatasetsV2
 
-> CreateCategories200Response UpdateTeamDatasetsV2(ctx, teamId, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
+> CreateDarIntegration201Response UpdateTeamDatasetsV2(ctx, teamId, id).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
 
 TeamDatasetController@update
 
@@ -2365,7 +2133,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.UpdateTeamDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTeamDatasetsV2`: CreateCategories200Response
+	// response from `UpdateTeamDatasetsV2`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DatasetsAPI.UpdateTeamDatasetsV2`: %v\n", resp)
 }
 ```
@@ -2392,7 +2160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

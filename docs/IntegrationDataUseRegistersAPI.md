@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateDurIntegrations
 
-> CreateCategories200Response CreateDurIntegrations(ctx).CreateDurIntegrationsRequest(createDurIntegrationsRequest).Execute()
+> CreateDarIntegration201Response CreateDurIntegrations(ctx).CreateDurIntegrationsRequest(createDurIntegrationsRequest).Execute()
 
 IntegrationDurController@store
 
@@ -43,7 +43,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationDataUseRegistersAPI.CreateDurIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDurIntegrations`: CreateCategories200Response
+	// response from `CreateDurIntegrations`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `IntegrationDataUseRegistersAPI.CreateDurIntegrations`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDurIntegrations
 
-> DeleteAliases200Response DeleteDurIntegrations(ctx, id).Execute()
+> DeleteApplications200Response DeleteDurIntegrations(ctx, id).Execute()
 
 Delete a dur
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationDataUseRegistersAPI.DeleteDurIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDurIntegrations`: DeleteAliases200Response
+	// response from `DeleteDurIntegrations`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `IntegrationDataUseRegistersAPI.DeleteDurIntegrations`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

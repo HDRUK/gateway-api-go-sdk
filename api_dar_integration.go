@@ -36,7 +36,7 @@ func (r ApiCreateDarIntegrationRequest) UpdateDarIntegrationRequest(updateDarInt
 	return r
 }
 
-func (r ApiCreateDarIntegrationRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDarIntegrationRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDarIntegrationExecute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *DarIntegrationAPIService) CreateDarIntegration(ctx context.Context, id 
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DarIntegrationAPIService) CreateDarIntegrationExecute(r ApiCreateDarIntegrationRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DarIntegrationAPIService) CreateDarIntegrationExecute(r ApiCreateDarIntegrationRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DarIntegrationAPIService.CreateDarIntegration")
@@ -124,7 +124,7 @@ func (a *DarIntegrationAPIService) CreateDarIntegrationExecute(r ApiCreateDarInt
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -135,7 +135,7 @@ func (a *DarIntegrationAPIService) CreateDarIntegrationExecute(r ApiCreateDarInt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -165,7 +165,7 @@ type ApiDeleteDarIntegrationRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDarIntegrationRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDarIntegrationRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDarIntegrationExecute(r)
 }
 
@@ -187,13 +187,13 @@ func (a *DarIntegrationAPIService) DeleteDarIntegration(ctx context.Context, id 
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DarIntegrationAPIService) DeleteDarIntegrationExecute(r ApiDeleteDarIntegrationRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DarIntegrationAPIService) DeleteDarIntegrationExecute(r ApiDeleteDarIntegrationRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DarIntegrationAPIService.DeleteDarIntegration")
@@ -248,7 +248,7 @@ func (a *DarIntegrationAPIService) DeleteDarIntegrationExecute(r ApiDeleteDarInt
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -259,7 +259,7 @@ func (a *DarIntegrationAPIService) DeleteDarIntegrationExecute(r ApiDeleteDarInt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -384,7 +384,7 @@ func (a *DarIntegrationAPIService) EditDarIntegrationExecute(r ApiEditDarIntegra
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -395,7 +395,7 @@ func (a *DarIntegrationAPIService) EditDarIntegrationExecute(r ApiEditDarIntegra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -504,7 +504,7 @@ func (a *DarIntegrationAPIService) FetchAllDarIntegrationsExecute(r ApiFetchAllD
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -617,7 +617,7 @@ func (a *DarIntegrationAPIService) FetchDarIntegrationExecute(r ApiFetchDarInteg
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -628,7 +628,7 @@ func (a *DarIntegrationAPIService) FetchDarIntegrationExecute(r ApiFetchDarInteg
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -753,7 +753,7 @@ func (a *DarIntegrationAPIService) UpdateDarIntegrationExecute(r ApiUpdateDarInt
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -764,7 +764,7 @@ func (a *DarIntegrationAPIService) UpdateDarIntegrationExecute(r ApiUpdateDarInt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

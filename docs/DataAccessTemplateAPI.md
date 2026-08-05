@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateDarTemplate**](DataAccessTemplateAPI.md#CreateDarTemplate) | **Post** /api/v1/dar/templates | DataAccessTemplate@store
 [**DeleteDarTemplate**](DataAccessTemplateAPI.md#DeleteDarTemplate) | **Delete** /api/v1/dar/templates/{id} | DataAccessTemplate@destroy
-[**DownloadDarTemplateFile**](DataAccessTemplateAPI.md#DownloadDarTemplateFile) | **Get** /api/v1/dar/templates/{id}/download | DataAccessTemplate@downloadFile
 [**FetchDarTemplate**](DataAccessTemplateAPI.md#FetchDarTemplate) | **Get** /api/v1/dar/templates/{id} | DataAccessTemplate@show
 [**FetchDarTemplates**](DataAccessTemplateAPI.md#FetchDarTemplates) | **Get** /api/v1/dar/templates | DataAccessTemplate@index
 [**PatchDarTemplate**](DataAccessTemplateAPI.md#PatchDarTemplate) | **Patch** /api/v1/dar/templates/{id} | DataAccessTemplate@update
@@ -16,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateDarTemplate
 
-> CreateCategories200Response CreateDarTemplate(ctx).CreateDarTemplateRequest(createDarTemplateRequest).Execute()
+> CreateDarIntegration201Response CreateDarTemplate(ctx).CreateDarTemplateRequest(createDarTemplateRequest).Execute()
 
 DataAccessTemplate@store
 
@@ -44,7 +43,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataAccessTemplateAPI.CreateDarTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDarTemplate`: CreateCategories200Response
+	// response from `CreateDarTemplate`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DataAccessTemplateAPI.CreateDarTemplate`: %v\n", resp)
 }
 ```
@@ -64,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -82,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDarTemplate
 
-> DeleteAliases200Response DeleteDarTemplate(ctx, id).Execute()
+> DeleteApplications200Response DeleteDarTemplate(ctx, id).Execute()
 
 DataAccessTemplate@destroy
 
@@ -110,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataAccessTemplateAPI.DeleteDarTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDarTemplate`: DeleteAliases200Response
+	// response from `DeleteDarTemplate`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DataAccessTemplateAPI.DeleteDarTemplate`: %v\n", resp)
 }
 ```
@@ -134,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -144,74 +143,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DownloadDarTemplateFile
-
-> DownloadDarTemplateFile(ctx, id).Execute()
-
-DataAccessTemplate@downloadFile
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-	id := int32(1) // int32 | DAR template id
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DataAccessTemplateAPI.DownloadDarTemplateFile(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DataAccessTemplateAPI.DownloadDarTemplateFile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | DAR template id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDownloadDarTemplateFileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: file, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

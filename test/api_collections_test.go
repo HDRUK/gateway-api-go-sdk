@@ -22,21 +22,6 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test CollectionsAPIService CountTeamUniqueFieldsCollectionV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var field string
-
-		resp, httpRes, err := apiClient.CollectionsAPI.CountTeamUniqueFieldsCollectionV2(context.Background(), teamId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test CollectionsAPIService CountUniqueFieldsCollections", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -65,66 +50,11 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CollectionsAPIService CountUserUniqueFieldsCollectionV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var field string
-
-		resp, httpRes, err := apiClient.CollectionsAPI.CountUserUniqueFieldsCollectionV2(context.Background(), userId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test CollectionsAPIService CreateCollections", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CollectionsAPI.CreateCollections(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService CreateTeamCollections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.CreateTeamCollections(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService CreateTeamCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.CreateTeamCollectionsV2(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService CreateUserCollections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.CollectionsAPI.CreateUserCollections(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -146,51 +76,6 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CollectionsAPIService DeleteTeamCollections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.DeleteTeamCollections(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService DeleteTeamCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.DeleteTeamCollectionsV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService DeleteUserCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.DeleteUserCollectionsV2(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test CollectionsAPIService EditCollectionsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -198,51 +83,6 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.CollectionsAPI.EditCollectionsV2(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService EditTeamCollections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.EditTeamCollections(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService EditTeamCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.EditTeamCollectionsV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService EditUserCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.EditUserCollectionsV2(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -302,120 +142,6 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CollectionsAPIService FetchTeamActiveCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchTeamActiveCollectionsV2(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchTeamArchivedCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchTeamArchivedCollectionsV2(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchTeamCollectionV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchTeamCollectionV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchTeamDraftCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchTeamDraftCollectionsV2(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchUserArchivedCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchUserArchivedCollectionsV2(context.Background(), userId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchUserCollectionV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchUserCollectionV2(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchUserCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchUserCollectionsV2(context.Background(), userId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService FetchUserDraftCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.FetchUserDraftCollectionsV2(context.Background(), userId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test CollectionsAPIService UpdateCollectionsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -423,51 +149,6 @@ func Test_gatewayapisdk_CollectionsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.CollectionsAPI.UpdateCollectionsV2(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService UpdateTeamCollections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.UpdateTeamCollections(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService UpdateTeamCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.UpdateTeamCollectionsV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test CollectionsAPIService UpdateUserCollectionsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.CollectionsAPI.UpdateUserCollectionsV2(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -35,7 +35,7 @@ func (r ApiCreateTypeCategoriesRequest) CreateTypeCategoriesRequest(createTypeCa
 	return r
 }
 
-func (r ApiCreateTypeCategoriesRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateTypeCategoriesRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateTypeCategoriesExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *TypeCategoryAPIService) CreateTypeCategories(ctx context.Context) ApiCr
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *TypeCategoryAPIService) CreateTypeCategoriesExecute(r ApiCreateTypeCategoriesRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *TypeCategoryAPIService) CreateTypeCategoriesExecute(r ApiCreateTypeCategoriesRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeCategoryAPIService.CreateTypeCategories")
@@ -120,7 +120,7 @@ func (a *TypeCategoryAPIService) CreateTypeCategoriesExecute(r ApiCreateTypeCate
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteTypeCategoriesRequest struct {
 	id int32
 }
 
-func (r ApiDeleteTypeCategoriesRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTypeCategoriesRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTypeCategoriesExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *TypeCategoryAPIService) DeleteTypeCategories(ctx context.Context, id in
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *TypeCategoryAPIService) DeleteTypeCategoriesExecute(r ApiDeleteTypeCategoriesRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *TypeCategoryAPIService) DeleteTypeCategoriesExecute(r ApiDeleteTypeCategoriesRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeCategoryAPIService.DeleteTypeCategories")
@@ -233,7 +233,7 @@ func (a *TypeCategoryAPIService) DeleteTypeCategoriesExecute(r ApiDeleteTypeCate
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *TypeCategoryAPIService) DeleteTypeCategoriesExecute(r ApiDeleteTypeCate
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -272,12 +272,12 @@ type ApiEditTypeCategoriesRequest struct {
 	ctx context.Context
 	ApiService *TypeCategoryAPIService
 	id int32
-	editCategoriesRequest *EditCategoriesRequest
+	editProgrammingLanguagesRequest *EditProgrammingLanguagesRequest
 }
 
 // TypeCategory definition
-func (r ApiEditTypeCategoriesRequest) EditCategoriesRequest(editCategoriesRequest EditCategoriesRequest) ApiEditTypeCategoriesRequest {
-	r.editCategoriesRequest = &editCategoriesRequest
+func (r ApiEditTypeCategoriesRequest) EditProgrammingLanguagesRequest(editProgrammingLanguagesRequest EditProgrammingLanguagesRequest) ApiEditTypeCategoriesRequest {
+	r.editProgrammingLanguagesRequest = &editProgrammingLanguagesRequest
 	return r
 }
 
@@ -323,8 +323,8 @@ func (a *TypeCategoryAPIService) EditTypeCategoriesExecute(r ApiEditTypeCategori
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.editCategoriesRequest == nil {
-		return localVarReturnValue, nil, reportError("editCategoriesRequest is required and must be specified")
+	if r.editProgrammingLanguagesRequest == nil {
+		return localVarReturnValue, nil, reportError("editProgrammingLanguagesRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -345,7 +345,7 @@ func (a *TypeCategoryAPIService) EditTypeCategoriesExecute(r ApiEditTypeCategori
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.editCategoriesRequest
+	localVarPostBody = r.editProgrammingLanguagesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -369,7 +369,7 @@ func (a *TypeCategoryAPIService) EditTypeCategoriesExecute(r ApiEditTypeCategori
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,219 +380,7 @@ func (a *TypeCategoryAPIService) EditTypeCategoriesExecute(r ApiEditTypeCategori
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchAllTypeCategoriesRequest struct {
-	ctx context.Context
-	ApiService *TypeCategoryAPIService
-}
-
-func (r ApiFetchAllTypeCategoriesRequest) Execute() (*FetchAllTypeCategories200Response, *http.Response, error) {
-	return r.ApiService.FetchAllTypeCategoriesExecute(r)
-}
-
-/*
-FetchAllTypeCategories TypeCategory@index
-
-Returns a list of type categories enabled on the system
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchAllTypeCategoriesRequest
-*/
-func (a *TypeCategoryAPIService) FetchAllTypeCategories(ctx context.Context) ApiFetchAllTypeCategoriesRequest {
-	return ApiFetchAllTypeCategoriesRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return FetchAllTypeCategories200Response
-func (a *TypeCategoryAPIService) FetchAllTypeCategoriesExecute(r ApiFetchAllTypeCategoriesRequest) (*FetchAllTypeCategories200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchAllTypeCategories200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeCategoryAPIService.FetchAllTypeCategories")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/type_categories"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchTypeCategoriesRequest struct {
-	ctx context.Context
-	ApiService *TypeCategoryAPIService
-	id int32
-}
-
-func (r ApiFetchTypeCategoriesRequest) Execute() (*FetchTypeCategories200Response, *http.Response, error) {
-	return r.ApiService.FetchTypeCategoriesExecute(r)
-}
-
-/*
-FetchTypeCategories TypeCategory@show
-
-Return a single system type category
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id type category id
- @return ApiFetchTypeCategoriesRequest
-*/
-func (a *TypeCategoryAPIService) FetchTypeCategories(ctx context.Context, id int32) ApiFetchTypeCategoriesRequest {
-	return ApiFetchTypeCategoriesRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchTypeCategories200Response
-func (a *TypeCategoryAPIService) FetchTypeCategoriesExecute(r ApiFetchTypeCategoriesRequest) (*FetchTypeCategories200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchTypeCategories200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeCategoryAPIService.FetchTypeCategories")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/type_categories/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -717,7 +505,7 @@ func (a *TypeCategoryAPIService) UpdateTypeCategoriesExecute(r ApiUpdateTypeCate
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -728,7 +516,7 @@ func (a *TypeCategoryAPIService) UpdateTypeCategoriesExecute(r ApiUpdateTypeCate
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **ImageLink** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Keywords** | Pointer to **[]string** |  | [optional] 
-**Datasets** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**Tools** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**Dur** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**Publications** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
+**Datasets** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**Tools** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**Dur** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**Publications** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
 **Collaborators** | Pointer to **[]int32** |  | [optional] 
 **Public** | Pointer to **bool** |  | [optional] 
 
@@ -162,20 +162,20 @@ HasKeywords returns a boolean if a field has been set.
 
 ### GetDatasets
 
-`func (o *CreateCollectionsRequest) GetDatasets() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *CreateCollectionsRequest) GetDatasets() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetDatasets returns the Datasets field if non-nil, zero value otherwise.
 
 ### GetDatasetsOk
 
-`func (o *CreateCollectionsRequest) GetDatasetsOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *CreateCollectionsRequest) GetDatasetsOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetDatasetsOk returns a tuple with the Datasets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDatasets
 
-`func (o *CreateCollectionsRequest) SetDatasets(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *CreateCollectionsRequest) SetDatasets(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetDatasets sets Datasets field to given value.
 
@@ -187,20 +187,20 @@ HasDatasets returns a boolean if a field has been set.
 
 ### GetTools
 
-`func (o *CreateCollectionsRequest) GetTools() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *CreateCollectionsRequest) GetTools() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetTools returns the Tools field if non-nil, zero value otherwise.
 
 ### GetToolsOk
 
-`func (o *CreateCollectionsRequest) GetToolsOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *CreateCollectionsRequest) GetToolsOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetToolsOk returns a tuple with the Tools field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTools
 
-`func (o *CreateCollectionsRequest) SetTools(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *CreateCollectionsRequest) SetTools(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetTools sets Tools field to given value.
 
@@ -212,20 +212,20 @@ HasTools returns a boolean if a field has been set.
 
 ### GetDur
 
-`func (o *CreateCollectionsRequest) GetDur() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *CreateCollectionsRequest) GetDur() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetDur returns the Dur field if non-nil, zero value otherwise.
 
 ### GetDurOk
 
-`func (o *CreateCollectionsRequest) GetDurOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *CreateCollectionsRequest) GetDurOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetDurOk returns a tuple with the Dur field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDur
 
-`func (o *CreateCollectionsRequest) SetDur(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *CreateCollectionsRequest) SetDur(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetDur sets Dur field to given value.
 
@@ -237,20 +237,20 @@ HasDur returns a boolean if a field has been set.
 
 ### GetPublications
 
-`func (o *CreateCollectionsRequest) GetPublications() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *CreateCollectionsRequest) GetPublications() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetPublications returns the Publications field if non-nil, zero value otherwise.
 
 ### GetPublicationsOk
 
-`func (o *CreateCollectionsRequest) GetPublicationsOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *CreateCollectionsRequest) GetPublicationsOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetPublicationsOk returns a tuple with the Publications field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublications
 
-`func (o *CreateCollectionsRequest) SetPublications(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *CreateCollectionsRequest) SetPublications(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetPublications sets Publications field to given value.
 

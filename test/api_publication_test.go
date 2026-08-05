@@ -22,21 +22,6 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PublicationAPIService CountTeamUniqueFieldsPublicationV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var field string
-
-		resp, httpRes, err := apiClient.PublicationAPI.CountTeamUniqueFieldsPublicationV2(context.Background(), teamId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PublicationAPIService CountUniqueFieldsPublications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -51,54 +36,11 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationAPIService CountUserUniqueFieldsPublicationV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var field string
-
-		resp, httpRes, err := apiClient.PublicationAPI.CountUserUniqueFieldsPublicationV2(context.Background(), userId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PublicationAPIService CreatePublications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.PublicationAPI.CreatePublications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService CreatePublicationsV2ByTeamId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.CreatePublicationsV2ByTeamId(context.Background(), teamId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService CreatePublicationsV2ByUserId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-
-		resp, httpRes, err := apiClient.PublicationAPI.CreatePublicationsV2ByUserId(context.Background(), userId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -120,36 +62,6 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationAPIService DeletePublicationsV2ByTeamId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.DeletePublicationsV2ByTeamId(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService DeletePublicationsV2ByUserId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.DeletePublicationsV2ByUserId(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PublicationAPIService EditPublications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -164,71 +76,11 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationAPIService EditPublicationsV2ByTeamId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.EditPublicationsV2ByTeamId(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService EditPublicationsV2ByUserId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.EditPublicationsV2ByUserId(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PublicationAPIService FetchAllPublications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.PublicationAPI.FetchAllPublications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService FetchAllPublicationsByTeamAndStatusV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int64
-		var status string
-
-		resp, httpRes, err := apiClient.PublicationAPI.FetchAllPublicationsByTeamAndStatusV2(context.Background(), teamId, status).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService FetchAllPublicationsByUserAndStatusV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var status string
-
-		resp, httpRes, err := apiClient.PublicationAPI.FetchAllPublicationsByUserAndStatusV2(context.Background(), userId, status).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,36 +114,6 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationAPIService FetchPublicationsByTeamAndByIdV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.FetchPublicationsByTeamAndByIdV2(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService FetchPublicationsByUserAndByIdV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.FetchPublicationsByUserAndByIdV2(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PublicationAPIService FetchPublicationsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -313,36 +135,6 @@ func Test_gatewayapisdk_PublicationAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.PublicationAPI.UpdatePublications(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService UpdatePublicationsV2ByTeamId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.UpdatePublicationsV2ByTeamId(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationAPIService UpdatePublicationsV2ByUserId", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int64
-		var id int32
-
-		resp, httpRes, err := apiClient.PublicationAPI.UpdatePublicationsV2ByUserId(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

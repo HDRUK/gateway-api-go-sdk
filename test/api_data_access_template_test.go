@@ -48,19 +48,6 @@ func Test_gatewayapisdk_DataAccessTemplateAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataAccessTemplateAPIService DownloadDarTemplateFile", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		httpRes, err := apiClient.DataAccessTemplateAPI.DownloadDarTemplateFile(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessTemplateAPIService FetchDarTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

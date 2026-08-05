@@ -22,18 +22,6 @@ func Test_gatewayapisdk_NotificationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test NotificationAPIService CreateNotifications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.NotificationAPI.CreateNotifications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test NotificationAPIService DeleteNotifications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -41,60 +29,6 @@ func Test_gatewayapisdk_NotificationAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.NotificationAPI.DeleteNotifications(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NotificationAPIService EditNotifications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.NotificationAPI.EditNotifications(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NotificationAPIService FetchAllNotifications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.NotificationAPI.FetchAllNotifications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NotificationAPIService FetchNotifications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.NotificationAPI.FetchNotifications(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NotificationAPIService UpdateNotifications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.NotificationAPI.UpdateNotifications(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

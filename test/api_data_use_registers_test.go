@@ -22,21 +22,6 @@ func Test_gatewayapisdk_DataUseRegistersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DataUseRegistersAPIService CountTeamUniqueFieldsDurV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var field string
-
-		resp, httpRes, err := apiClient.DataUseRegistersAPI.CountTeamUniqueFieldsDurV2(context.Background(), teamId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataUseRegistersAPIService CreateDur", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -181,21 +166,6 @@ func Test_gatewayapisdk_DataUseRegistersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataUseRegistersAPIService FetchAllTeamDurStatus", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var status string
-
-		resp, httpRes, err := apiClient.DataUseRegistersAPI.FetchAllTeamDurStatus(context.Background(), teamId, status).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataUseRegistersAPIService FetchDurById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -217,21 +187,6 @@ func Test_gatewayapisdk_DataUseRegistersAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DataUseRegistersAPI.FetchDurByIdV2(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataUseRegistersAPIService FetchDurByTeamAndByIdV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DataUseRegistersAPI.FetchDurByTeamAndByIdV2(context.Background(), teamId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -48,32 +48,6 @@ func Test_gatewayapisdk_DataAccessSectionAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataAccessSectionAPIService FetchDarSection", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessSectionAPI.FetchDarSection(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessSectionAPIService FetchDarSections", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DataAccessSectionAPI.FetchDarSections(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessSectionAPIService PatchDarSection", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

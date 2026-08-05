@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## DeleteApplications
 
-> DeleteAliases200Response DeleteApplications(ctx, id).Execute()
+> DeleteApplications200Response DeleteApplications(ctx, id).Execute()
 
 ApplicationController@delete
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationAPI.DeleteApplications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteApplications`: DeleteAliases200Response
+	// response from `DeleteApplications`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `ApplicationAPI.DeleteApplications`: %v\n", resp)
 }
 ```
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

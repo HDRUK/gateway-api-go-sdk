@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## CreateQuestionBankQuestion
 
-> CreateCategories200Response CreateQuestionBankQuestion(ctx).CreateQuestionBankQuestionRequest(createQuestionBankQuestionRequest).Execute()
+> CreateDarIntegration201Response CreateQuestionBankQuestion(ctx).CreateQuestionBankQuestionRequest(createQuestionBankQuestionRequest).Execute()
 
 QuestionBank@store
 
@@ -50,7 +50,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuestionBankAPI.CreateQuestionBankQuestion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateQuestionBankQuestion`: CreateCategories200Response
+	// response from `CreateQuestionBankQuestion`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `QuestionBankAPI.CreateQuestionBankQuestion`: %v\n", resp)
 }
 ```
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## DeleteQuestionBankQuestion
 
-> DeleteAliases200Response DeleteQuestionBankQuestion(ctx, id).Execute()
+> DeleteApplications200Response DeleteQuestionBankQuestion(ctx, id).Execute()
 
 QuestionBank@destroy
 
@@ -116,7 +116,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuestionBankAPI.DeleteQuestionBankQuestion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteQuestionBankQuestion`: DeleteAliases200Response
+	// response from `DeleteQuestionBankQuestion`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `QuestionBankAPI.DeleteQuestionBankQuestion`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## DownloadQuestionBankQuestionFile
 
-> DeleteAliases200Response DownloadQuestionBankQuestionFile(ctx, id, fileId).Execute()
+> DeleteApplications200Response DownloadQuestionBankQuestionFile(ctx, id, fileId).Execute()
 
 QuestionBank@destroyFile
 
@@ -187,7 +187,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuestionBankAPI.DownloadQuestionBankQuestionFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DownloadQuestionBankQuestionFile`: DeleteAliases200Response
+	// response from `DownloadQuestionBankQuestionFile`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `QuestionBankAPI.DownloadQuestionBankQuestionFile`: %v\n", resp)
 }
 ```
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

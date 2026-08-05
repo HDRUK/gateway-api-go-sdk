@@ -22,18 +22,6 @@ func Test_gatewayapisdk_ReviewsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ReviewsAPIService CreateReviews", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ReviewsAPI.CreateReviews(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ReviewsAPIService DeleteReviews", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -55,32 +43,6 @@ func Test_gatewayapisdk_ReviewsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.ReviewsAPI.EditReviews(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ReviewsAPIService FetchAllReviews", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ReviewsAPI.FetchAllReviews(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ReviewsAPIService FetchReviews", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.ReviewsAPI.FetchReviews(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

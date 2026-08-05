@@ -35,7 +35,7 @@ func (r ApiCreateQuestionBankQuestionRequest) CreateQuestionBankQuestionRequest(
 	return r
 }
 
-func (r ApiCreateQuestionBankQuestionRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateQuestionBankQuestionRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateQuestionBankQuestionExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *QuestionBankAPIService) CreateQuestionBankQuestion(ctx context.Context)
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *QuestionBankAPIService) CreateQuestionBankQuestionExecute(r ApiCreateQuestionBankQuestionRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *QuestionBankAPIService) CreateQuestionBankQuestionExecute(r ApiCreateQuestionBankQuestionRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuestionBankAPIService.CreateQuestionBankQuestion")
@@ -120,7 +120,7 @@ func (a *QuestionBankAPIService) CreateQuestionBankQuestionExecute(r ApiCreateQu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteQuestionBankQuestionRequest struct {
 	id int32
 }
 
-func (r ApiDeleteQuestionBankQuestionRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteQuestionBankQuestionRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteQuestionBankQuestionExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *QuestionBankAPIService) DeleteQuestionBankQuestion(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *QuestionBankAPIService) DeleteQuestionBankQuestionExecute(r ApiDeleteQuestionBankQuestionRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *QuestionBankAPIService) DeleteQuestionBankQuestionExecute(r ApiDeleteQuestionBankQuestionRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuestionBankAPIService.DeleteQuestionBankQuestion")
@@ -233,7 +233,7 @@ func (a *QuestionBankAPIService) DeleteQuestionBankQuestionExecute(r ApiDeleteQu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *QuestionBankAPIService) DeleteQuestionBankQuestionExecute(r ApiDeleteQu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -275,7 +275,7 @@ type ApiDownloadQuestionBankQuestionFileRequest struct {
 	fileId int32
 }
 
-func (r ApiDownloadQuestionBankQuestionFileRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDownloadQuestionBankQuestionFileRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DownloadQuestionBankQuestionFileExecute(r)
 }
 
@@ -299,13 +299,13 @@ func (a *QuestionBankAPIService) DownloadQuestionBankQuestionFile(ctx context.Co
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *QuestionBankAPIService) DownloadQuestionBankQuestionFileExecute(r ApiDownloadQuestionBankQuestionFileRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *QuestionBankAPIService) DownloadQuestionBankQuestionFileExecute(r ApiDownloadQuestionBankQuestionFileRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "QuestionBankAPIService.DownloadQuestionBankQuestionFile")
@@ -361,7 +361,7 @@ func (a *QuestionBankAPIService) DownloadQuestionBankQuestionFileExecute(r ApiDo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -372,7 +372,7 @@ func (a *QuestionBankAPIService) DownloadQuestionBankQuestionFileExecute(r ApiDo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -497,7 +497,7 @@ func (a *QuestionBankAPIService) EditQuestionBankQuestionExecute(r ApiEditQuesti
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -508,7 +508,7 @@ func (a *QuestionBankAPIService) EditQuestionBankQuestionExecute(r ApiEditQuesti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1002,7 +1002,7 @@ func (a *QuestionBankAPIService) FetchQuestionBankQuestionVersionExecute(r ApiFe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1522,7 +1522,7 @@ func (a *QuestionBankAPIService) UpdateQuestionBankQuestionExecute(r ApiUpdateQu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1533,7 +1533,7 @@ func (a *QuestionBankAPIService) UpdateQuestionBankQuestionExecute(r ApiUpdateQu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1650,7 +1650,7 @@ func (a *QuestionBankAPIService) UpdateQuestionBankQuestionStatusExecute(r ApiUp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1661,7 +1661,7 @@ func (a *QuestionBankAPIService) UpdateQuestionBankQuestionStatusExecute(r ApiUp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

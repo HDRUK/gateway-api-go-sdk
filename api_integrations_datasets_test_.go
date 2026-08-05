@@ -34,7 +34,7 @@ func (r ApiIntegrationsDatasetsTestRequest) DatasetsTestRequest(datasetsTestRequ
 	return r
 }
 
-func (r ApiIntegrationsDatasetsTestRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiIntegrationsDatasetsTestRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.IntegrationsDatasetsTestExecute(r)
 }
 
@@ -56,14 +56,14 @@ func (a *IntegrationsDatasetsTestAPIService) IntegrationsDatasetsTest(ctx contex
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
+//  @return CreateDarIntegration201Response
 // Deprecated
-func (a *IntegrationsDatasetsTestAPIService) IntegrationsDatasetsTestExecute(r ApiIntegrationsDatasetsTestRequest) (*CreateCategories200Response, *http.Response, error) {
+func (a *IntegrationsDatasetsTestAPIService) IntegrationsDatasetsTestExecute(r ApiIntegrationsDatasetsTestRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IntegrationsDatasetsTestAPIService.IntegrationsDatasetsTest")
@@ -122,7 +122,7 @@ func (a *IntegrationsDatasetsTestAPIService) IntegrationsDatasetsTestExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -133,7 +133,7 @@ func (a *IntegrationsDatasetsTestAPIService) IntegrationsDatasetsTestExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

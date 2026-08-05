@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## CreateDataCustodianNetwork
 
-> CreateCategories200Response CreateDataCustodianNetwork(ctx).CreateDataProviderCollRequest(createDataProviderCollRequest).Execute()
+> CreateDarIntegration201Response CreateDataCustodianNetwork(ctx).CreateDataProviderCollRequest(createDataProviderCollRequest).Execute()
 
 DataCustodianNetworks@store
 
@@ -47,7 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataCustodianNetworksAPI.CreateDataCustodianNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDataCustodianNetwork`: CreateCategories200Response
+	// response from `CreateDataCustodianNetwork`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DataCustodianNetworksAPI.CreateDataCustodianNetwork`: %v\n", resp)
 }
 ```
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDataCustodianNetwork
 
-> DeleteAliases200Response DeleteDataCustodianNetwork(ctx, id).Execute()
+> DeleteApplications200Response DeleteDataCustodianNetwork(ctx, id).Execute()
 
 DataCustodianNetworks@destroy
 
@@ -113,7 +113,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataCustodianNetworksAPI.DeleteDataCustodianNetwork``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDataCustodianNetwork`: DeleteAliases200Response
+	// response from `DeleteDataCustodianNetwork`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DataCustodianNetworksAPI.DeleteDataCustodianNetwork`: %v\n", resp)
 }
 ```
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

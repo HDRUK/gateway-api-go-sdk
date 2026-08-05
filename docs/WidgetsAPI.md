@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## DeleteWidget
 
-> DeleteAliases200Response DeleteWidget(ctx, teamId, id).Execute()
+> DeleteApplications200Response DeleteWidget(ctx, teamId, id).Execute()
 
 Delete a widget
 
@@ -119,7 +119,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WidgetsAPI.DeleteWidget``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteWidget`: DeleteAliases200Response
+	// response from `DeleteWidget`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `WidgetsAPI.DeleteWidget`: %v\n", resp)
 }
 ```
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

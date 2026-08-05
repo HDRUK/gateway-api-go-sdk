@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CreateUserHasRoles
 
-> DeleteAliases200Response CreateUserHasRoles(ctx, userId).CreateUserHasRolesRequest(createUserHasRolesRequest).Execute()
+> DeleteApplications200Response CreateUserHasRoles(ctx, userId).CreateUserHasRolesRequest(createUserHasRolesRequest).Execute()
 
 UserRoleController@store
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UserRolesAPI.CreateUserHasRoles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateUserHasRoles`: DeleteAliases200Response
+	// response from `CreateUserHasRoles`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `UserRolesAPI.CreateUserHasRoles`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## UpdateUserHasRoles
 
-> DeleteAliases200Response UpdateUserHasRoles(ctx, userId).UpdateUserHasRolesRequest(updateUserHasRolesRequest).Execute()
+> DeleteApplications200Response UpdateUserHasRoles(ctx, userId).UpdateUserHasRolesRequest(updateUserHasRolesRequest).Execute()
 
 UserRoleController@edit
 
@@ -183,7 +183,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UserRolesAPI.UpdateUserHasRoles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateUserHasRoles`: DeleteAliases200Response
+	// response from `UpdateUserHasRoles`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `UserRolesAPI.UpdateUserHasRoles`: %v\n", resp)
 }
 ```
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

@@ -23,145 +23,13 @@ import (
 // ReviewsAPIService ReviewsAPI service
 type ReviewsAPIService service
 
-type ApiCreateReviewsRequest struct {
-	ctx context.Context
-	ApiService *ReviewsAPIService
-	createReviewsRequest *CreateReviewsRequest
-}
-
-// Pass user credentials
-func (r ApiCreateReviewsRequest) CreateReviewsRequest(createReviewsRequest CreateReviewsRequest) ApiCreateReviewsRequest {
-	r.createReviewsRequest = &createReviewsRequest
-	return r
-}
-
-func (r ApiCreateReviewsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
-	return r.ApiService.CreateReviewsExecute(r)
-}
-
-/*
-CreateReviews ReviewController@store
-
-Create a new review
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateReviewsRequest
-*/
-func (a *ReviewsAPIService) CreateReviews(ctx context.Context) ApiCreateReviewsRequest {
-	return ApiCreateReviewsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return CreateCategories200Response
-func (a *ReviewsAPIService) CreateReviewsExecute(r ApiCreateReviewsRequest) (*CreateCategories200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReviewsAPIService.CreateReviews")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/reviews"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.createReviewsRequest == nil {
-		return localVarReturnValue, nil, reportError("createReviewsRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.createReviewsRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiDeleteReviewsRequest struct {
 	ctx context.Context
 	ApiService *ReviewsAPIService
 	id int32
 }
 
-func (r ApiDeleteReviewsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteReviewsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteReviewsExecute(r)
 }
 
@@ -183,13 +51,13 @@ func (a *ReviewsAPIService) DeleteReviews(ctx context.Context, id int32) ApiDele
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *ReviewsAPIService) DeleteReviewsExecute(r ApiDeleteReviewsRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *ReviewsAPIService) DeleteReviewsExecute(r ApiDeleteReviewsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReviewsAPIService.DeleteReviews")
@@ -244,7 +112,7 @@ func (a *ReviewsAPIService) DeleteReviewsExecute(r ApiDeleteReviewsRequest) (*De
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -255,7 +123,7 @@ func (a *ReviewsAPIService) DeleteReviewsExecute(r ApiDeleteReviewsRequest) (*De
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -283,12 +151,12 @@ type ApiEditReviewsRequest struct {
 	ctx context.Context
 	ApiService *ReviewsAPIService
 	id int32
-	createReviewsRequest *CreateReviewsRequest
+	updateReviewsRequest *UpdateReviewsRequest
 }
 
 // Pass user credentials
-func (r ApiEditReviewsRequest) CreateReviewsRequest(createReviewsRequest CreateReviewsRequest) ApiEditReviewsRequest {
-	r.createReviewsRequest = &createReviewsRequest
+func (r ApiEditReviewsRequest) UpdateReviewsRequest(updateReviewsRequest UpdateReviewsRequest) ApiEditReviewsRequest {
+	r.updateReviewsRequest = &updateReviewsRequest
 	return r
 }
 
@@ -334,8 +202,8 @@ func (a *ReviewsAPIService) EditReviewsExecute(r ApiEditReviewsRequest) (*Update
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createReviewsRequest == nil {
-		return localVarReturnValue, nil, reportError("createReviewsRequest is required and must be specified")
+	if r.updateReviewsRequest == nil {
+		return localVarReturnValue, nil, reportError("updateReviewsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -356,7 +224,7 @@ func (a *ReviewsAPIService) EditReviewsExecute(r ApiEditReviewsRequest) (*Update
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createReviewsRequest
+	localVarPostBody = r.updateReviewsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -380,7 +248,7 @@ func (a *ReviewsAPIService) EditReviewsExecute(r ApiEditReviewsRequest) (*Update
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -391,230 +259,7 @@ func (a *ReviewsAPIService) EditReviewsExecute(r ApiEditReviewsRequest) (*Update
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchAllReviewsRequest struct {
-	ctx context.Context
-	ApiService *ReviewsAPIService
-}
-
-func (r ApiFetchAllReviewsRequest) Execute() (*FetchAllReviews200Response, *http.Response, error) {
-	return r.ApiService.FetchAllReviewsExecute(r)
-}
-
-/*
-FetchAllReviews ReviewController@index
-
-Get All Reviews
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchAllReviewsRequest
-*/
-func (a *ReviewsAPIService) FetchAllReviews(ctx context.Context) ApiFetchAllReviewsRequest {
-	return ApiFetchAllReviewsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return FetchAllReviews200Response
-func (a *ReviewsAPIService) FetchAllReviewsExecute(r ApiFetchAllReviewsRequest) (*FetchAllReviews200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchAllReviews200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReviewsAPIService.FetchAllReviews")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/reviews"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchReviewsRequest struct {
-	ctx context.Context
-	ApiService *ReviewsAPIService
-	id int32
-}
-
-func (r ApiFetchReviewsRequest) Execute() (*FetchAllReviews200Response, *http.Response, error) {
-	return r.ApiService.FetchReviewsExecute(r)
-}
-
-/*
-FetchReviews ReviewController@show
-
-Get review by id
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id review id
- @return ApiFetchReviewsRequest
-*/
-func (a *ReviewsAPIService) FetchReviews(ctx context.Context, id int32) ApiFetchReviewsRequest {
-	return ApiFetchReviewsRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchAllReviews200Response
-func (a *ReviewsAPIService) FetchReviewsExecute(r ApiFetchReviewsRequest) (*FetchAllReviews200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchAllReviews200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReviewsAPIService.FetchReviews")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/reviews/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -642,12 +287,12 @@ type ApiUpdateReviewsRequest struct {
 	ctx context.Context
 	ApiService *ReviewsAPIService
 	id int32
-	createReviewsRequest *CreateReviewsRequest
+	updateReviewsRequest *UpdateReviewsRequest
 }
 
 // Pass user credentials
-func (r ApiUpdateReviewsRequest) CreateReviewsRequest(createReviewsRequest CreateReviewsRequest) ApiUpdateReviewsRequest {
-	r.createReviewsRequest = &createReviewsRequest
+func (r ApiUpdateReviewsRequest) UpdateReviewsRequest(updateReviewsRequest UpdateReviewsRequest) ApiUpdateReviewsRequest {
+	r.updateReviewsRequest = &updateReviewsRequest
 	return r
 }
 
@@ -693,8 +338,8 @@ func (a *ReviewsAPIService) UpdateReviewsExecute(r ApiUpdateReviewsRequest) (*Up
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createReviewsRequest == nil {
-		return localVarReturnValue, nil, reportError("createReviewsRequest is required and must be specified")
+	if r.updateReviewsRequest == nil {
+		return localVarReturnValue, nil, reportError("updateReviewsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -715,7 +360,7 @@ func (a *ReviewsAPIService) UpdateReviewsExecute(r ApiUpdateReviewsRequest) (*Up
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createReviewsRequest
+	localVarPostBody = r.updateReviewsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -739,7 +384,7 @@ func (a *ReviewsAPIService) UpdateReviewsExecute(r ApiUpdateReviewsRequest) (*Up
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -750,7 +395,7 @@ func (a *ReviewsAPIService) UpdateReviewsExecute(r ApiUpdateReviewsRequest) (*Up
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

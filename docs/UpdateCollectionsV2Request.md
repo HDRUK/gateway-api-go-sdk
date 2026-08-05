@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **ImageLink** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Keywords** | Pointer to **[]string** |  | [optional] 
-**Datasets** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**Dur** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
-**Publications** | Pointer to [**[]CreateTeamCollectionsRequestDatasetsInner**](CreateTeamCollectionsRequestDatasetsInner.md) |  | [optional] 
+**Datasets** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**Dur** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
+**Publications** | Pointer to [**[]CreateCollectionsIntegrationsRequestDatasetsInner**](CreateCollectionsIntegrationsRequestDatasetsInner.md) |  | [optional] 
 **Collaborators** | Pointer to **[]int32** |  | [optional] 
 **Public** | Pointer to **bool** |  | [optional] 
 
@@ -161,20 +161,20 @@ HasKeywords returns a boolean if a field has been set.
 
 ### GetDatasets
 
-`func (o *UpdateCollectionsV2Request) GetDatasets() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *UpdateCollectionsV2Request) GetDatasets() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetDatasets returns the Datasets field if non-nil, zero value otherwise.
 
 ### GetDatasetsOk
 
-`func (o *UpdateCollectionsV2Request) GetDatasetsOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *UpdateCollectionsV2Request) GetDatasetsOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetDatasetsOk returns a tuple with the Datasets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDatasets
 
-`func (o *UpdateCollectionsV2Request) SetDatasets(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *UpdateCollectionsV2Request) SetDatasets(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetDatasets sets Datasets field to given value.
 
@@ -186,20 +186,20 @@ HasDatasets returns a boolean if a field has been set.
 
 ### GetDur
 
-`func (o *UpdateCollectionsV2Request) GetDur() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *UpdateCollectionsV2Request) GetDur() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetDur returns the Dur field if non-nil, zero value otherwise.
 
 ### GetDurOk
 
-`func (o *UpdateCollectionsV2Request) GetDurOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *UpdateCollectionsV2Request) GetDurOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetDurOk returns a tuple with the Dur field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDur
 
-`func (o *UpdateCollectionsV2Request) SetDur(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *UpdateCollectionsV2Request) SetDur(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetDur sets Dur field to given value.
 
@@ -211,20 +211,20 @@ HasDur returns a boolean if a field has been set.
 
 ### GetPublications
 
-`func (o *UpdateCollectionsV2Request) GetPublications() []CreateTeamCollectionsRequestDatasetsInner`
+`func (o *UpdateCollectionsV2Request) GetPublications() []CreateCollectionsIntegrationsRequestDatasetsInner`
 
 GetPublications returns the Publications field if non-nil, zero value otherwise.
 
 ### GetPublicationsOk
 
-`func (o *UpdateCollectionsV2Request) GetPublicationsOk() (*[]CreateTeamCollectionsRequestDatasetsInner, bool)`
+`func (o *UpdateCollectionsV2Request) GetPublicationsOk() (*[]CreateCollectionsIntegrationsRequestDatasetsInner, bool)`
 
 GetPublicationsOk returns a tuple with the Publications field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublications
 
-`func (o *UpdateCollectionsV2Request) SetPublications(v []CreateTeamCollectionsRequestDatasetsInner)`
+`func (o *UpdateCollectionsV2Request) SetPublications(v []CreateCollectionsIntegrationsRequestDatasetsInner)`
 
 SetPublications sets Publications field to given value.
 

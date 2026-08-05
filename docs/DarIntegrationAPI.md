@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateDarIntegration
 
-> CreateCategories200Response CreateDarIntegration(ctx, id).UpdateDarIntegrationRequest(updateDarIntegrationRequest).Execute()
+> CreateDarIntegration201Response CreateDarIntegration(ctx, id).UpdateDarIntegrationRequest(updateDarIntegrationRequest).Execute()
 
 DarIntegration@store
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DarIntegrationAPI.CreateDarIntegration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDarIntegration`: CreateCategories200Response
+	// response from `CreateDarIntegration`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DarIntegrationAPI.CreateDarIntegration`: %v\n", resp)
 }
 ```
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDarIntegration
 
-> DeleteAliases200Response DeleteDarIntegration(ctx, id).Execute()
+> DeleteApplications200Response DeleteDarIntegration(ctx, id).Execute()
 
 DarIntegration@destroy
 
@@ -115,7 +115,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DarIntegrationAPI.DeleteDarIntegration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDarIntegration`: DeleteAliases200Response
+	// response from `DeleteDarIntegration`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DarIntegrationAPI.DeleteDarIntegration`: %v\n", resp)
 }
 ```
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

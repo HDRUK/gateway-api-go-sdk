@@ -35,7 +35,7 @@ func (r ApiCreateDataCustodianNetworkRequest) CreateDataProviderCollRequest(crea
 	return r
 }
 
-func (r ApiCreateDataCustodianNetworkRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDataCustodianNetworkRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDataCustodianNetworkExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *DataCustodianNetworksAPIService) CreateDataCustodianNetwork(ctx context
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DataCustodianNetworksAPIService) CreateDataCustodianNetworkExecute(r ApiCreateDataCustodianNetworkRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DataCustodianNetworksAPIService) CreateDataCustodianNetworkExecute(r ApiCreateDataCustodianNetworkRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataCustodianNetworksAPIService.CreateDataCustodianNetwork")
@@ -120,7 +120,7 @@ func (a *DataCustodianNetworksAPIService) CreateDataCustodianNetworkExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteDataCustodianNetworkRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDataCustodianNetworkRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDataCustodianNetworkRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDataCustodianNetworkExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *DataCustodianNetworksAPIService) DeleteDataCustodianNetwork(ctx context
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DataCustodianNetworksAPIService) DeleteDataCustodianNetworkExecute(r ApiDeleteDataCustodianNetworkRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DataCustodianNetworksAPIService) DeleteDataCustodianNetworkExecute(r ApiDeleteDataCustodianNetworkRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataCustodianNetworksAPIService.DeleteDataCustodianNetwork")
@@ -233,7 +233,7 @@ func (a *DataCustodianNetworksAPIService) DeleteDataCustodianNetworkExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *DataCustodianNetworksAPIService) DeleteDataCustodianNetworkExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (a *DataCustodianNetworksAPIService) EditDataCustodianNetworkExecute(r ApiE
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,7 +380,7 @@ func (a *DataCustodianNetworksAPIService) EditDataCustodianNetworkExecute(r ApiE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -493,7 +493,7 @@ func (a *DataCustodianNetworksAPIService) FetchDataCustodianNetworkExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -606,7 +606,7 @@ func (a *DataCustodianNetworksAPIService) FetchDataCustodianNetworkCustodiansSum
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -719,7 +719,7 @@ func (a *DataCustodianNetworksAPIService) FetchDataCustodianNetworkDatasetsSumma
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -832,7 +832,7 @@ func (a *DataCustodianNetworksAPIService) FetchDataCustodianNetworkEntitiesSumma
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -945,7 +945,7 @@ func (a *DataCustodianNetworksAPIService) FetchDataCustodianNetworkInfoExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1179,7 +1179,7 @@ func (a *DataCustodianNetworksAPIService) UpdateDataCustodianNetworkExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1190,7 +1190,7 @@ func (a *DataCustodianNetworksAPIService) UpdateDataCustodianNetworkExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

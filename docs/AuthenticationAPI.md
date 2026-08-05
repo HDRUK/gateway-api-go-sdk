@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Authentication**](AuthenticationAPI.md#Authentication) | **Post** /api/v1/auth | AuthController@checkAuthorization
 [**Login**](AuthenticationAPI.md#Login) | **Post** /api/v1/auth/login | AuthController@login
-[**RefreshToken**](AuthenticationAPI.md#RefreshToken) | **Post** /api/v1/refresh_token | AuthController@refreshToken
 [**Register**](AuthenticationAPI.md#Register) | **Post** /api/v1/auth/register | AuthController@register
 
 
@@ -136,67 +135,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RefreshToken
-
-> Authentication200Response RefreshToken(ctx).Execute()
-
-AuthController@refreshToken
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuthenticationAPI.RefreshToken(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.RefreshToken``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `RefreshToken`: Authentication200Response
-	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.RefreshToken`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRefreshTokenRequest struct via the builder pattern
-
-
-### Return type
-
-[**Authentication200Response**](Authentication200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

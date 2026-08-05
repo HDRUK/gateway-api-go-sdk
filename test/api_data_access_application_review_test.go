@@ -134,37 +134,6 @@ func Test_gatewayapisdk_DataAccessApplicationReviewAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataAccessApplicationReviewAPIService FetchUserDarApplicationReviewFile", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-		var reviewId int32
-		var fileId string
-
-		httpRes, err := apiClient.DataAccessApplicationReviewAPI.FetchUserDarApplicationReviewFile(context.Background(), userId, id, reviewId, fileId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationReviewAPIService FetchUserDarApplicationReviews", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.FetchUserDarApplicationReviews(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessApplicationReviewAPIService UpdateTeamDarApplicationQuestionReview", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -191,39 +160,6 @@ func Test_gatewayapisdk_DataAccessApplicationReviewAPIService(t *testing.T) {
 		var reviewId int32
 
 		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.UpdateTeamDarApplicationReview(context.Background(), teamId, id, reviewId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationReviewAPIService UpdateUserDarApplicationQuestionReview", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-		var questionId int32
-		var reviewId int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.UpdateUserDarApplicationQuestionReview(context.Background(), userId, id, questionId, reviewId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationReviewAPIService UpdateUserDarApplicationReview", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-		var reviewId int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.UpdateUserDarApplicationReview(context.Background(), userId, id, reviewId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

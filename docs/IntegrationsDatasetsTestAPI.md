@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## IntegrationsDatasetsTest
 
-> CreateCategories200Response IntegrationsDatasetsTest(ctx).DatasetsTestRequest(datasetsTestRequest).Execute()
+> CreateDarIntegration201Response IntegrationsDatasetsTest(ctx).DatasetsTestRequest(datasetsTestRequest).Execute()
 
 IntegrationDatasetController@datasetTest
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationsDatasetsTestAPI.IntegrationsDatasetsTest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `IntegrationsDatasetsTest`: CreateCategories200Response
+	// response from `IntegrationsDatasetsTest`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `IntegrationsDatasetsTestAPI.IntegrationsDatasetsTest`: %v\n", resp)
 }
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 

@@ -134,7 +134,7 @@ func (a *WidgetsAPIService) CreateWidgetExecute(r ApiCreateWidgetRequest) (*Crea
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -165,7 +165,7 @@ type ApiDeleteWidgetRequest struct {
 	id int32
 }
 
-func (r ApiDeleteWidgetRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteWidgetRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteWidgetExecute(r)
 }
 
@@ -189,13 +189,13 @@ func (a *WidgetsAPIService) DeleteWidget(ctx context.Context, teamId int32, id i
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *WidgetsAPIService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *WidgetsAPIService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WidgetsAPIService.DeleteWidget")
@@ -251,7 +251,7 @@ func (a *WidgetsAPIService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*Dele
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -262,7 +262,7 @@ func (a *WidgetsAPIService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*Dele
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -482,7 +482,7 @@ func (a *WidgetsAPIService) FetchWidgetExecute(r ApiFetchWidgetRequest) (*FetchW
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

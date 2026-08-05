@@ -36,7 +36,7 @@ func (r ApiCreateUserHasRolesRequest) CreateUserHasRolesRequest(createUserHasRol
 	return r
 }
 
-func (r ApiCreateUserHasRolesRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiCreateUserHasRolesRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.CreateUserHasRolesExecute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *UserRolesAPIService) CreateUserHasRoles(ctx context.Context, userId int
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *UserRolesAPIService) CreateUserHasRolesExecute(r ApiCreateUserHasRolesRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *UserRolesAPIService) CreateUserHasRolesExecute(r ApiCreateUserHasRolesRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserRolesAPIService.CreateUserHasRoles")
@@ -124,7 +124,7 @@ func (a *UserRolesAPIService) CreateUserHasRolesExecute(r ApiCreateUserHasRolesR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -135,7 +135,7 @@ func (a *UserRolesAPIService) CreateUserHasRolesExecute(r ApiCreateUserHasRolesR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -259,7 +259,7 @@ func (a *UserRolesAPIService) DeleteUserHasRolesExecute(r ApiDeleteUserHasRolesR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -270,7 +270,7 @@ func (a *UserRolesAPIService) DeleteUserHasRolesExecute(r ApiDeleteUserHasRolesR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -307,7 +307,7 @@ func (r ApiUpdateUserHasRolesRequest) UpdateUserHasRolesRequest(updateUserHasRol
 	return r
 }
 
-func (r ApiUpdateUserHasRolesRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiUpdateUserHasRolesRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.UpdateUserHasRolesExecute(r)
 }
 
@@ -329,13 +329,13 @@ func (a *UserRolesAPIService) UpdateUserHasRoles(ctx context.Context, userId int
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *UserRolesAPIService) UpdateUserHasRolesExecute(r ApiUpdateUserHasRolesRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *UserRolesAPIService) UpdateUserHasRolesExecute(r ApiUpdateUserHasRolesRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserRolesAPIService.UpdateUserHasRoles")
@@ -395,7 +395,7 @@ func (a *UserRolesAPIService) UpdateUserHasRolesExecute(r ApiUpdateUserHasRolesR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -406,7 +406,7 @@ func (a *UserRolesAPIService) UpdateUserHasRolesExecute(r ApiUpdateUserHasRolesR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

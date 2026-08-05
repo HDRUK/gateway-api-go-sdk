@@ -31,7 +31,7 @@ type ApiDeleteTeamDarTemplateFileRequest struct {
 	fileId string
 }
 
-func (r ApiDeleteTeamDarTemplateFileRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTeamDarTemplateFileRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTeamDarTemplateFileExecute(r)
 }
 
@@ -57,13 +57,13 @@ func (a *TeamDataAccessTemplateAPIService) DeleteTeamDarTemplateFile(ctx context
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *TeamDataAccessTemplateAPIService) DeleteTeamDarTemplateFileExecute(r ApiDeleteTeamDarTemplateFileRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *TeamDataAccessTemplateAPIService) DeleteTeamDarTemplateFileExecute(r ApiDeleteTeamDarTemplateFileRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TeamDataAccessTemplateAPIService.DeleteTeamDarTemplateFile")
@@ -120,7 +120,7 @@ func (a *TeamDataAccessTemplateAPIService) DeleteTeamDarTemplateFileExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -131,7 +131,7 @@ func (a *TeamDataAccessTemplateAPIService) DeleteTeamDarTemplateFileExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

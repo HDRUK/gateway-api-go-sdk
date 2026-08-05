@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateCollectionsIntegrations
 
-> CreateCategories200Response CreateCollectionsIntegrations(ctx).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+> CreateDarIntegration201Response CreateCollectionsIntegrations(ctx).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 
 IntegrationCollectionController@store
 
@@ -34,16 +34,16 @@ import (
 )
 
 func main() {
-	updateTeamCollectionsRequest := *openapiclient.NewUpdateTeamCollectionsRequest() // UpdateTeamCollectionsRequest | Pass user credentials
+	createCollectionsIntegrationsRequest := *openapiclient.NewCreateCollectionsIntegrationsRequest() // CreateCollectionsIntegrationsRequest | Pass user credentials
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IntegrationCollectionsAPI.CreateCollectionsIntegrations(context.Background()).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+	resp, r, err := apiClient.IntegrationCollectionsAPI.CreateCollectionsIntegrations(context.Background()).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationCollectionsAPI.CreateCollectionsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCollectionsIntegrations`: CreateCategories200Response
+	// response from `CreateCollectionsIntegrations`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `IntegrationCollectionsAPI.CreateCollectionsIntegrations`: %v\n", resp)
 }
 ```
@@ -59,11 +59,11 @@ Other parameters are passed through a pointer to a apiCreateCollectionsIntegrati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md) | Pass user credentials | 
+ **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md) | Pass user credentials | 
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DeleteCollectionsIntegrations
 
-> DeleteAliases200Response DeleteCollectionsIntegrations(ctx, id).Execute()
+> DeleteApplications200Response DeleteCollectionsIntegrations(ctx, id).Execute()
 
 Delete a collection
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationCollectionsAPI.DeleteCollectionsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCollectionsIntegrations`: DeleteAliases200Response
+	// response from `DeleteCollectionsIntegrations`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `IntegrationCollectionsAPI.DeleteCollectionsIntegrations`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## EditCollectionsIntegrations
 
-> FetchCollections200Response EditCollectionsIntegrations(ctx, id).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+> FetchCollections200Response EditCollectionsIntegrations(ctx, id).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 
 Edit a collection
 
@@ -171,11 +171,11 @@ import (
 
 func main() {
 	id := int32(1) // int32 | collection id
-	updateTeamCollectionsRequest := *openapiclient.NewUpdateTeamCollectionsRequest() // UpdateTeamCollectionsRequest | Pass user credentials
+	createCollectionsIntegrationsRequest := *openapiclient.NewCreateCollectionsIntegrationsRequest() // CreateCollectionsIntegrationsRequest | Pass user credentials
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IntegrationCollectionsAPI.EditCollectionsIntegrations(context.Background(), id).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+	resp, r, err := apiClient.IntegrationCollectionsAPI.EditCollectionsIntegrations(context.Background(), id).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationCollectionsAPI.EditCollectionsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +201,7 @@ Other parameters are passed through a pointer to a apiEditCollectionsIntegration
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md) | Pass user credentials | 
+ **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md) | Pass user credentials | 
 
 ### Return type
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCollectionsIntegrations
 
-> FetchCollections200Response UpdateCollectionsIntegrations(ctx, id).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+> FetchCollections200Response UpdateCollectionsIntegrations(ctx, id).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 
 Update a collection
 
@@ -381,11 +381,11 @@ import (
 
 func main() {
 	id := int32(1) // int32 | collection id
-	updateTeamCollectionsRequest := *openapiclient.NewUpdateTeamCollectionsRequest() // UpdateTeamCollectionsRequest | Pass user credentials
+	createCollectionsIntegrationsRequest := *openapiclient.NewCreateCollectionsIntegrationsRequest() // CreateCollectionsIntegrationsRequest | Pass user credentials
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IntegrationCollectionsAPI.UpdateCollectionsIntegrations(context.Background(), id).UpdateTeamCollectionsRequest(updateTeamCollectionsRequest).Execute()
+	resp, r, err := apiClient.IntegrationCollectionsAPI.UpdateCollectionsIntegrations(context.Background(), id).CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IntegrationCollectionsAPI.UpdateCollectionsIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -411,7 +411,7 @@ Other parameters are passed through a pointer to a apiUpdateCollectionsIntegrati
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateTeamCollectionsRequest** | [**UpdateTeamCollectionsRequest**](UpdateTeamCollectionsRequest.md) | Pass user credentials | 
+ **createCollectionsIntegrationsRequest** | [**CreateCollectionsIntegrationsRequest**](CreateCollectionsIntegrationsRequest.md) | Pass user credentials | 
 
 ### Return type
 

@@ -35,7 +35,7 @@ func (r ApiCreateCsatRequest) CreateCsatRequest(createCsatRequest CreateCsatRequ
 	return r
 }
 
-func (r ApiCreateCsatRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiCreateCsatRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.CreateCsatExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *CustomerSatisfactionAPIService) CreateCsat(ctx context.Context) ApiCrea
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *CustomerSatisfactionAPIService) CreateCsatExecute(r ApiCreateCsatRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *CustomerSatisfactionAPIService) CreateCsatExecute(r ApiCreateCsatRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomerSatisfactionAPIService.CreateCsat")
@@ -131,7 +131,7 @@ func (a *CustomerSatisfactionAPIService) CreateCsatExecute(r ApiCreateCsatReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -26,16 +26,16 @@ type IntegrationCollectionsAPIService service
 type ApiCreateCollectionsIntegrationsRequest struct {
 	ctx context.Context
 	ApiService *IntegrationCollectionsAPIService
-	updateTeamCollectionsRequest *UpdateTeamCollectionsRequest
+	createCollectionsIntegrationsRequest *CreateCollectionsIntegrationsRequest
 }
 
 // Pass user credentials
-func (r ApiCreateCollectionsIntegrationsRequest) UpdateTeamCollectionsRequest(updateTeamCollectionsRequest UpdateTeamCollectionsRequest) ApiCreateCollectionsIntegrationsRequest {
-	r.updateTeamCollectionsRequest = &updateTeamCollectionsRequest
+func (r ApiCreateCollectionsIntegrationsRequest) CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest CreateCollectionsIntegrationsRequest) ApiCreateCollectionsIntegrationsRequest {
+	r.createCollectionsIntegrationsRequest = &createCollectionsIntegrationsRequest
 	return r
 }
 
-func (r ApiCreateCollectionsIntegrationsRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateCollectionsIntegrationsRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateCollectionsIntegrationsExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrations(ctx con
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(r ApiCreateCollectionsIntegrationsRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(r ApiCreateCollectionsIntegrationsRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IntegrationCollectionsAPIService.CreateCollectionsIntegrations")
@@ -74,8 +74,8 @@ func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateTeamCollectionsRequest == nil {
-		return localVarReturnValue, nil, reportError("updateTeamCollectionsRequest is required and must be specified")
+	if r.createCollectionsIntegrationsRequest == nil {
+		return localVarReturnValue, nil, reportError("createCollectionsIntegrationsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -96,7 +96,7 @@ func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateTeamCollectionsRequest
+	localVarPostBody = r.createCollectionsIntegrationsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -120,7 +120,7 @@ func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v CreateTeamCollections401Response
+			var v FetchAllDarIntegrations401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -131,7 +131,7 @@ func (a *IntegrationCollectionsAPIService) CreateCollectionsIntegrationsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -161,7 +161,7 @@ type ApiDeleteCollectionsIntegrationsRequest struct {
 	id int32
 }
 
-func (r ApiDeleteCollectionsIntegrationsRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteCollectionsIntegrationsRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteCollectionsIntegrationsExecute(r)
 }
 
@@ -183,13 +183,13 @@ func (a *IntegrationCollectionsAPIService) DeleteCollectionsIntegrations(ctx con
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *IntegrationCollectionsAPIService) DeleteCollectionsIntegrationsExecute(r ApiDeleteCollectionsIntegrationsRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *IntegrationCollectionsAPIService) DeleteCollectionsIntegrationsExecute(r ApiDeleteCollectionsIntegrationsRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IntegrationCollectionsAPIService.DeleteCollectionsIntegrations")
@@ -244,7 +244,7 @@ func (a *IntegrationCollectionsAPIService) DeleteCollectionsIntegrationsExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -255,7 +255,7 @@ func (a *IntegrationCollectionsAPIService) DeleteCollectionsIntegrationsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -283,12 +283,12 @@ type ApiEditCollectionsIntegrationsRequest struct {
 	ctx context.Context
 	ApiService *IntegrationCollectionsAPIService
 	id int32
-	updateTeamCollectionsRequest *UpdateTeamCollectionsRequest
+	createCollectionsIntegrationsRequest *CreateCollectionsIntegrationsRequest
 }
 
 // Pass user credentials
-func (r ApiEditCollectionsIntegrationsRequest) UpdateTeamCollectionsRequest(updateTeamCollectionsRequest UpdateTeamCollectionsRequest) ApiEditCollectionsIntegrationsRequest {
-	r.updateTeamCollectionsRequest = &updateTeamCollectionsRequest
+func (r ApiEditCollectionsIntegrationsRequest) CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest CreateCollectionsIntegrationsRequest) ApiEditCollectionsIntegrationsRequest {
+	r.createCollectionsIntegrationsRequest = &createCollectionsIntegrationsRequest
 	return r
 }
 
@@ -334,8 +334,8 @@ func (a *IntegrationCollectionsAPIService) EditCollectionsIntegrationsExecute(r 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateTeamCollectionsRequest == nil {
-		return localVarReturnValue, nil, reportError("updateTeamCollectionsRequest is required and must be specified")
+	if r.createCollectionsIntegrationsRequest == nil {
+		return localVarReturnValue, nil, reportError("createCollectionsIntegrationsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -356,7 +356,7 @@ func (a *IntegrationCollectionsAPIService) EditCollectionsIntegrationsExecute(r 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateTeamCollectionsRequest
+	localVarPostBody = r.createCollectionsIntegrationsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -380,7 +380,7 @@ func (a *IntegrationCollectionsAPIService) EditCollectionsIntegrationsExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -391,7 +391,7 @@ func (a *IntegrationCollectionsAPIService) EditCollectionsIntegrationsExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -641,12 +641,12 @@ type ApiUpdateCollectionsIntegrationsRequest struct {
 	ctx context.Context
 	ApiService *IntegrationCollectionsAPIService
 	id int32
-	updateTeamCollectionsRequest *UpdateTeamCollectionsRequest
+	createCollectionsIntegrationsRequest *CreateCollectionsIntegrationsRequest
 }
 
 // Pass user credentials
-func (r ApiUpdateCollectionsIntegrationsRequest) UpdateTeamCollectionsRequest(updateTeamCollectionsRequest UpdateTeamCollectionsRequest) ApiUpdateCollectionsIntegrationsRequest {
-	r.updateTeamCollectionsRequest = &updateTeamCollectionsRequest
+func (r ApiUpdateCollectionsIntegrationsRequest) CreateCollectionsIntegrationsRequest(createCollectionsIntegrationsRequest CreateCollectionsIntegrationsRequest) ApiUpdateCollectionsIntegrationsRequest {
+	r.createCollectionsIntegrationsRequest = &createCollectionsIntegrationsRequest
 	return r
 }
 
@@ -692,8 +692,8 @@ func (a *IntegrationCollectionsAPIService) UpdateCollectionsIntegrationsExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateTeamCollectionsRequest == nil {
-		return localVarReturnValue, nil, reportError("updateTeamCollectionsRequest is required and must be specified")
+	if r.createCollectionsIntegrationsRequest == nil {
+		return localVarReturnValue, nil, reportError("createCollectionsIntegrationsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -714,7 +714,7 @@ func (a *IntegrationCollectionsAPIService) UpdateCollectionsIntegrationsExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateTeamCollectionsRequest
+	localVarPostBody = r.createCollectionsIntegrationsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -738,7 +738,7 @@ func (a *IntegrationCollectionsAPIService) UpdateCollectionsIntegrationsExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -749,7 +749,7 @@ func (a *IntegrationCollectionsAPIService) UpdateCollectionsIntegrationsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

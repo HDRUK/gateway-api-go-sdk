@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DeleteTeamDarTemplateFile
 
-> DeleteAliases200Response DeleteTeamDarTemplateFile(ctx, teamId, id, fileId).Execute()
+> DeleteApplications200Response DeleteTeamDarTemplateFile(ctx, teamId, id, fileId).Execute()
 
 TeamDataAccessTemplateController@destroyFile
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TeamDataAccessTemplateAPI.DeleteTeamDarTemplateFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTeamDarTemplateFile`: DeleteAliases200Response
+	// response from `DeleteTeamDarTemplateFile`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `TeamDataAccessTemplateAPI.DeleteTeamDarTemplateFile`: %v\n", resp)
 }
 ```
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

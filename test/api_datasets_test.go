@@ -22,21 +22,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DatasetsAPIService CountTeamUniqueFieldsDatasetsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var field string
-
-		resp, httpRes, err := apiClient.DatasetsAPI.CountTeamUniqueFieldsDatasetsV2(context.Background(), teamId, field).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DatasetsAPIService CountUniqueFields", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -315,36 +300,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DatasetsAPI.FetchDatasetsV2(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService FetchTeamDatasetsStatus", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var status string
-
-		resp, httpRes, err := apiClient.DatasetsAPI.FetchTeamDatasetsStatus(context.Background(), teamId, status).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService FetchTeamDatasetsV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DatasetsAPI.FetchTeamDatasetsV2(context.Background(), teamId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

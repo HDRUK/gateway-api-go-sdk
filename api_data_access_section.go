@@ -35,7 +35,7 @@ func (r ApiCreateDarSectionRequest) CreateDarSectionRequest(createDarSectionRequ
 	return r
 }
 
-func (r ApiCreateDarSectionRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateDarSectionRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateDarSectionExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *DataAccessSectionAPIService) CreateDarSection(ctx context.Context) ApiC
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DataAccessSectionAPIService) CreateDarSectionExecute(r ApiCreateDarSectionRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DataAccessSectionAPIService) CreateDarSectionExecute(r ApiCreateDarSectionRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.CreateDarSection")
@@ -120,7 +120,7 @@ func (a *DataAccessSectionAPIService) CreateDarSectionExecute(r ApiCreateDarSect
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteDarSectionRequest struct {
 	id int32
 }
 
-func (r ApiDeleteDarSectionRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteDarSectionRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteDarSectionExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *DataAccessSectionAPIService) DeleteDarSection(ctx context.Context, id i
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DataAccessSectionAPIService) DeleteDarSectionExecute(r ApiDeleteDarSectionRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DataAccessSectionAPIService) DeleteDarSectionExecute(r ApiDeleteDarSectionRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.DeleteDarSection")
@@ -233,7 +233,7 @@ func (a *DataAccessSectionAPIService) DeleteDarSectionExecute(r ApiDeleteDarSect
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *DataAccessSectionAPIService) DeleteDarSectionExecute(r ApiDeleteDarSect
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -252,228 +252,6 @@ func (a *DataAccessSectionAPIService) DeleteDarSectionExecute(r ApiDeleteDarSect
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchDarSectionRequest struct {
-	ctx context.Context
-	ApiService *DataAccessSectionAPIService
-	id int32
-}
-
-func (r ApiFetchDarSectionRequest) Execute() (*FetchDarSection200Response, *http.Response, error) {
-	return r.ApiService.FetchDarSectionExecute(r)
-}
-
-/*
-FetchDarSection DataAccessSection@show
-
-Return a single DAR section
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id DAR section id
- @return ApiFetchDarSectionRequest
-*/
-func (a *DataAccessSectionAPIService) FetchDarSection(ctx context.Context, id int32) ApiFetchDarSectionRequest {
-	return ApiFetchDarSectionRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchDarSection200Response
-func (a *DataAccessSectionAPIService) FetchDarSectionExecute(r ApiFetchDarSectionRequest) (*FetchDarSection200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchDarSection200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.FetchDarSection")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/dar/sections/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchDarSectionsRequest struct {
-	ctx context.Context
-	ApiService *DataAccessSectionAPIService
-	perPage *int32
-}
-
-// per page
-func (r ApiFetchDarSectionsRequest) PerPage(perPage int32) ApiFetchDarSectionsRequest {
-	r.perPage = &perPage
-	return r
-}
-
-func (r ApiFetchDarSectionsRequest) Execute() (*FetchDarSections200Response, *http.Response, error) {
-	return r.ApiService.FetchDarSectionsExecute(r)
-}
-
-/*
-FetchDarSections DataAccessSection@index
-
-List of DAR sections
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchDarSectionsRequest
-*/
-func (a *DataAccessSectionAPIService) FetchDarSections(ctx context.Context) ApiFetchDarSectionsRequest {
-	return ApiFetchDarSectionsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return FetchDarSections200Response
-func (a *DataAccessSectionAPIService) FetchDarSectionsExecute(r ApiFetchDarSectionsRequest) (*FetchDarSections200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchDarSections200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.FetchDarSections")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/dar/sections"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.perPage != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "per_page", r.perPage, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -503,7 +281,7 @@ func (r ApiPatchDarSectionRequest) PatchDarSectionRequest(patchDarSectionRequest
 	return r
 }
 
-func (r ApiPatchDarSectionRequest) Execute() (*FetchDarSection200Response, *http.Response, error) {
+func (r ApiPatchDarSectionRequest) Execute() (*UpdateDarSection200Response, *http.Response, error) {
 	return r.ApiService.PatchDarSectionExecute(r)
 }
 
@@ -525,13 +303,13 @@ func (a *DataAccessSectionAPIService) PatchDarSection(ctx context.Context, id in
 }
 
 // Execute executes the request
-//  @return FetchDarSection200Response
-func (a *DataAccessSectionAPIService) PatchDarSectionExecute(r ApiPatchDarSectionRequest) (*FetchDarSection200Response, *http.Response, error) {
+//  @return UpdateDarSection200Response
+func (a *DataAccessSectionAPIService) PatchDarSectionExecute(r ApiPatchDarSectionRequest) (*UpdateDarSection200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FetchDarSection200Response
+		localVarReturnValue  *UpdateDarSection200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.PatchDarSection")
@@ -591,7 +369,7 @@ func (a *DataAccessSectionAPIService) PatchDarSectionExecute(r ApiPatchDarSectio
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -602,7 +380,7 @@ func (a *DataAccessSectionAPIService) PatchDarSectionExecute(r ApiPatchDarSectio
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -639,7 +417,7 @@ func (r ApiUpdateDarSectionRequest) CreateDarSectionRequest(createDarSectionRequ
 	return r
 }
 
-func (r ApiUpdateDarSectionRequest) Execute() (*FetchDarSection200Response, *http.Response, error) {
+func (r ApiUpdateDarSectionRequest) Execute() (*UpdateDarSection200Response, *http.Response, error) {
 	return r.ApiService.UpdateDarSectionExecute(r)
 }
 
@@ -661,13 +439,13 @@ func (a *DataAccessSectionAPIService) UpdateDarSection(ctx context.Context, id i
 }
 
 // Execute executes the request
-//  @return FetchDarSection200Response
-func (a *DataAccessSectionAPIService) UpdateDarSectionExecute(r ApiUpdateDarSectionRequest) (*FetchDarSection200Response, *http.Response, error) {
+//  @return UpdateDarSection200Response
+func (a *DataAccessSectionAPIService) UpdateDarSectionExecute(r ApiUpdateDarSectionRequest) (*UpdateDarSection200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *FetchDarSection200Response
+		localVarReturnValue  *UpdateDarSection200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessSectionAPIService.UpdateDarSection")
@@ -727,7 +505,7 @@ func (a *DataAccessSectionAPIService) UpdateDarSectionExecute(r ApiUpdateDarSect
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -738,7 +516,7 @@ func (a *DataAccessSectionAPIService) UpdateDarSectionExecute(r ApiUpdateDarSect
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

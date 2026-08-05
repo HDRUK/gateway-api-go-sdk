@@ -35,7 +35,7 @@ func (r ApiCreateLicensesRequest) CreateLicensesRequest(createLicensesRequest Cr
 	return r
 }
 
-func (r ApiCreateLicensesRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateLicensesRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateLicensesExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *LicenseAPIService) CreateLicenses(ctx context.Context) ApiCreateLicense
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *LicenseAPIService) CreateLicensesExecute(r ApiCreateLicensesRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *LicenseAPIService) CreateLicensesExecute(r ApiCreateLicensesRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicenseAPIService.CreateLicenses")
@@ -120,7 +120,7 @@ func (a *LicenseAPIService) CreateLicensesExecute(r ApiCreateLicensesRequest) (*
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,7 +150,7 @@ type ApiDeleteLicensesRequest struct {
 	id int32
 }
 
-func (r ApiDeleteLicensesRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteLicensesRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteLicensesExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *LicenseAPIService) DeleteLicenses(ctx context.Context, id int32) ApiDel
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *LicenseAPIService) DeleteLicensesExecute(r ApiDeleteLicensesRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *LicenseAPIService) DeleteLicensesExecute(r ApiDeleteLicensesRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LicenseAPIService.DeleteLicenses")
@@ -233,7 +233,7 @@ func (a *LicenseAPIService) DeleteLicensesExecute(r ApiDeleteLicensesRequest) (*
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +244,7 @@ func (a *LicenseAPIService) DeleteLicensesExecute(r ApiDeleteLicensesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (a *LicenseAPIService) EditLicensesExecute(r ApiEditLicensesRequest) (*Upda
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -380,7 +380,7 @@ func (a *LicenseAPIService) EditLicensesExecute(r ApiEditLicensesRequest) (*Upda
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -592,7 +592,7 @@ func (a *LicenseAPIService) FetchLicensesExecute(r ApiFetchLicensesRequest) (*Fe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -717,7 +717,7 @@ func (a *LicenseAPIService) UpdateLicensesExecute(r ApiUpdateLicensesRequest) (*
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -728,7 +728,7 @@ func (a *LicenseAPIService) UpdateLicensesExecute(r ApiUpdateLicensesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

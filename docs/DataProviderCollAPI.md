@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## CreateDataProviderColl
 
-> CreateCategories200Response CreateDataProviderColl(ctx).CreateDataProviderCollRequest(createDataProviderCollRequest).Execute()
+> CreateDarIntegration201Response CreateDataProviderColl(ctx).CreateDataProviderCollRequest(createDataProviderCollRequest).Execute()
 
 DataProviderColl@store
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataProviderCollAPI.CreateDataProviderColl``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDataProviderColl`: CreateCategories200Response
+	// response from `CreateDataProviderColl`: CreateDarIntegration201Response
 	fmt.Fprintf(os.Stdout, "Response from `DataProviderCollAPI.CreateDataProviderColl`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateCategories200Response**](CreateCategories200Response.md)
+[**CreateDarIntegration201Response**](CreateDarIntegration201Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDataProviderColl
 
-> DeleteAliases200Response DeleteDataProviderColl(ctx, id).Execute()
+> DeleteApplications200Response DeleteDataProviderColl(ctx, id).Execute()
 
 DataProviderColl@destroy
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataProviderCollAPI.DeleteDataProviderColl``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDataProviderColl`: DeleteAliases200Response
+	// response from `DeleteDataProviderColl`: DeleteApplications200Response
 	fmt.Fprintf(os.Stdout, "Response from `DataProviderCollAPI.DeleteDataProviderColl`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAliases200Response**](DeleteAliases200Response.md)
+[**DeleteApplications200Response**](DeleteApplications200Response.md)
 
 ### Authorization
 

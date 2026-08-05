@@ -38,7 +38,7 @@ func (r ApiCreateTeamDarApplicationQuestionReviewRequest) CreateTeamDarApplicati
 	return r
 }
 
-func (r ApiCreateTeamDarApplicationQuestionReviewRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateTeamDarApplicationQuestionReviewRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateTeamDarApplicationQuestionReviewExecute(r)
 }
 
@@ -64,13 +64,13 @@ func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationQuestion
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationQuestionReviewExecute(r ApiCreateTeamDarApplicationQuestionReviewRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationQuestionReviewExecute(r ApiCreateTeamDarApplicationQuestionReviewRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.CreateTeamDarApplicationQuestionReview")
@@ -132,7 +132,7 @@ func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationQuestion
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -170,7 +170,7 @@ func (r ApiCreateTeamDarApplicationReviewRequest) CreateTeamDarApplicationReview
 	return r
 }
 
-func (r ApiCreateTeamDarApplicationReviewRequest) Execute() (*CreateCategories200Response, *http.Response, error) {
+func (r ApiCreateTeamDarApplicationReviewRequest) Execute() (*CreateDarIntegration201Response, *http.Response, error) {
 	return r.ApiService.CreateTeamDarApplicationReviewExecute(r)
 }
 
@@ -194,13 +194,13 @@ func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationReview(c
 }
 
 // Execute executes the request
-//  @return CreateCategories200Response
-func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationReviewExecute(r ApiCreateTeamDarApplicationReviewRequest) (*CreateCategories200Response, *http.Response, error) {
+//  @return CreateDarIntegration201Response
+func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationReviewExecute(r ApiCreateTeamDarApplicationReviewRequest) (*CreateDarIntegration201Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateCategories200Response
+		localVarReturnValue  *CreateDarIntegration201Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.CreateTeamDarApplicationReview")
@@ -261,7 +261,7 @@ func (a *DataAccessApplicationReviewAPIService) CreateTeamDarApplicationReviewEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -294,7 +294,7 @@ type ApiDeleteTeamDarApplicationQuestionReviewRequest struct {
 	reviewId int32
 }
 
-func (r ApiDeleteTeamDarApplicationQuestionReviewRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTeamDarApplicationQuestionReviewRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTeamDarApplicationQuestionReviewExecute(r)
 }
 
@@ -322,13 +322,13 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationQuestion
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationQuestionReviewExecute(r ApiDeleteTeamDarApplicationQuestionReviewRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationQuestionReviewExecute(r ApiDeleteTeamDarApplicationQuestionReviewRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.DeleteTeamDarApplicationQuestionReview")
@@ -386,7 +386,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationQuestion
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -397,7 +397,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationQuestion
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,7 +429,7 @@ type ApiDeleteTeamDarApplicationReviewRequest struct {
 	reviewId int32
 }
 
-func (r ApiDeleteTeamDarApplicationReviewRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTeamDarApplicationReviewRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTeamDarApplicationReviewExecute(r)
 }
 
@@ -455,13 +455,13 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReview(c
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewExecute(r ApiDeleteTeamDarApplicationReviewRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewExecute(r ApiDeleteTeamDarApplicationReviewRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.DeleteTeamDarApplicationReview")
@@ -518,7 +518,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -529,7 +529,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -562,7 +562,7 @@ type ApiDeleteTeamDarApplicationReviewFileRequest struct {
 	fileId string
 }
 
-func (r ApiDeleteTeamDarApplicationReviewFileRequest) Execute() (*DeleteAliases200Response, *http.Response, error) {
+func (r ApiDeleteTeamDarApplicationReviewFileRequest) Execute() (*DeleteApplications200Response, *http.Response, error) {
 	return r.ApiService.DeleteTeamDarApplicationReviewFileExecute(r)
 }
 
@@ -590,13 +590,13 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewFi
 }
 
 // Execute executes the request
-//  @return DeleteAliases200Response
-func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewFileExecute(r ApiDeleteTeamDarApplicationReviewFileRequest) (*DeleteAliases200Response, *http.Response, error) {
+//  @return DeleteApplications200Response
+func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewFileExecute(r ApiDeleteTeamDarApplicationReviewFileRequest) (*DeleteApplications200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteAliases200Response
+		localVarReturnValue  *DeleteApplications200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.DeleteTeamDarApplicationReviewFile")
@@ -654,7 +654,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewFi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -665,7 +665,7 @@ func (a *DataAccessApplicationReviewAPIService) DeleteTeamDarApplicationReviewFi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -738,7 +738,7 @@ func (a *DataAccessApplicationReviewAPIService) FetchTeamDarApplicationReviewFil
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/ap1/v1/teams/{teamId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId}"
+	localVarPath := localBasePath + "/api/v1/teams/{teamId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"teamId"+"}", url.PathEscape(parameterValueToString(r.teamId, "teamId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"reviewId"+"}", url.PathEscape(parameterValueToString(r.reviewId, "reviewId")), -1)
@@ -788,7 +788,7 @@ func (a *DataAccessApplicationReviewAPIService) FetchTeamDarApplicationReviewFil
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -896,238 +896,7 @@ func (a *DataAccessApplicationReviewAPIService) FetchTeamDarApplicationReviewsEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiFetchUserDarApplicationReviewFileRequest struct {
-	ctx context.Context
-	ApiService *DataAccessApplicationReviewAPIService
-	userId int32
-	id int32
-	reviewId int32
-	fileId string
-}
-
-func (r ApiFetchUserDarApplicationReviewFileRequest) Execute() (*http.Response, error) {
-	return r.ApiService.FetchUserDarApplicationReviewFileExecute(r)
-}
-
-/*
-FetchUserDarApplicationReviewFile DataAccessApplicationReview@downloadUserFile
-
-Download a file associated with a DAR application review
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId User id
- @param id DAR application id
- @param reviewId DAR application review id
- @param fileId File uuid
- @return ApiFetchUserDarApplicationReviewFileRequest
-*/
-func (a *DataAccessApplicationReviewAPIService) FetchUserDarApplicationReviewFile(ctx context.Context, userId int32, id int32, reviewId int32, fileId string) ApiFetchUserDarApplicationReviewFileRequest {
-	return ApiFetchUserDarApplicationReviewFileRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		id: id,
-		reviewId: reviewId,
-		fileId: fileId,
-	}
-}
-
-// Execute executes the request
-func (a *DataAccessApplicationReviewAPIService) FetchUserDarApplicationReviewFileExecute(r ApiFetchUserDarApplicationReviewFileRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.FetchUserDarApplicationReviewFile")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/ap1/v1/users/{userId}/dar/applications/{id}/reviews/{reviewId}/download/{fileId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"reviewId"+"}", url.PathEscape(parameterValueToString(r.reviewId, "reviewId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"file", "application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiFetchUserDarApplicationReviewsRequest struct {
-	ctx context.Context
-	ApiService *DataAccessApplicationReviewAPIService
-	userId int32
-	id int32
-}
-
-func (r ApiFetchUserDarApplicationReviewsRequest) Execute() (*FetchTeamDarApplicationReviews200Response, *http.Response, error) {
-	return r.ApiService.FetchUserDarApplicationReviewsExecute(r)
-}
-
-/*
-FetchUserDarApplicationReviews DataAccessApplicationReview@index
-
-Return all reviews on a DAR application
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId User id
- @param id DAR application id
- @return ApiFetchUserDarApplicationReviewsRequest
-*/
-func (a *DataAccessApplicationReviewAPIService) FetchUserDarApplicationReviews(ctx context.Context, userId int32, id int32) ApiFetchUserDarApplicationReviewsRequest {
-	return ApiFetchUserDarApplicationReviewsRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return FetchTeamDarApplicationReviews200Response
-func (a *DataAccessApplicationReviewAPIService) FetchUserDarApplicationReviewsExecute(r ApiFetchUserDarApplicationReviewsRequest) (*FetchTeamDarApplicationReviews200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FetchTeamDarApplicationReviews200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.FetchUserDarApplicationReviews")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/users/{userId}/dar/applications/{id}/reviews"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1264,7 +1033,7 @@ func (a *DataAccessApplicationReviewAPIService) UpdateTeamDarApplicationQuestion
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1275,7 +1044,7 @@ func (a *DataAccessApplicationReviewAPIService) UpdateTeamDarApplicationQuestion
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1408,7 +1177,7 @@ func (a *DataAccessApplicationReviewAPIService) UpdateTeamDarApplicationReviewEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
+			var v UpdateApplications404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1419,299 +1188,7 @@ func (a *DataAccessApplicationReviewAPIService) UpdateTeamDarApplicationReviewEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiUpdateUserDarApplicationQuestionReviewRequest struct {
-	ctx context.Context
-	ApiService *DataAccessApplicationReviewAPIService
-	userId int32
-	id int32
-	questionId int32
-	reviewId int32
-	createTeamDarApplicationReviewRequest *CreateTeamDarApplicationReviewRequest
-}
-
-// DataAccessApplicationReview definition
-func (r ApiUpdateUserDarApplicationQuestionReviewRequest) CreateTeamDarApplicationReviewRequest(createTeamDarApplicationReviewRequest CreateTeamDarApplicationReviewRequest) ApiUpdateUserDarApplicationQuestionReviewRequest {
-	r.createTeamDarApplicationReviewRequest = &createTeamDarApplicationReviewRequest
-	return r
-}
-
-func (r ApiUpdateUserDarApplicationQuestionReviewRequest) Execute() (*UpdateTeamDarApplicationQuestionReview200Response, *http.Response, error) {
-	return r.ApiService.UpdateUserDarApplicationQuestionReviewExecute(r)
-}
-
-/*
-UpdateUserDarApplicationQuestionReview DataAccessApplicationReview@userUpdate
-
-User endpoint to update a review comment on a question in a DAR application
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId User id
- @param id DAR application id
- @param questionId DAR application question id
- @param reviewId DAR application review id
- @return ApiUpdateUserDarApplicationQuestionReviewRequest
-*/
-func (a *DataAccessApplicationReviewAPIService) UpdateUserDarApplicationQuestionReview(ctx context.Context, userId int32, id int32, questionId int32, reviewId int32) ApiUpdateUserDarApplicationQuestionReviewRequest {
-	return ApiUpdateUserDarApplicationQuestionReviewRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		id: id,
-		questionId: questionId,
-		reviewId: reviewId,
-	}
-}
-
-// Execute executes the request
-//  @return UpdateTeamDarApplicationQuestionReview200Response
-func (a *DataAccessApplicationReviewAPIService) UpdateUserDarApplicationQuestionReviewExecute(r ApiUpdateUserDarApplicationQuestionReviewRequest) (*UpdateTeamDarApplicationQuestionReview200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateTeamDarApplicationQuestionReview200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.UpdateUserDarApplicationQuestionReview")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/users/{userId}/dar/applications/{id}/questions/{questionId}/reviews/{reviewId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"questionId"+"}", url.PathEscape(parameterValueToString(r.questionId, "questionId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"reviewId"+"}", url.PathEscape(parameterValueToString(r.reviewId, "reviewId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.createTeamDarApplicationReviewRequest == nil {
-		return localVarReturnValue, nil, reportError("createTeamDarApplicationReviewRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.createTeamDarApplicationReviewRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiUpdateUserDarApplicationReviewRequest struct {
-	ctx context.Context
-	ApiService *DataAccessApplicationReviewAPIService
-	userId int32
-	id int32
-	reviewId int32
-	createTeamDarApplicationReviewRequest *CreateTeamDarApplicationReviewRequest
-}
-
-// DataAccessApplicationReview definition
-func (r ApiUpdateUserDarApplicationReviewRequest) CreateTeamDarApplicationReviewRequest(createTeamDarApplicationReviewRequest CreateTeamDarApplicationReviewRequest) ApiUpdateUserDarApplicationReviewRequest {
-	r.createTeamDarApplicationReviewRequest = &createTeamDarApplicationReviewRequest
-	return r
-}
-
-func (r ApiUpdateUserDarApplicationReviewRequest) Execute() (*UpdateTeamDarApplicationQuestionReview200Response, *http.Response, error) {
-	return r.ApiService.UpdateUserDarApplicationReviewExecute(r)
-}
-
-/*
-UpdateUserDarApplicationReview DataAccessApplicationReview@userUpdateGlobal
-
-User endpoint to update a review comment on a DAR application
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId User id
- @param id DAR application id
- @param reviewId DAR application review id
- @return ApiUpdateUserDarApplicationReviewRequest
-*/
-func (a *DataAccessApplicationReviewAPIService) UpdateUserDarApplicationReview(ctx context.Context, userId int32, id int32, reviewId int32) ApiUpdateUserDarApplicationReviewRequest {
-	return ApiUpdateUserDarApplicationReviewRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
-		id: id,
-		reviewId: reviewId,
-	}
-}
-
-// Execute executes the request
-//  @return UpdateTeamDarApplicationQuestionReview200Response
-func (a *DataAccessApplicationReviewAPIService) UpdateUserDarApplicationReviewExecute(r ApiUpdateUserDarApplicationReviewRequest) (*UpdateTeamDarApplicationQuestionReview200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateTeamDarApplicationQuestionReview200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataAccessApplicationReviewAPIService.UpdateUserDarApplicationReview")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/users/{userId}/dar/applications/{id}/reviews/{reviewId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"reviewId"+"}", url.PathEscape(parameterValueToString(r.reviewId, "reviewId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.createTeamDarApplicationReviewRequest == nil {
-		return localVarReturnValue, nil, reportError("createTeamDarApplicationReviewRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.createTeamDarApplicationReviewRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v FetchAliases404Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v CreateAliases500Response
+			var v CreateApplications500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

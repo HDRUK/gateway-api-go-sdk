@@ -22,18 +22,6 @@ func Test_gatewayapisdk_DataAccessApplicationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DataAccessApplicationAPIService CreateDarApplications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.CreateDarApplications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessApplicationAPIService DeleteDarApplicationFiles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -72,37 +60,6 @@ func Test_gatewayapisdk_DataAccessApplicationAPIService(t *testing.T) {
 		var fileId int32
 
 		resp, httpRes, err := apiClient.DataAccessApplicationAPI.DeleteTeamDarApplicationFile(context.Background(), teamId, id, fileId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService DeleteUserDarApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.DeleteUserDarApplication(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService DeleteUserDarApplicationFile", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-		var userId int32
-		var fileId string
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.DeleteUserDarApplicationFile(context.Background(), id, userId, fileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -184,51 +141,6 @@ func Test_gatewayapisdk_DataAccessApplicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataAccessApplicationAPIService FetchUserDarApplicationFile", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-		var userId int32
-		var fileId string
-
-		httpRes, err := apiClient.DataAccessApplicationAPI.FetchUserDarApplicationFile(context.Background(), id, userId, fileId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService FetchUserDarApplicationFiles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-		var userId int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.FetchUserDarApplicationFiles(context.Background(), id, userId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService PatchUserDarApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.PatchUserDarApplication(context.Background(), userId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessApplicationAPIService UpdateTeamDarApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -237,21 +149,6 @@ func Test_gatewayapisdk_DataAccessApplicationAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DataAccessApplicationAPI.UpdateTeamDarApplication(context.Background(), teamId, id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService UpdateUserDarApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var userId int32
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.UpdateUserDarApplication(context.Background(), userId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

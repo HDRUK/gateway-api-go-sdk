@@ -62,32 +62,6 @@ func Test_gatewayapisdk_TypeCategoryAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TypeCategoryAPIService FetchAllTypeCategories", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.TypeCategoryAPI.FetchAllTypeCategories(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test TypeCategoryAPIService FetchTypeCategories", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.TypeCategoryAPI.FetchTypeCategories(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test TypeCategoryAPIService UpdateTypeCategories", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
