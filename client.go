@@ -49,10 +49,6 @@ type APIClient struct {
 
 	// API Services
 
-	AdminDataCustodianNetworksAPI *AdminDataCustodianNetworksAPIService
-
-	AdminSearchAPI *AdminSearchAPIService
-
 	ApplicationAPI *ApplicationAPIService
 
 	AuthenticationAPI *AuthenticationAPIService
@@ -97,19 +93,11 @@ type APIClient struct {
 
 	MetricsAPI *MetricsAPIService
 
-	NotificationAPI *NotificationAPIService
-
-	ProgrammingLanguageAPI *ProgrammingLanguageAPIService
-
-	ProgrammingPackageAPI *ProgrammingPackageAPIService
-
 	ProjectGrantAPI *ProjectGrantAPIService
 
 	PublicationAPI *PublicationAPIService
 
 	QuestionBankAPI *QuestionBankAPIService
-
-	ReviewsAPI *ReviewsAPIService
 
 	SearchCollectionsAPI *SearchCollectionsAPIService
 
@@ -135,10 +123,6 @@ type APIClient struct {
 
 	ToolsAPI *ToolsAPIService
 
-	TypeCategoryAPI *TypeCategoryAPIService
-
-	UserRolesAPI *UserRolesAPIService
-
 	UsersAPI *UsersAPIService
 
 	WidgetsAPI *WidgetsAPIService
@@ -160,8 +144,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AdminDataCustodianNetworksAPI = (*AdminDataCustodianNetworksAPIService)(&c.common)
-	c.AdminSearchAPI = (*AdminSearchAPIService)(&c.common)
 	c.ApplicationAPI = (*ApplicationAPIService)(&c.common)
 	c.AuthenticationAPI = (*AuthenticationAPIService)(&c.common)
 	c.CancerTypeFilterAPI = (*CancerTypeFilterAPIService)(&c.common)
@@ -184,13 +166,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.IntegrationsDatasetsTestAPI = (*IntegrationsDatasetsTestAPIService)(&c.common)
 	c.LicenseAPI = (*LicenseAPIService)(&c.common)
 	c.MetricsAPI = (*MetricsAPIService)(&c.common)
-	c.NotificationAPI = (*NotificationAPIService)(&c.common)
-	c.ProgrammingLanguageAPI = (*ProgrammingLanguageAPIService)(&c.common)
-	c.ProgrammingPackageAPI = (*ProgrammingPackageAPIService)(&c.common)
 	c.ProjectGrantAPI = (*ProjectGrantAPIService)(&c.common)
 	c.PublicationAPI = (*PublicationAPIService)(&c.common)
 	c.QuestionBankAPI = (*QuestionBankAPIService)(&c.common)
-	c.ReviewsAPI = (*ReviewsAPIService)(&c.common)
 	c.SearchCollectionsAPI = (*SearchCollectionsAPIService)(&c.common)
 	c.SearchDataCustodianNetworksAPI = (*SearchDataCustodianNetworksAPIService)(&c.common)
 	c.SearchDataCustodiansAPI = (*SearchDataCustodiansAPIService)(&c.common)
@@ -203,8 +181,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TeamDataAccessTemplateAPI = (*TeamDataAccessTemplateAPIService)(&c.common)
 	c.TeamFederationsAPI = (*TeamFederationsAPIService)(&c.common)
 	c.ToolsAPI = (*ToolsAPIService)(&c.common)
-	c.TypeCategoryAPI = (*TypeCategoryAPIService)(&c.common)
-	c.UserRolesAPI = (*UserRolesAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WidgetsAPI = (*WidgetsAPIService)(&c.common)
 

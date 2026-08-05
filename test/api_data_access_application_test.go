@@ -22,35 +22,6 @@ func Test_gatewayapisdk_DataAccessApplicationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DataAccessApplicationAPIService DeleteDarApplicationFiles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-		var fileId string
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.DeleteDarApplicationFiles(context.Background(), id, fileId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationAPIService DeleteDarApplications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationAPI.DeleteDarApplications(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessApplicationAPIService DeleteTeamDarApplicationFile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -22,46 +22,6 @@ func Test_gatewayapisdk_DataCustodianNetworksAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DataCustodianNetworksAPIService CreateDataCustodianNetwork", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DataCustodianNetworksAPI.CreateDataCustodianNetwork(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataCustodianNetworksAPIService DeleteDataCustodianNetwork", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataCustodianNetworksAPI.DeleteDataCustodianNetwork(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataCustodianNetworksAPIService EditDataCustodianNetwork", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataCustodianNetworksAPI.EditDataCustodianNetwork(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataCustodianNetworksAPIService FetchDataCustodianNetwork", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -137,20 +97,6 @@ func Test_gatewayapisdk_DataCustodianNetworksAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DataCustodianNetworksAPI.FetchDataCustodianNetworks(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataCustodianNetworksAPIService UpdateDataCustodianNetwork", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataCustodianNetworksAPI.UpdateDataCustodianNetwork(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

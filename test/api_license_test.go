@@ -22,46 +22,6 @@ func Test_gatewayapisdk_LicenseAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test LicenseAPIService CreateLicenses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.LicenseAPI.CreateLicenses(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test LicenseAPIService DeleteLicenses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.LicenseAPI.DeleteLicenses(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test LicenseAPIService EditLicenses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.LicenseAPI.EditLicenses(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test LicenseAPIService FetchAllLicenses", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -81,20 +41,6 @@ func Test_gatewayapisdk_LicenseAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.LicenseAPI.FetchLicenses(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test LicenseAPIService UpdateLicenses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.LicenseAPI.UpdateLicenses(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

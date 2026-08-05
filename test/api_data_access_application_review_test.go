@@ -53,39 +53,6 @@ func Test_gatewayapisdk_DataAccessApplicationReviewAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DataAccessApplicationReviewAPIService DeleteTeamDarApplicationQuestionReview", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-		var questionId int32
-		var reviewId int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.DeleteTeamDarApplicationQuestionReview(context.Background(), teamId, id, questionId, reviewId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataAccessApplicationReviewAPIService DeleteTeamDarApplicationReview", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var id int32
-		var reviewId int32
-
-		resp, httpRes, err := apiClient.DataAccessApplicationReviewAPI.DeleteTeamDarApplicationReview(context.Background(), teamId, id, reviewId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataAccessApplicationReviewAPIService DeleteTeamDarApplicationReviewFile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -22,46 +22,6 @@ func Test_gatewayapisdk_DataProviderCollAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DataProviderCollAPIService CreateDataProviderColl", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DataProviderCollAPI.CreateDataProviderColl(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataProviderCollAPIService DeleteDataProviderColl", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataProviderCollAPI.DeleteDataProviderColl(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataProviderCollAPIService EditDataProviderColl", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataProviderCollAPI.EditDataProviderColl(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DataProviderCollAPIService FetchDataProviderColl", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -95,20 +55,6 @@ func Test_gatewayapisdk_DataProviderCollAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DataProviderCollAPI.FetchDataProviderColls(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DataProviderCollAPIService UpdateDataProviderColl", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DataProviderCollAPI.UpdateDataProviderColl(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
