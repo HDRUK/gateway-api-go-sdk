@@ -19,28 +19,28 @@ import (
 )
 
 
-// MetricsAPIService MetricsAPI service
-type MetricsAPIService service
+// NightlyDatasetTestsAPIService NightlyDatasetTestsAPI service
+type NightlyDatasetTestsAPIService service
 
-type ApiFetchKeyMetricsV2Request struct {
+type ApiFetchNightlyDatasetTestsV2Request struct {
 	ctx context.Context
-	ApiService *MetricsAPIService
+	ApiService *NightlyDatasetTestsAPIService
 }
 
-func (r ApiFetchKeyMetricsV2Request) Execute() (*FetchDatasetLinkCheckResultsV2200Response, *http.Response, error) {
-	return r.ApiService.FetchKeyMetricsV2Execute(r)
+func (r ApiFetchNightlyDatasetTestsV2Request) Execute() (*FetchDatasetLinkCheckResultsV2200Response, *http.Response, error) {
+	return r.ApiService.FetchNightlyDatasetTestsV2Execute(r)
 }
 
 /*
-FetchKeyMetricsV2 KeyMetricController@index
+FetchNightlyDatasetTestsV2 NightlyDatasetTestController@index
 
-Get key metrics
+Get the results of the nightly dataset reachability check, with a summary and a list of failures
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchKeyMetricsV2Request
+ @return ApiFetchNightlyDatasetTestsV2Request
 */
-func (a *MetricsAPIService) FetchKeyMetricsV2(ctx context.Context) ApiFetchKeyMetricsV2Request {
-	return ApiFetchKeyMetricsV2Request{
+func (a *NightlyDatasetTestsAPIService) FetchNightlyDatasetTestsV2(ctx context.Context) ApiFetchNightlyDatasetTestsV2Request {
+	return ApiFetchNightlyDatasetTestsV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *MetricsAPIService) FetchKeyMetricsV2(ctx context.Context) ApiFetchKeyMe
 
 // Execute executes the request
 //  @return FetchDatasetLinkCheckResultsV2200Response
-func (a *MetricsAPIService) FetchKeyMetricsV2Execute(r ApiFetchKeyMetricsV2Request) (*FetchDatasetLinkCheckResultsV2200Response, *http.Response, error) {
+func (a *NightlyDatasetTestsAPIService) FetchNightlyDatasetTestsV2Execute(r ApiFetchNightlyDatasetTestsV2Request) (*FetchDatasetLinkCheckResultsV2200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -56,12 +56,12 @@ func (a *MetricsAPIService) FetchKeyMetricsV2Execute(r ApiFetchKeyMetricsV2Reque
 		localVarReturnValue  *FetchDatasetLinkCheckResultsV2200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetricsAPIService.FetchKeyMetricsV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NightlyDatasetTestsAPIService.FetchNightlyDatasetTestsV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v2/metrics"
+	localVarPath := localBasePath + "/api/v2/nightly_dataset_tests"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

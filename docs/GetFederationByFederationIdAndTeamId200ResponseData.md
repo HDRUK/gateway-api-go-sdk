@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **RunTimeHour** | Pointer to **int32** |  | [optional] 
 **RunTimeMinute** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
+**EnabledAt** | Pointer to **NullableTime** |  | [optional] 
 **Counter** | Pointer to **int32** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
@@ -291,6 +292,41 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### GetEnabledAt
+
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetEnabledAt() time.Time`
+
+GetEnabledAt returns the EnabledAt field if non-nil, zero value otherwise.
+
+### GetEnabledAtOk
+
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetEnabledAtOk() (*time.Time, bool)`
+
+GetEnabledAtOk returns a tuple with the EnabledAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabledAt
+
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetEnabledAt(v time.Time)`
+
+SetEnabledAt sets EnabledAt field to given value.
+
+### HasEnabledAt
+
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) HasEnabledAt() bool`
+
+HasEnabledAt returns a boolean if a field has been set.
+
+### SetEnabledAtNil
+
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetEnabledAtNil(b bool)`
+
+ SetEnabledAtNil sets the value for EnabledAt to be an explicit nil
+
+### UnsetEnabledAt
+`func (o *GetFederationByFederationIdAndTeamId200ResponseData) UnsetEnabledAt()`
+
+UnsetEnabledAt ensures that no value is present for EnabledAt, not even an explicit nil
 ### GetCounter
 
 `func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetCounter() int32`

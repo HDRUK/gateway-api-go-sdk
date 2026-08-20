@@ -1,7 +1,7 @@
 /*
 HDRUK Gateway API
 
-Testing IntegrationsDatasetsTestAPIService
+Testing DatasetLinkCheckResultsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/HDRUK/gateway-api-go-sdk"
 )
 
-func Test_gatewayapisdk_IntegrationsDatasetsTestAPIService(t *testing.T) {
+func Test_gatewayapisdk_DatasetLinkCheckResultsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test IntegrationsDatasetsTestAPIService IntegrationsDatasetsTest", func(t *testing.T) {
+	t.Run("Test DatasetLinkCheckResultsAPIService FetchDatasetLinkCheckResultsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.IntegrationsDatasetsTestAPI.IntegrationsDatasetsTest(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DatasetLinkCheckResultsAPI.FetchDatasetLinkCheckResultsV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

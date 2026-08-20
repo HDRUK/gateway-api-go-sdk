@@ -22,6 +22,18 @@ func Test_gatewayapisdk_ProjectGrantAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ProjectGrantAPIService CreateProjectGrant", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProjectGrantAPI.CreateProjectGrant(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProjectGrantAPIService FetchAllProjectGrants", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

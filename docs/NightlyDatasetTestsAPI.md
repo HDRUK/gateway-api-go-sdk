@@ -1,18 +1,18 @@
-# \MetricsAPI
+# \NightlyDatasetTestsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FetchKeyMetricsV2**](MetricsAPI.md#FetchKeyMetricsV2) | **Get** /api/v2/metrics | KeyMetricController@index
+[**FetchNightlyDatasetTestsV2**](NightlyDatasetTestsAPI.md#FetchNightlyDatasetTestsV2) | **Get** /api/v2/nightly_dataset_tests | NightlyDatasetTestController@index
 
 
 
-## FetchKeyMetricsV2
+## FetchNightlyDatasetTestsV2
 
-> FetchDatasetLinkCheckResultsV2200Response FetchKeyMetricsV2(ctx).Execute()
+> FetchDatasetLinkCheckResultsV2200Response FetchNightlyDatasetTestsV2(ctx).Execute()
 
-KeyMetricController@index
+NightlyDatasetTestController@index
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MetricsAPI.FetchKeyMetricsV2(context.Background()).Execute()
+	resp, r, err := apiClient.NightlyDatasetTestsAPI.FetchNightlyDatasetTestsV2(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MetricsAPI.FetchKeyMetricsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NightlyDatasetTestsAPI.FetchNightlyDatasetTestsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FetchKeyMetricsV2`: FetchDatasetLinkCheckResultsV2200Response
-	fmt.Fprintf(os.Stdout, "Response from `MetricsAPI.FetchKeyMetricsV2`: %v\n", resp)
+	// response from `FetchNightlyDatasetTestsV2`: FetchDatasetLinkCheckResultsV2200Response
+	fmt.Fprintf(os.Stdout, "Response from `NightlyDatasetTestsAPI.FetchNightlyDatasetTestsV2`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiFetchKeyMetricsV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiFetchNightlyDatasetTestsV2Request struct via the builder pattern
 
 
 ### Return type

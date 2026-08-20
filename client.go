@@ -77,6 +77,8 @@ type APIClient struct {
 
 	DataUseRegistersAPI *DataUseRegistersAPIService
 
+	DatasetLinkCheckResultsAPI *DatasetLinkCheckResultsAPIService
+
 	DatasetsAPI *DatasetsAPIService
 
 	DatasetsTestAPI *DatasetsTestAPIService
@@ -87,11 +89,11 @@ type APIClient struct {
 
 	IntegrationDataUseRegistersAPI *IntegrationDataUseRegistersAPIService
 
-	IntegrationsDatasetsTestAPI *IntegrationsDatasetsTestAPIService
-
 	LicenseAPI *LicenseAPIService
 
 	MetricsAPI *MetricsAPIService
+
+	NightlyDatasetTestsAPI *NightlyDatasetTestsAPIService
 
 	ProjectGrantAPI *ProjectGrantAPIService
 
@@ -158,14 +160,15 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DataCustodianNetworksAPI = (*DataCustodianNetworksAPIService)(&c.common)
 	c.DataProviderCollAPI = (*DataProviderCollAPIService)(&c.common)
 	c.DataUseRegistersAPI = (*DataUseRegistersAPIService)(&c.common)
+	c.DatasetLinkCheckResultsAPI = (*DatasetLinkCheckResultsAPIService)(&c.common)
 	c.DatasetsAPI = (*DatasetsAPIService)(&c.common)
 	c.DatasetsTestAPI = (*DatasetsTestAPIService)(&c.common)
 	c.FormHydrationAPI = (*FormHydrationAPIService)(&c.common)
 	c.IntegrationCollectionsAPI = (*IntegrationCollectionsAPIService)(&c.common)
 	c.IntegrationDataUseRegistersAPI = (*IntegrationDataUseRegistersAPIService)(&c.common)
-	c.IntegrationsDatasetsTestAPI = (*IntegrationsDatasetsTestAPIService)(&c.common)
 	c.LicenseAPI = (*LicenseAPIService)(&c.common)
 	c.MetricsAPI = (*MetricsAPIService)(&c.common)
+	c.NightlyDatasetTestsAPI = (*NightlyDatasetTestsAPIService)(&c.common)
 	c.ProjectGrantAPI = (*ProjectGrantAPIService)(&c.common)
 	c.PublicationAPI = (*PublicationAPIService)(&c.common)
 	c.QuestionBankAPI = (*QuestionBankAPIService)(&c.common)

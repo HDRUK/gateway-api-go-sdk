@@ -48,18 +48,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DatasetsAPIService CreateDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DatasetsAPI.CreateDatasetsIntegrations(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DatasetsAPIService CreateDatasetsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -93,20 +81,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DatasetsAPI.DeleteDatasets(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService DeleteDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DatasetsAPI.DeleteDatasetsIntegrations(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -217,18 +191,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DatasetsAPIService FetchAllDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DatasetsAPI.FetchAllDatasetsIntegrations(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DatasetsAPIService FetchAllDatasetsV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -248,20 +210,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DatasetsAPI.FetchDatasets(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService FetchDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DatasetsAPI.FetchDatasetsIntegrations(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -290,20 +238,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DatasetsAPI.PatchDatasets(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService PatchDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DatasetsAPI.PatchDatasetsIntegrations(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -347,20 +281,6 @@ func Test_gatewayapisdk_DatasetsAPIService(t *testing.T) {
 		var id int32
 
 		resp, httpRes, err := apiClient.DatasetsAPI.UpdateDatasets(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DatasetsAPIService UpdateDatasetsIntegrations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id int32
-
-		resp, httpRes, err := apiClient.DatasetsAPI.UpdateDatasetsIntegrations(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

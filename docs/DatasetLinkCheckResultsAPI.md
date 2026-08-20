@@ -1,18 +1,18 @@
-# \MetricsAPI
+# \DatasetLinkCheckResultsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FetchKeyMetricsV2**](MetricsAPI.md#FetchKeyMetricsV2) | **Get** /api/v2/metrics | KeyMetricController@index
+[**FetchDatasetLinkCheckResultsV2**](DatasetLinkCheckResultsAPI.md#FetchDatasetLinkCheckResultsV2) | **Get** /api/v2/dataset_link_check_results | DatasetLinkCheckResultController@index
 
 
 
-## FetchKeyMetricsV2
+## FetchDatasetLinkCheckResultsV2
 
-> FetchDatasetLinkCheckResultsV2200Response FetchKeyMetricsV2(ctx).Execute()
+> FetchDatasetLinkCheckResultsV2200Response FetchDatasetLinkCheckResultsV2(ctx).Execute()
 
-KeyMetricController@index
+DatasetLinkCheckResultController@index
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MetricsAPI.FetchKeyMetricsV2(context.Background()).Execute()
+	resp, r, err := apiClient.DatasetLinkCheckResultsAPI.FetchDatasetLinkCheckResultsV2(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MetricsAPI.FetchKeyMetricsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DatasetLinkCheckResultsAPI.FetchDatasetLinkCheckResultsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FetchKeyMetricsV2`: FetchDatasetLinkCheckResultsV2200Response
-	fmt.Fprintf(os.Stdout, "Response from `MetricsAPI.FetchKeyMetricsV2`: %v\n", resp)
+	// response from `FetchDatasetLinkCheckResultsV2`: FetchDatasetLinkCheckResultsV2200Response
+	fmt.Fprintf(os.Stdout, "Response from `DatasetLinkCheckResultsAPI.FetchDatasetLinkCheckResultsV2`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiFetchKeyMetricsV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiFetchDatasetLinkCheckResultsV2Request struct via the builder pattern
 
 
 ### Return type

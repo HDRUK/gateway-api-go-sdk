@@ -51,21 +51,6 @@ func Test_gatewayapisdk_TeamFederationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TeamFederationsAPIService EditFederationTeam", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var teamId int32
-		var federationId int32
-
-		resp, httpRes, err := apiClient.TeamFederationsAPI.EditFederationTeam(context.Background(), teamId, federationId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test TeamFederationsAPIService GetFederationByFederationIdAndTeamId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

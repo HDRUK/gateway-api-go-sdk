@@ -30,6 +30,7 @@ type GetFederationTeamId200ResponseDataInner struct {
 	RunTimeHour *int32 `json:"run_time_hour,omitempty"`
 	RunTimeMinute *string `json:"run_time_minute,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	EnabledAt NullableTime `json:"enabled_at,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
@@ -376,6 +377,48 @@ func (o *GetFederationTeamId200ResponseDataInner) SetEnabled(v bool) {
 	o.Enabled = &v
 }
 
+// GetEnabledAt returns the EnabledAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetFederationTeamId200ResponseDataInner) GetEnabledAt() time.Time {
+	if o == nil || IsNil(o.EnabledAt.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.EnabledAt.Get()
+}
+
+// GetEnabledAtOk returns a tuple with the EnabledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetFederationTeamId200ResponseDataInner) GetEnabledAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EnabledAt.Get(), o.EnabledAt.IsSet()
+}
+
+// HasEnabledAt returns a boolean if a field has been set.
+func (o *GetFederationTeamId200ResponseDataInner) HasEnabledAt() bool {
+	if o != nil && o.EnabledAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabledAt gets a reference to the given NullableTime and assigns it to the EnabledAt field.
+func (o *GetFederationTeamId200ResponseDataInner) SetEnabledAt(v time.Time) {
+	o.EnabledAt.Set(&v)
+}
+// SetEnabledAtNil sets the value for EnabledAt to be an explicit nil
+func (o *GetFederationTeamId200ResponseDataInner) SetEnabledAtNil() {
+	o.EnabledAt.Set(nil)
+}
+
+// UnsetEnabledAt ensures that no value is present for EnabledAt, not even an explicit nil
+func (o *GetFederationTeamId200ResponseDataInner) UnsetEnabledAt() {
+	o.EnabledAt.Unset()
+}
+
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *GetFederationTeamId200ResponseDataInner) GetCreatedAt() time.Time {
 	if o == nil || IsNil(o.CreatedAt) {
@@ -649,6 +692,9 @@ func (o GetFederationTeamId200ResponseDataInner) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
+	}
+	if o.EnabledAt.IsSet() {
+		toSerialize["enabled_at"] = o.EnabledAt.Get()
 	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["created_at"] = o.CreatedAt

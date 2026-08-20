@@ -30,6 +30,7 @@ type GetFederationByFederationIdAndTeamId200ResponseData struct {
 	RunTimeHour *int32 `json:"run_time_hour,omitempty"`
 	RunTimeMinute *string `json:"run_time_minute,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
+	EnabledAt NullableTime `json:"enabled_at,omitempty"`
 	Counter *int32 `json:"counter,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
@@ -376,6 +377,48 @@ func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetEnabled(v bool)
 	o.Enabled = &v
 }
 
+// GetEnabledAt returns the EnabledAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetEnabledAt() time.Time {
+	if o == nil || IsNil(o.EnabledAt.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.EnabledAt.Get()
+}
+
+// GetEnabledAtOk returns a tuple with the EnabledAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetEnabledAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EnabledAt.Get(), o.EnabledAt.IsSet()
+}
+
+// HasEnabledAt returns a boolean if a field has been set.
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) HasEnabledAt() bool {
+	if o != nil && o.EnabledAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabledAt gets a reference to the given NullableTime and assigns it to the EnabledAt field.
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetEnabledAt(v time.Time) {
+	o.EnabledAt.Set(&v)
+}
+// SetEnabledAtNil sets the value for EnabledAt to be an explicit nil
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetEnabledAtNil() {
+	o.EnabledAt.Set(nil)
+}
+
+// UnsetEnabledAt ensures that no value is present for EnabledAt, not even an explicit nil
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) UnsetEnabledAt() {
+	o.EnabledAt.Unset()
+}
+
 // GetCounter returns the Counter field value if set, zero value otherwise.
 func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetCounter() int32 {
 	if o == nil || IsNil(o.Counter) {
@@ -639,6 +682,9 @@ func (o GetFederationByFederationIdAndTeamId200ResponseData) ToMap() (map[string
 	}
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
+	}
+	if o.EnabledAt.IsSet() {
+		toSerialize["enabled_at"] = o.EnabledAt.Get()
 	}
 	if !IsNil(o.Counter) {
 		toSerialize["counter"] = o.Counter
