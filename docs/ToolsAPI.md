@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ## FetchAllTools
 
-> FetchAllTools200Response FetchAllTools(ctx).MongoId(mongoId).TeamId(teamId).UserId(userId).Title(title).Sort(sort).Execute()
+> FetchAllTools200Response FetchAllTools(ctx).TeamId(teamId).UserId(userId).Title(title).Sort(sort).Execute()
 
 Fetch all tools
 
@@ -757,7 +757,6 @@ import (
 )
 
 func main() {
-	mongoId := "mongoId_example" // string | Filter tools by mongo ID (optional)
 	teamId := int32(56) // int32 | Filter tools by team ID (optional)
 	userId := int32(56) // int32 | Filter tools by user ID (optional)
 	title := "title_example" // string | Filter tools by title (optional)
@@ -765,7 +764,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ToolsAPI.FetchAllTools(context.Background()).MongoId(mongoId).TeamId(teamId).UserId(userId).Title(title).Sort(sort).Execute()
+	resp, r, err := apiClient.ToolsAPI.FetchAllTools(context.Background()).TeamId(teamId).UserId(userId).Title(title).Sort(sort).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ToolsAPI.FetchAllTools``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -786,7 +785,6 @@ Other parameters are passed through a pointer to a apiFetchAllToolsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mongoId** | **string** | Filter tools by mongo ID | 
  **teamId** | **int32** | Filter tools by team ID | 
  **userId** | **int32** | Filter tools by user ID | 
  **title** | **string** | Filter tools by title | 

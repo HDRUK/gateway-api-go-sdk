@@ -278,12 +278,12 @@ func (a *DatasetsAPIService) CreateDatasetsExecute(r ApiCreateDatasetsRequest) (
 type ApiCreateDatasetsV2Request struct {
 	ctx context.Context
 	ApiService *DatasetsAPIService
-	createDatasetsV2Request *CreateDatasetsV2Request
+	updateDatasetsRequest *UpdateDatasetsRequest
 }
 
 // Pass user credentials
-func (r ApiCreateDatasetsV2Request) CreateDatasetsV2Request(createDatasetsV2Request CreateDatasetsV2Request) ApiCreateDatasetsV2Request {
-	r.createDatasetsV2Request = &createDatasetsV2Request
+func (r ApiCreateDatasetsV2Request) UpdateDatasetsRequest(updateDatasetsRequest UpdateDatasetsRequest) ApiCreateDatasetsV2Request {
+	r.updateDatasetsRequest = &updateDatasetsRequest
 	return r
 }
 
@@ -326,8 +326,8 @@ func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Reques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createDatasetsV2Request == nil {
-		return localVarReturnValue, nil, reportError("createDatasetsV2Request is required and must be specified")
+	if r.updateDatasetsRequest == nil {
+		return localVarReturnValue, nil, reportError("updateDatasetsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -348,7 +348,7 @@ func (a *DatasetsAPIService) CreateDatasetsV2Execute(r ApiCreateDatasetsV2Reques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createDatasetsV2Request
+	localVarPostBody = r.updateDatasetsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -411,12 +411,12 @@ type ApiCreateTeamDatasetsV2Request struct {
 	ctx context.Context
 	ApiService *DatasetsAPIService
 	teamId int32
-	createTeamDatasetsV2Request *CreateTeamDatasetsV2Request
+	patchDatasetsV2Request *PatchDatasetsV2Request
 }
 
 // Pass user credentials
-func (r ApiCreateTeamDatasetsV2Request) CreateTeamDatasetsV2Request(createTeamDatasetsV2Request CreateTeamDatasetsV2Request) ApiCreateTeamDatasetsV2Request {
-	r.createTeamDatasetsV2Request = &createTeamDatasetsV2Request
+func (r ApiCreateTeamDatasetsV2Request) PatchDatasetsV2Request(patchDatasetsV2Request PatchDatasetsV2Request) ApiCreateTeamDatasetsV2Request {
+	r.patchDatasetsV2Request = &patchDatasetsV2Request
 	return r
 }
 
@@ -462,8 +462,8 @@ func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasets
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.createTeamDatasetsV2Request == nil {
-		return localVarReturnValue, nil, reportError("createTeamDatasetsV2Request is required and must be specified")
+	if r.patchDatasetsV2Request == nil {
+		return localVarReturnValue, nil, reportError("patchDatasetsV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -484,7 +484,7 @@ func (a *DatasetsAPIService) CreateTeamDatasetsV2Execute(r ApiCreateTeamDatasets
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createTeamDatasetsV2Request
+	localVarPostBody = r.patchDatasetsV2Request
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

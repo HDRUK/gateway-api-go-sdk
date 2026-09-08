@@ -7,9 +7,6 @@ Name | Type | Description | Notes
 **TeamId** | Pointer to **int32** |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 **CreateOrigin** | Pointer to **string** |  | [optional] 
-**MongoObjectId** | Pointer to **string** |  | [optional] 
-**MongoId** | Pointer to **string** |  | [optional] 
-**MongoPid** | Pointer to **string** |  | [optional] 
 **Datasetid** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -106,81 +103,6 @@ SetCreateOrigin sets CreateOrigin field to given value.
 `func (o *CreateDatasetsRequest) HasCreateOrigin() bool`
 
 HasCreateOrigin returns a boolean if a field has been set.
-
-### GetMongoObjectId
-
-`func (o *CreateDatasetsRequest) GetMongoObjectId() string`
-
-GetMongoObjectId returns the MongoObjectId field if non-nil, zero value otherwise.
-
-### GetMongoObjectIdOk
-
-`func (o *CreateDatasetsRequest) GetMongoObjectIdOk() (*string, bool)`
-
-GetMongoObjectIdOk returns a tuple with the MongoObjectId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoObjectId
-
-`func (o *CreateDatasetsRequest) SetMongoObjectId(v string)`
-
-SetMongoObjectId sets MongoObjectId field to given value.
-
-### HasMongoObjectId
-
-`func (o *CreateDatasetsRequest) HasMongoObjectId() bool`
-
-HasMongoObjectId returns a boolean if a field has been set.
-
-### GetMongoId
-
-`func (o *CreateDatasetsRequest) GetMongoId() string`
-
-GetMongoId returns the MongoId field if non-nil, zero value otherwise.
-
-### GetMongoIdOk
-
-`func (o *CreateDatasetsRequest) GetMongoIdOk() (*string, bool)`
-
-GetMongoIdOk returns a tuple with the MongoId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoId
-
-`func (o *CreateDatasetsRequest) SetMongoId(v string)`
-
-SetMongoId sets MongoId field to given value.
-
-### HasMongoId
-
-`func (o *CreateDatasetsRequest) HasMongoId() bool`
-
-HasMongoId returns a boolean if a field has been set.
-
-### GetMongoPid
-
-`func (o *CreateDatasetsRequest) GetMongoPid() string`
-
-GetMongoPid returns the MongoPid field if non-nil, zero value otherwise.
-
-### GetMongoPidOk
-
-`func (o *CreateDatasetsRequest) GetMongoPidOk() (*string, bool)`
-
-GetMongoPidOk returns a tuple with the MongoPid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoPid
-
-`func (o *CreateDatasetsRequest) SetMongoPid(v string)`
-
-SetMongoPid sets MongoPid field to given value.
-
-### HasMongoPid
-
-`func (o *CreateDatasetsRequest) HasMongoPid() bool`
-
-HasMongoPid returns a boolean if a field has been set.
 
 ### GetDatasetid
 

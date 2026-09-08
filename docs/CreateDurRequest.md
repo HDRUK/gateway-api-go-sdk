@@ -38,12 +38,9 @@ Name | Type | Description | Notes
 **RequestCategoryType** | Pointer to **string** |  | [optional] 
 **RequestFrequency** | Pointer to **string** |  | [optional] 
 **AccessType** | Pointer to **string** |  | [optional] 
-**MongoObjectDarId** | Pointer to **string** |  | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **LastActivity** | Pointer to **time.Time** |  | [optional] 
 **Counter** | Pointer to **int32** |  | [optional] 
-**MongoObjectId** | Pointer to **string** |  | [optional] 
-**MongoId** | Pointer to **string** |  | [optional] 
 **Datasets** | Pointer to [**[]CreateDurRequestDatasetsInner**](CreateDurRequestDatasetsInner.md) |  | [optional] 
 **Publications** | Pointer to [**[]CreateDurRequestPublicationsInner**](CreateDurRequestPublicationsInner.md) |  | [optional] 
 **Keywords** | Pointer to **[]string** |  | [optional] 
@@ -922,31 +919,6 @@ SetAccessType sets AccessType field to given value.
 
 HasAccessType returns a boolean if a field has been set.
 
-### GetMongoObjectDarId
-
-`func (o *CreateDurRequest) GetMongoObjectDarId() string`
-
-GetMongoObjectDarId returns the MongoObjectDarId field if non-nil, zero value otherwise.
-
-### GetMongoObjectDarIdOk
-
-`func (o *CreateDurRequest) GetMongoObjectDarIdOk() (*string, bool)`
-
-GetMongoObjectDarIdOk returns a tuple with the MongoObjectDarId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoObjectDarId
-
-`func (o *CreateDurRequest) SetMongoObjectDarId(v string)`
-
-SetMongoObjectDarId sets MongoObjectDarId field to given value.
-
-### HasMongoObjectDarId
-
-`func (o *CreateDurRequest) HasMongoObjectDarId() bool`
-
-HasMongoObjectDarId returns a boolean if a field has been set.
-
 ### GetEnabled
 
 `func (o *CreateDurRequest) GetEnabled() bool`
@@ -1021,56 +993,6 @@ SetCounter sets Counter field to given value.
 `func (o *CreateDurRequest) HasCounter() bool`
 
 HasCounter returns a boolean if a field has been set.
-
-### GetMongoObjectId
-
-`func (o *CreateDurRequest) GetMongoObjectId() string`
-
-GetMongoObjectId returns the MongoObjectId field if non-nil, zero value otherwise.
-
-### GetMongoObjectIdOk
-
-`func (o *CreateDurRequest) GetMongoObjectIdOk() (*string, bool)`
-
-GetMongoObjectIdOk returns a tuple with the MongoObjectId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoObjectId
-
-`func (o *CreateDurRequest) SetMongoObjectId(v string)`
-
-SetMongoObjectId sets MongoObjectId field to given value.
-
-### HasMongoObjectId
-
-`func (o *CreateDurRequest) HasMongoObjectId() bool`
-
-HasMongoObjectId returns a boolean if a field has been set.
-
-### GetMongoId
-
-`func (o *CreateDurRequest) GetMongoId() string`
-
-GetMongoId returns the MongoId field if non-nil, zero value otherwise.
-
-### GetMongoIdOk
-
-`func (o *CreateDurRequest) GetMongoIdOk() (*string, bool)`
-
-GetMongoIdOk returns a tuple with the MongoId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoId
-
-`func (o *CreateDurRequest) SetMongoId(v string)`
-
-SetMongoId sets MongoId field to given value.
-
-### HasMongoId
-
-`func (o *CreateDurRequest) HasMongoId() bool`
-
-HasMongoId returns a boolean if a field has been set.
 
 ### GetDatasets
 

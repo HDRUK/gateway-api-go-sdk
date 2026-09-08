@@ -27,7 +27,6 @@ type UpdatePublicationsRequest struct {
 	JournalName *string `json:"journal_name,omitempty"`
 	Abstract *string `json:"abstract,omitempty"`
 	Url *string `json:"url,omitempty"`
-	MongoId *string `json:"mongo_id,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Datasets []CreatePublicationsRequestDatasetsInner `json:"datasets,omitempty"`
 	Tools []CreatePublicationsRequestToolsInner `json:"tools,omitempty"`
@@ -306,38 +305,6 @@ func (o *UpdatePublicationsRequest) SetUrl(v string) {
 	o.Url = &v
 }
 
-// GetMongoId returns the MongoId field value if set, zero value otherwise.
-func (o *UpdatePublicationsRequest) GetMongoId() string {
-	if o == nil || IsNil(o.MongoId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoId
-}
-
-// GetMongoIdOk returns a tuple with the MongoId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UpdatePublicationsRequest) GetMongoIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoId) {
-		return nil, false
-	}
-	return o.MongoId, true
-}
-
-// HasMongoId returns a boolean if a field has been set.
-func (o *UpdatePublicationsRequest) HasMongoId() bool {
-	if o != nil && !IsNil(o.MongoId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoId gets a reference to the given string and assigns it to the MongoId field.
-func (o *UpdatePublicationsRequest) SetMongoId(v string) {
-	o.MongoId = &v
-}
-
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *UpdatePublicationsRequest) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
@@ -467,9 +434,6 @@ func (o UpdatePublicationsRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
-	}
-	if !IsNil(o.MongoId) {
-		toSerialize["mongo_id"] = o.MongoId
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status

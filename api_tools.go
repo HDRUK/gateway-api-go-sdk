@@ -1458,17 +1458,10 @@ func (a *ToolsAPIService) EditToolsIntegrationsExecute(r ApiEditToolsIntegration
 type ApiFetchAllToolsRequest struct {
 	ctx context.Context
 	ApiService *ToolsAPIService
-	mongoId *string
 	teamId *int32
 	userId *int32
 	title *string
 	sort *string
-}
-
-// Filter tools by mongo ID
-func (r ApiFetchAllToolsRequest) MongoId(mongoId string) ApiFetchAllToolsRequest {
-	r.mongoId = &mongoId
-	return r
 }
 
 // Filter tools by team ID
@@ -1538,9 +1531,6 @@ func (a *ToolsAPIService) FetchAllToolsExecute(r ApiFetchAllToolsRequest) (*Fetc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.mongoId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "mongo_id", r.mongoId, "form", "")
-	}
 	if r.teamId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "team_id", r.teamId, "form", "")
 	}

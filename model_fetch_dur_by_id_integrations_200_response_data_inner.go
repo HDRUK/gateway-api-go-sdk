@@ -58,12 +58,9 @@ type FetchDurByIdIntegrations200ResponseDataInner struct {
 	RequestCategoryType *string `json:"request_category_type,omitempty"`
 	RequestFrequency *string `json:"request_frequency,omitempty"`
 	AccessType *string `json:"access_type,omitempty"`
-	MongoObjectDarId *string `json:"mongo_object_dar_id,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
 	LastActivity *time.Time `json:"last_activity,omitempty"`
 	Counter *int32 `json:"counter,omitempty"`
-	MongoObjectId *string `json:"mongo_object_id,omitempty"`
-	MongoId *string `json:"mongo_id,omitempty"`
 	Datasets []interface{} `json:"datasets,omitempty"`
 	Publications []interface{} `json:"publications,omitempty"`
 	Tools []interface{} `json:"tools,omitempty"`
@@ -1310,38 +1307,6 @@ func (o *FetchDurByIdIntegrations200ResponseDataInner) SetAccessType(v string) {
 	o.AccessType = &v
 }
 
-// GetMongoObjectDarId returns the MongoObjectDarId field value if set, zero value otherwise.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoObjectDarId() string {
-	if o == nil || IsNil(o.MongoObjectDarId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoObjectDarId
-}
-
-// GetMongoObjectDarIdOk returns a tuple with the MongoObjectDarId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoObjectDarIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoObjectDarId) {
-		return nil, false
-	}
-	return o.MongoObjectDarId, true
-}
-
-// HasMongoObjectDarId returns a boolean if a field has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) HasMongoObjectDarId() bool {
-	if o != nil && !IsNil(o.MongoObjectDarId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoObjectDarId gets a reference to the given string and assigns it to the MongoObjectDarId field.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) SetMongoObjectDarId(v string) {
-	o.MongoObjectDarId = &v
-}
-
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *FetchDurByIdIntegrations200ResponseDataInner) GetEnabled() bool {
 	if o == nil || IsNil(o.Enabled) {
@@ -1436,70 +1401,6 @@ func (o *FetchDurByIdIntegrations200ResponseDataInner) HasCounter() bool {
 // SetCounter gets a reference to the given int32 and assigns it to the Counter field.
 func (o *FetchDurByIdIntegrations200ResponseDataInner) SetCounter(v int32) {
 	o.Counter = &v
-}
-
-// GetMongoObjectId returns the MongoObjectId field value if set, zero value otherwise.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoObjectId() string {
-	if o == nil || IsNil(o.MongoObjectId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoObjectId
-}
-
-// GetMongoObjectIdOk returns a tuple with the MongoObjectId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoObjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoObjectId) {
-		return nil, false
-	}
-	return o.MongoObjectId, true
-}
-
-// HasMongoObjectId returns a boolean if a field has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) HasMongoObjectId() bool {
-	if o != nil && !IsNil(o.MongoObjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoObjectId gets a reference to the given string and assigns it to the MongoObjectId field.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) SetMongoObjectId(v string) {
-	o.MongoObjectId = &v
-}
-
-// GetMongoId returns the MongoId field value if set, zero value otherwise.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoId() string {
-	if o == nil || IsNil(o.MongoId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoId
-}
-
-// GetMongoIdOk returns a tuple with the MongoId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) GetMongoIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoId) {
-		return nil, false
-	}
-	return o.MongoId, true
-}
-
-// HasMongoId returns a boolean if a field has been set.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) HasMongoId() bool {
-	if o != nil && !IsNil(o.MongoId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoId gets a reference to the given string and assigns it to the MongoId field.
-func (o *FetchDurByIdIntegrations200ResponseDataInner) SetMongoId(v string) {
-	o.MongoId = &v
 }
 
 // GetDatasets returns the Datasets field value if set, zero value otherwise.
@@ -1978,9 +1879,6 @@ func (o FetchDurByIdIntegrations200ResponseDataInner) ToMap() (map[string]interf
 	if !IsNil(o.AccessType) {
 		toSerialize["access_type"] = o.AccessType
 	}
-	if !IsNil(o.MongoObjectDarId) {
-		toSerialize["mongo_object_dar_id"] = o.MongoObjectDarId
-	}
 	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
@@ -1989,12 +1887,6 @@ func (o FetchDurByIdIntegrations200ResponseDataInner) ToMap() (map[string]interf
 	}
 	if !IsNil(o.Counter) {
 		toSerialize["counter"] = o.Counter
-	}
-	if !IsNil(o.MongoObjectId) {
-		toSerialize["mongo_object_id"] = o.MongoObjectId
-	}
-	if !IsNil(o.MongoId) {
-		toSerialize["mongo_id"] = o.MongoId
 	}
 	if !IsNil(o.Datasets) {
 		toSerialize["datasets"] = o.Datasets

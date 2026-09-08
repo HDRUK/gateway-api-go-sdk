@@ -22,9 +22,6 @@ type CreateDatasetsRequest struct {
 	TeamId *int32 `json:"team_id,omitempty"`
 	UserId *int32 `json:"user_id,omitempty"`
 	CreateOrigin *string `json:"create_origin,omitempty"`
-	MongoObjectId *string `json:"mongo_object_id,omitempty"`
-	MongoId *string `json:"mongo_id,omitempty"`
-	MongoPid *string `json:"mongo_pid,omitempty"`
 	Datasetid *string `json:"datasetid,omitempty"`
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
@@ -142,102 +139,6 @@ func (o *CreateDatasetsRequest) SetCreateOrigin(v string) {
 	o.CreateOrigin = &v
 }
 
-// GetMongoObjectId returns the MongoObjectId field value if set, zero value otherwise.
-func (o *CreateDatasetsRequest) GetMongoObjectId() string {
-	if o == nil || IsNil(o.MongoObjectId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoObjectId
-}
-
-// GetMongoObjectIdOk returns a tuple with the MongoObjectId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateDatasetsRequest) GetMongoObjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoObjectId) {
-		return nil, false
-	}
-	return o.MongoObjectId, true
-}
-
-// HasMongoObjectId returns a boolean if a field has been set.
-func (o *CreateDatasetsRequest) HasMongoObjectId() bool {
-	if o != nil && !IsNil(o.MongoObjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoObjectId gets a reference to the given string and assigns it to the MongoObjectId field.
-func (o *CreateDatasetsRequest) SetMongoObjectId(v string) {
-	o.MongoObjectId = &v
-}
-
-// GetMongoId returns the MongoId field value if set, zero value otherwise.
-func (o *CreateDatasetsRequest) GetMongoId() string {
-	if o == nil || IsNil(o.MongoId) {
-		var ret string
-		return ret
-	}
-	return *o.MongoId
-}
-
-// GetMongoIdOk returns a tuple with the MongoId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateDatasetsRequest) GetMongoIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoId) {
-		return nil, false
-	}
-	return o.MongoId, true
-}
-
-// HasMongoId returns a boolean if a field has been set.
-func (o *CreateDatasetsRequest) HasMongoId() bool {
-	if o != nil && !IsNil(o.MongoId) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoId gets a reference to the given string and assigns it to the MongoId field.
-func (o *CreateDatasetsRequest) SetMongoId(v string) {
-	o.MongoId = &v
-}
-
-// GetMongoPid returns the MongoPid field value if set, zero value otherwise.
-func (o *CreateDatasetsRequest) GetMongoPid() string {
-	if o == nil || IsNil(o.MongoPid) {
-		var ret string
-		return ret
-	}
-	return *o.MongoPid
-}
-
-// GetMongoPidOk returns a tuple with the MongoPid field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateDatasetsRequest) GetMongoPidOk() (*string, bool) {
-	if o == nil || IsNil(o.MongoPid) {
-		return nil, false
-	}
-	return o.MongoPid, true
-}
-
-// HasMongoPid returns a boolean if a field has been set.
-func (o *CreateDatasetsRequest) HasMongoPid() bool {
-	if o != nil && !IsNil(o.MongoPid) {
-		return true
-	}
-
-	return false
-}
-
-// SetMongoPid gets a reference to the given string and assigns it to the MongoPid field.
-func (o *CreateDatasetsRequest) SetMongoPid(v string) {
-	o.MongoPid = &v
-}
-
 // GetDatasetid returns the Datasetid field value if set, zero value otherwise.
 func (o *CreateDatasetsRequest) GetDatasetid() string {
 	if o == nil || IsNil(o.Datasetid) {
@@ -320,15 +221,6 @@ func (o CreateDatasetsRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CreateOrigin) {
 		toSerialize["create_origin"] = o.CreateOrigin
-	}
-	if !IsNil(o.MongoObjectId) {
-		toSerialize["mongo_object_id"] = o.MongoObjectId
-	}
-	if !IsNil(o.MongoId) {
-		toSerialize["mongo_id"] = o.MongoId
-	}
-	if !IsNil(o.MongoPid) {
-		toSerialize["mongo_pid"] = o.MongoPid
 	}
 	if !IsNil(o.Datasetid) {
 		toSerialize["datasetid"] = o.Datasetid

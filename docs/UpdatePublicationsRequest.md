@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **JournalName** | Pointer to **string** |  | [optional] 
 **Abstract** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
-**MongoId** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Datasets** | Pointer to [**[]CreatePublicationsRequestDatasetsInner**](CreatePublicationsRequestDatasetsInner.md) |  | [optional] 
 **Tools** | Pointer to [**[]CreatePublicationsRequestToolsInner**](CreatePublicationsRequestToolsInner.md) |  | [optional] 
@@ -235,31 +234,6 @@ SetUrl sets Url field to given value.
 `func (o *UpdatePublicationsRequest) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
-
-### GetMongoId
-
-`func (o *UpdatePublicationsRequest) GetMongoId() string`
-
-GetMongoId returns the MongoId field if non-nil, zero value otherwise.
-
-### GetMongoIdOk
-
-`func (o *UpdatePublicationsRequest) GetMongoIdOk() (*string, bool)`
-
-GetMongoIdOk returns a tuple with the MongoId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMongoId
-
-`func (o *UpdatePublicationsRequest) SetMongoId(v string)`
-
-SetMongoId sets MongoId field to given value.
-
-### HasMongoId
-
-`func (o *UpdatePublicationsRequest) HasMongoId() bool`
-
-HasMongoId returns a boolean if a field has been set.
 
 ### GetStatus
 

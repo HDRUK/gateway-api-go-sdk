@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ## CreateDatasetsV2
 
-> CreateDarIntegration201Response CreateDatasetsV2(ctx).CreateDatasetsV2Request(createDatasetsV2Request).Execute()
+> CreateDarIntegration201Response CreateDatasetsV2(ctx).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
 
 DatasetController@store
 
@@ -188,11 +188,11 @@ import (
 )
 
 func main() {
-	createDatasetsV2Request := *openapiclient.NewCreateDatasetsV2Request() // CreateDatasetsV2Request | Pass user credentials
+	updateDatasetsRequest := *openapiclient.NewUpdateDatasetsRequest() // UpdateDatasetsRequest | Pass user credentials
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.CreateDatasetsV2(context.Background()).CreateDatasetsV2Request(createDatasetsV2Request).Execute()
+	resp, r, err := apiClient.DatasetsAPI.CreateDatasetsV2(context.Background()).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -213,7 +213,7 @@ Other parameters are passed through a pointer to a apiCreateDatasetsV2Request st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDatasetsV2Request** | [**CreateDatasetsV2Request**](CreateDatasetsV2Request.md) | Pass user credentials | 
+ **updateDatasetsRequest** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md) | Pass user credentials | 
 
 ### Return type
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ## CreateTeamDatasetsV2
 
-> CreateDarIntegration201Response CreateTeamDatasetsV2(ctx, teamId).CreateTeamDatasetsV2Request(createTeamDatasetsV2Request).Execute()
+> CreateDarIntegration201Response CreateTeamDatasetsV2(ctx, teamId).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
 
 TeamDatasetController@store
 
@@ -255,11 +255,11 @@ import (
 
 func main() {
 	teamId := int32(1) // int32 | team id
-	createTeamDatasetsV2Request := *openapiclient.NewCreateTeamDatasetsV2Request() // CreateTeamDatasetsV2Request | Pass user credentials
+	patchDatasetsV2Request := *openapiclient.NewPatchDatasetsV2Request() // PatchDatasetsV2Request | Pass user credentials
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.CreateTeamDatasetsV2(context.Background(), teamId).CreateTeamDatasetsV2Request(createTeamDatasetsV2Request).Execute()
+	resp, r, err := apiClient.DatasetsAPI.CreateTeamDatasetsV2(context.Background(), teamId).PatchDatasetsV2Request(patchDatasetsV2Request).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.CreateTeamDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -285,7 +285,7 @@ Other parameters are passed through a pointer to a apiCreateTeamDatasetsV2Reques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createTeamDatasetsV2Request** | [**CreateTeamDatasetsV2Request**](CreateTeamDatasetsV2Request.md) | Pass user credentials | 
+ **patchDatasetsV2Request** | [**PatchDatasetsV2Request**](PatchDatasetsV2Request.md) | Pass user credentials | 
 
 ### Return type
 
