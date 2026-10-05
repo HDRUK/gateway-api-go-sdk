@@ -38,6 +38,7 @@ type GetFederationByFederationIdAndTeamId200ResponseData struct {
 	Tested *bool `json:"tested,omitempty"`
 	Notifications []interface{} `json:"notifications,omitempty"`
 	IsRunning *bool `json:"is_running,omitempty"`
+	Progress NullableGetFederationTeamId200ResponseDataInnerProgress `json:"progress,omitempty"`
 }
 
 // NewGetFederationByFederationIdAndTeamId200ResponseData instantiates a new GetFederationByFederationIdAndTeamId200ResponseData object
@@ -643,6 +644,48 @@ func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetIsRunning(v boo
 	o.IsRunning = &v
 }
 
+// GetProgress returns the Progress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetProgress() GetFederationTeamId200ResponseDataInnerProgress {
+	if o == nil || IsNil(o.Progress.Get()) {
+		var ret GetFederationTeamId200ResponseDataInnerProgress
+		return ret
+	}
+	return *o.Progress.Get()
+}
+
+// GetProgressOk returns a tuple with the Progress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) GetProgressOk() (*GetFederationTeamId200ResponseDataInnerProgress, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Progress.Get(), o.Progress.IsSet()
+}
+
+// HasProgress returns a boolean if a field has been set.
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) HasProgress() bool {
+	if o != nil && o.Progress.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProgress gets a reference to the given NullableGetFederationTeamId200ResponseDataInnerProgress and assigns it to the Progress field.
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetProgress(v GetFederationTeamId200ResponseDataInnerProgress) {
+	o.Progress.Set(&v)
+}
+// SetProgressNil sets the value for Progress to be an explicit nil
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) SetProgressNil() {
+	o.Progress.Set(nil)
+}
+
+// UnsetProgress ensures that no value is present for Progress, not even an explicit nil
+func (o *GetFederationByFederationIdAndTeamId200ResponseData) UnsetProgress() {
+	o.Progress.Unset()
+}
+
 func (o GetFederationByFederationIdAndTeamId200ResponseData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -706,6 +749,9 @@ func (o GetFederationByFederationIdAndTeamId200ResponseData) ToMap() (map[string
 	}
 	if !IsNil(o.IsRunning) {
 		toSerialize["is_running"] = o.IsRunning
+	}
+	if o.Progress.IsSet() {
+		toSerialize["progress"] = o.Progress.Get()
 	}
 	return toSerialize, nil
 }

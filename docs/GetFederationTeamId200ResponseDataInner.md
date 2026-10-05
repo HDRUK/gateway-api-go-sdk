@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **IsRunning** | Pointer to **bool** |  | [optional] 
 **Notifications** | Pointer to **[]interface{}** |  | [optional] 
 **LastRunAt** | Pointer to **NullableTime** |  | [optional] 
+**Progress** | Pointer to [**NullableGetFederationTeamId200ResponseDataInnerProgress**](GetFederationTeamId200ResponseDataInnerProgress.md) |  | [optional] 
 
 ## Methods
 
@@ -512,6 +513,41 @@ HasLastRunAt returns a boolean if a field has been set.
 `func (o *GetFederationTeamId200ResponseDataInner) UnsetLastRunAt()`
 
 UnsetLastRunAt ensures that no value is present for LastRunAt, not even an explicit nil
+### GetProgress
+
+`func (o *GetFederationTeamId200ResponseDataInner) GetProgress() GetFederationTeamId200ResponseDataInnerProgress`
+
+GetProgress returns the Progress field if non-nil, zero value otherwise.
+
+### GetProgressOk
+
+`func (o *GetFederationTeamId200ResponseDataInner) GetProgressOk() (*GetFederationTeamId200ResponseDataInnerProgress, bool)`
+
+GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProgress
+
+`func (o *GetFederationTeamId200ResponseDataInner) SetProgress(v GetFederationTeamId200ResponseDataInnerProgress)`
+
+SetProgress sets Progress field to given value.
+
+### HasProgress
+
+`func (o *GetFederationTeamId200ResponseDataInner) HasProgress() bool`
+
+HasProgress returns a boolean if a field has been set.
+
+### SetProgressNil
+
+`func (o *GetFederationTeamId200ResponseDataInner) SetProgressNil(b bool)`
+
+ SetProgressNil sets the value for Progress to be an explicit nil
+
+### UnsetProgress
+`func (o *GetFederationTeamId200ResponseDataInner) UnsetProgress()`
+
+UnsetProgress ensures that no value is present for Progress, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
