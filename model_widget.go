@@ -27,6 +27,7 @@ type Widget struct {
 	IncludedDataUses NullableString `json:"included_data_uses,omitempty"`
 	IncludedScripts NullableString `json:"included_scripts,omitempty"`
 	IncludedCollections NullableString `json:"included_collections,omitempty"`
+	IncludedPublications NullableString `json:"included_publications,omitempty"`
 	IncludeSearchBar *bool `json:"include_search_bar,omitempty"`
 	IncludeCohortLink *bool `json:"include_cohort_link,omitempty"`
 	SizeWidth NullableInt32 `json:"size_width,omitempty"`
@@ -331,6 +332,48 @@ func (o *Widget) SetIncludedCollectionsNil() {
 // UnsetIncludedCollections ensures that no value is present for IncludedCollections, not even an explicit nil
 func (o *Widget) UnsetIncludedCollections() {
 	o.IncludedCollections.Unset()
+}
+
+// GetIncludedPublications returns the IncludedPublications field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Widget) GetIncludedPublications() string {
+	if o == nil || IsNil(o.IncludedPublications.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IncludedPublications.Get()
+}
+
+// GetIncludedPublicationsOk returns a tuple with the IncludedPublications field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Widget) GetIncludedPublicationsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IncludedPublications.Get(), o.IncludedPublications.IsSet()
+}
+
+// HasIncludedPublications returns a boolean if a field has been set.
+func (o *Widget) HasIncludedPublications() bool {
+	if o != nil && o.IncludedPublications.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludedPublications gets a reference to the given NullableString and assigns it to the IncludedPublications field.
+func (o *Widget) SetIncludedPublications(v string) {
+	o.IncludedPublications.Set(&v)
+}
+// SetIncludedPublicationsNil sets the value for IncludedPublications to be an explicit nil
+func (o *Widget) SetIncludedPublicationsNil() {
+	o.IncludedPublications.Set(nil)
+}
+
+// UnsetIncludedPublications ensures that no value is present for IncludedPublications, not even an explicit nil
+func (o *Widget) UnsetIncludedPublications() {
+	o.IncludedPublications.Unset()
 }
 
 // GetIncludeSearchBar returns the IncludeSearchBar field value if set, zero value otherwise.
@@ -839,6 +882,9 @@ func (o Widget) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IncludedCollections.IsSet() {
 		toSerialize["included_collections"] = o.IncludedCollections.Get()
+	}
+	if o.IncludedPublications.IsSet() {
+		toSerialize["included_publications"] = o.IncludedPublications.Get()
 	}
 	if !IsNil(o.IncludeSearchBar) {
 		toSerialize["include_search_bar"] = o.IncludeSearchBar

@@ -33,6 +33,7 @@ type CreateWidgetRequest struct {
 	IncludedDataUses []int32 `json:"included_data_uses,omitempty"`
 	IncludedScripts []int32 `json:"included_scripts,omitempty"`
 	IncludedCollections []int32 `json:"included_collections,omitempty"`
+	IncludedPublications []int32 `json:"included_publications,omitempty"`
 	DataCustodianEntitiesIds []int32 `json:"data_custodian_entities_ids,omitempty"`
 }
 
@@ -432,6 +433,38 @@ func (o *CreateWidgetRequest) SetIncludedCollections(v []int32) {
 	o.IncludedCollections = v
 }
 
+// GetIncludedPublications returns the IncludedPublications field value if set, zero value otherwise.
+func (o *CreateWidgetRequest) GetIncludedPublications() []int32 {
+	if o == nil || IsNil(o.IncludedPublications) {
+		var ret []int32
+		return ret
+	}
+	return o.IncludedPublications
+}
+
+// GetIncludedPublicationsOk returns a tuple with the IncludedPublications field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateWidgetRequest) GetIncludedPublicationsOk() ([]int32, bool) {
+	if o == nil || IsNil(o.IncludedPublications) {
+		return nil, false
+	}
+	return o.IncludedPublications, true
+}
+
+// HasIncludedPublications returns a boolean if a field has been set.
+func (o *CreateWidgetRequest) HasIncludedPublications() bool {
+	if o != nil && !IsNil(o.IncludedPublications) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludedPublications gets a reference to the given []int32 and assigns it to the IncludedPublications field.
+func (o *CreateWidgetRequest) SetIncludedPublications(v []int32) {
+	o.IncludedPublications = v
+}
+
 // GetDataCustodianEntitiesIds returns the DataCustodianEntitiesIds field value if set, zero value otherwise.
 func (o *CreateWidgetRequest) GetDataCustodianEntitiesIds() []int32 {
 	if o == nil || IsNil(o.DataCustodianEntitiesIds) {
@@ -507,6 +540,9 @@ func (o CreateWidgetRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IncludedCollections) {
 		toSerialize["included_collections"] = o.IncludedCollections
+	}
+	if !IsNil(o.IncludedPublications) {
+		toSerialize["included_publications"] = o.IncludedPublications
 	}
 	if !IsNil(o.DataCustodianEntitiesIds) {
 		toSerialize["data_custodian_entities_ids"] = o.DataCustodianEntitiesIds

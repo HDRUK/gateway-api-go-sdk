@@ -32,6 +32,7 @@ type UpdateWidgetRequest struct {
 	DataCustodianEntitiesIds []int32 `json:"data_custodian_entities_ids,omitempty"`
 	IncludedScripts []int32 `json:"included_scripts,omitempty"`
 	IncludedCollections []int32 `json:"included_collections,omitempty"`
+	IncludedPublications []int32 `json:"included_publications,omitempty"`
 }
 
 // NewUpdateWidgetRequest instantiates a new UpdateWidgetRequest object
@@ -467,6 +468,38 @@ func (o *UpdateWidgetRequest) SetIncludedCollections(v []int32) {
 	o.IncludedCollections = v
 }
 
+// GetIncludedPublications returns the IncludedPublications field value if set, zero value otherwise.
+func (o *UpdateWidgetRequest) GetIncludedPublications() []int32 {
+	if o == nil || IsNil(o.IncludedPublications) {
+		var ret []int32
+		return ret
+	}
+	return o.IncludedPublications
+}
+
+// GetIncludedPublicationsOk returns a tuple with the IncludedPublications field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateWidgetRequest) GetIncludedPublicationsOk() ([]int32, bool) {
+	if o == nil || IsNil(o.IncludedPublications) {
+		return nil, false
+	}
+	return o.IncludedPublications, true
+}
+
+// HasIncludedPublications returns a boolean if a field has been set.
+func (o *UpdateWidgetRequest) HasIncludedPublications() bool {
+	if o != nil && !IsNil(o.IncludedPublications) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncludedPublications gets a reference to the given []int32 and assigns it to the IncludedPublications field.
+func (o *UpdateWidgetRequest) SetIncludedPublications(v []int32) {
+	o.IncludedPublications = v
+}
+
 func (o UpdateWidgetRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -515,6 +548,9 @@ func (o UpdateWidgetRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IncludedCollections) {
 		toSerialize["included_collections"] = o.IncludedCollections
+	}
+	if !IsNil(o.IncludedPublications) {
+		toSerialize["included_publications"] = o.IncludedPublications
 	}
 	return toSerialize, nil
 }

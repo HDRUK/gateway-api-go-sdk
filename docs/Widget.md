@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **IncludedDataUses** | Pointer to **NullableString** |  | [optional] 
 **IncludedScripts** | Pointer to **NullableString** |  | [optional] 
 **IncludedCollections** | Pointer to **NullableString** |  | [optional] 
+**IncludedPublications** | Pointer to **NullableString** |  | [optional] 
 **IncludeSearchBar** | Pointer to **bool** |  | [optional] 
 **IncludeCohortLink** | Pointer to **bool** |  | [optional] 
 **SizeWidth** | Pointer to **NullableInt32** |  | [optional] 
@@ -269,6 +270,41 @@ HasIncludedCollections returns a boolean if a field has been set.
 `func (o *Widget) UnsetIncludedCollections()`
 
 UnsetIncludedCollections ensures that no value is present for IncludedCollections, not even an explicit nil
+### GetIncludedPublications
+
+`func (o *Widget) GetIncludedPublications() string`
+
+GetIncludedPublications returns the IncludedPublications field if non-nil, zero value otherwise.
+
+### GetIncludedPublicationsOk
+
+`func (o *Widget) GetIncludedPublicationsOk() (*string, bool)`
+
+GetIncludedPublicationsOk returns a tuple with the IncludedPublications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludedPublications
+
+`func (o *Widget) SetIncludedPublications(v string)`
+
+SetIncludedPublications sets IncludedPublications field to given value.
+
+### HasIncludedPublications
+
+`func (o *Widget) HasIncludedPublications() bool`
+
+HasIncludedPublications returns a boolean if a field has been set.
+
+### SetIncludedPublicationsNil
+
+`func (o *Widget) SetIncludedPublicationsNil(b bool)`
+
+ SetIncludedPublicationsNil sets the value for IncludedPublications to be an explicit nil
+
+### UnsetIncludedPublications
+`func (o *Widget) UnsetIncludedPublications()`
+
+UnsetIncludedPublications ensures that no value is present for IncludedPublications, not even an explicit nil
 ### GetIncludeSearchBar
 
 `func (o *Widget) GetIncludeSearchBar() bool`

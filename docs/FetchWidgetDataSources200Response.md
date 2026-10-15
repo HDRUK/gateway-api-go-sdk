@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Tools** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Collections** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Durs** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**Publications** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetDurs sets Durs field to given value.
 `func (o *FetchWidgetDataSources200Response) HasDurs() bool`
 
 HasDurs returns a boolean if a field has been set.
+
+### GetPublications
+
+`func (o *FetchWidgetDataSources200Response) GetPublications() []map[string]interface{}`
+
+GetPublications returns the Publications field if non-nil, zero value otherwise.
+
+### GetPublicationsOk
+
+`func (o *FetchWidgetDataSources200Response) GetPublicationsOk() (*[]map[string]interface{}, bool)`
+
+GetPublicationsOk returns a tuple with the Publications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublications
+
+`func (o *FetchWidgetDataSources200Response) SetPublications(v []map[string]interface{})`
+
+SetPublications sets Publications field to given value.
+
+### HasPublications
+
+`func (o *FetchWidgetDataSources200Response) HasPublications() bool`
+
+HasPublications returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

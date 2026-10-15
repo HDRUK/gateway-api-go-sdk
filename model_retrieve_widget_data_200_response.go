@@ -23,6 +23,7 @@ type RetrieveWidgetData200Response struct {
 	DataUses []map[string]interface{} `json:"data_uses,omitempty"`
 	Scripts []map[string]interface{} `json:"scripts,omitempty"`
 	Collections []map[string]interface{} `json:"collections,omitempty"`
+	Publications []map[string]interface{} `json:"publications,omitempty"`
 }
 
 // NewRetrieveWidgetData200Response instantiates a new RetrieveWidgetData200Response object
@@ -170,6 +171,38 @@ func (o *RetrieveWidgetData200Response) SetCollections(v []map[string]interface{
 	o.Collections = v
 }
 
+// GetPublications returns the Publications field value if set, zero value otherwise.
+func (o *RetrieveWidgetData200Response) GetPublications() []map[string]interface{} {
+	if o == nil || IsNil(o.Publications) {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.Publications
+}
+
+// GetPublicationsOk returns a tuple with the Publications field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RetrieveWidgetData200Response) GetPublicationsOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Publications) {
+		return nil, false
+	}
+	return o.Publications, true
+}
+
+// HasPublications returns a boolean if a field has been set.
+func (o *RetrieveWidgetData200Response) HasPublications() bool {
+	if o != nil && !IsNil(o.Publications) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublications gets a reference to the given []map[string]interface{} and assigns it to the Publications field.
+func (o *RetrieveWidgetData200Response) SetPublications(v []map[string]interface{}) {
+	o.Publications = v
+}
+
 func (o RetrieveWidgetData200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -191,6 +224,9 @@ func (o RetrieveWidgetData200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Collections) {
 		toSerialize["collections"] = o.Collections
+	}
+	if !IsNil(o.Publications) {
+		toSerialize["publications"] = o.Publications
 	}
 	return toSerialize, nil
 }

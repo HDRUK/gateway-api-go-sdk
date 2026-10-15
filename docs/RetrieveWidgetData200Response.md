@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **DataUses** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Scripts** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Collections** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**Publications** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetCollections sets Collections field to given value.
 `func (o *RetrieveWidgetData200Response) HasCollections() bool`
 
 HasCollections returns a boolean if a field has been set.
+
+### GetPublications
+
+`func (o *RetrieveWidgetData200Response) GetPublications() []map[string]interface{}`
+
+GetPublications returns the Publications field if non-nil, zero value otherwise.
+
+### GetPublicationsOk
+
+`func (o *RetrieveWidgetData200Response) GetPublicationsOk() (*[]map[string]interface{}, bool)`
+
+GetPublicationsOk returns a tuple with the Publications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublications
+
+`func (o *RetrieveWidgetData200Response) SetPublications(v []map[string]interface{})`
+
+SetPublications sets Publications field to given value.
+
+### HasPublications
+
+`func (o *RetrieveWidgetData200Response) HasPublications() bool`
+
+HasPublications returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

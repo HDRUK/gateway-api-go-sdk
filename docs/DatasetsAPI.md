@@ -1449,7 +1449,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDatasetsV2
 
-> CreateDarIntegration201Response UpdateDatasetsV2(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
+> CreateDarIntegration201Response UpdateDatasetsV2(ctx, id).UpdateDatasetsRequest(updateDatasetsRequest).ValidateInput(validateInput).ValidateOutput(validateOutput).Execute()
 
 DatasetController@update
 
@@ -1470,10 +1470,12 @@ import (
 func main() {
 	id := int32(1) // int32 | dataset id
 	updateDatasetsRequest := *openapiclient.NewUpdateDatasetsRequest() // UpdateDatasetsRequest | 
+	validateInput := true // bool | Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) (optional)
+	validateOutput := true // bool | Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatasetsAPI.UpdateDatasetsV2(context.Background(), id).UpdateDatasetsRequest(updateDatasetsRequest).Execute()
+	resp, r, err := apiClient.DatasetsAPI.UpdateDatasetsV2(context.Background(), id).UpdateDatasetsRequest(updateDatasetsRequest).ValidateInput(validateInput).ValidateOutput(validateOutput).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatasetsAPI.UpdateDatasetsV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1500,6 +1502,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **updateDatasetsRequest** | [**UpdateDatasetsRequest**](UpdateDatasetsRequest.md) |  | 
+ **validateInput** | **bool** | Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation) | 
+ **validateOutput** | **bool** | Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation) | 
 
 ### Return type
 

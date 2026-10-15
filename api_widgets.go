@@ -526,7 +526,7 @@ func (r ApiFetchWidgetDataSourcesRequest) Execute() (*FetchWidgetDataSources200R
 /*
 FetchWidgetDataSources WidgetController@getWidgetData
 
-Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, and DURS
+Fetch lightweight data (id, name, etc.) for multiple teams across datasets, tools, collections, DURS and publications
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param teamId Team ID
@@ -651,7 +651,7 @@ func (r ApiRetrieveWidgetDataRequest) Execute() (*RetrieveWidgetData200Response,
 /*
 RetrieveWidgetData Retrieve data related to a widget
 
-Fetches datasets, data uses, scripts, and collections linked to a widget
+Fetches datasets, data uses, scripts, collections and publications linked to a widget
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param teamId Team ID

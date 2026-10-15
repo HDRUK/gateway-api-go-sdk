@@ -2693,10 +2693,24 @@ type ApiUpdateDatasetsV2Request struct {
 	ApiService *DatasetsAPIService
 	id int32
 	updateDatasetsRequest *UpdateDatasetsRequest
+	validateInput *bool
+	validateOutput *bool
 }
 
 func (r ApiUpdateDatasetsV2Request) UpdateDatasetsRequest(updateDatasetsRequest UpdateDatasetsRequest) ApiUpdateDatasetsV2Request {
 	r.updateDatasetsRequest = &updateDatasetsRequest
+	return r
+}
+
+// Set to false to skip TRASER input validation (ignored for draft datasets, which always skip validation)
+func (r ApiUpdateDatasetsV2Request) ValidateInput(validateInput bool) ApiUpdateDatasetsV2Request {
+	r.validateInput = &validateInput
+	return r
+}
+
+// Set to false to skip TRASER output validation (ignored for draft datasets, which always skip validation)
+func (r ApiUpdateDatasetsV2Request) ValidateOutput(validateOutput bool) ApiUpdateDatasetsV2Request {
+	r.validateOutput = &validateOutput
 	return r
 }
 
@@ -2746,6 +2760,12 @@ func (a *DatasetsAPIService) UpdateDatasetsV2Execute(r ApiUpdateDatasetsV2Reques
 		return localVarReturnValue, nil, reportError("updateDatasetsRequest is required and must be specified")
 	}
 
+	if r.validateInput != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "validate_input", r.validateInput, "form", "")
+	}
+	if r.validateOutput != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "validate_output", r.validateOutput, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

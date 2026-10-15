@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **IncludedDataUses** | Pointer to **[]int32** |  | [optional] 
 **IncludedScripts** | Pointer to **[]int32** |  | [optional] 
 **IncludedCollections** | Pointer to **[]int32** |  | [optional] 
+**IncludedPublications** | Pointer to **[]int32** |  | [optional] 
 **DataCustodianEntitiesIds** | Pointer to **[]int32** |  | [optional] 
 
 ## Methods
@@ -331,6 +332,31 @@ SetIncludedCollections sets IncludedCollections field to given value.
 `func (o *CreateWidgetRequest) HasIncludedCollections() bool`
 
 HasIncludedCollections returns a boolean if a field has been set.
+
+### GetIncludedPublications
+
+`func (o *CreateWidgetRequest) GetIncludedPublications() []int32`
+
+GetIncludedPublications returns the IncludedPublications field if non-nil, zero value otherwise.
+
+### GetIncludedPublicationsOk
+
+`func (o *CreateWidgetRequest) GetIncludedPublicationsOk() (*[]int32, bool)`
+
+GetIncludedPublicationsOk returns a tuple with the IncludedPublications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludedPublications
+
+`func (o *CreateWidgetRequest) SetIncludedPublications(v []int32)`
+
+SetIncludedPublications sets IncludedPublications field to given value.
+
+### HasIncludedPublications
+
+`func (o *CreateWidgetRequest) HasIncludedPublications() bool`
+
+HasIncludedPublications returns a boolean if a field has been set.
 
 ### GetDataCustodianEntitiesIds
 
