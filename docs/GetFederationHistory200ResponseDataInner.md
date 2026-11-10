@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **JobUuid** | Pointer to **string** |  | [optional] 
 **StartedAt** | Pointer to **time.Time** |  | [optional] 
-**FinishedAt** | Pointer to **time.Time** |  | [optional] 
+**FinishedAt** | Pointer to **NullableTime** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **FailedDatasets** | Pointer to [**[]GetFederationHistory200ResponseDataInnerFailedDatasetsInner**](GetFederationHistory200ResponseDataInnerFailedDatasetsInner.md) |  | [optional] 
@@ -105,6 +105,16 @@ SetFinishedAt sets FinishedAt field to given value.
 
 HasFinishedAt returns a boolean if a field has been set.
 
+### SetFinishedAtNil
+
+`func (o *GetFederationHistory200ResponseDataInner) SetFinishedAtNil(b bool)`
+
+ SetFinishedAtNil sets the value for FinishedAt to be an explicit nil
+
+### UnsetFinishedAt
+`func (o *GetFederationHistory200ResponseDataInner) UnsetFinishedAt()`
+
+UnsetFinishedAt ensures that no value is present for FinishedAt, not even an explicit nil
 ### GetStatus
 
 `func (o *GetFederationHistory200ResponseDataInner) GetStatus() string`

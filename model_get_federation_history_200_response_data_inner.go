@@ -22,7 +22,7 @@ var _ MappedNullable = &GetFederationHistory200ResponseDataInner{}
 type GetFederationHistory200ResponseDataInner struct {
 	JobUuid *string `json:"job_uuid,omitempty"`
 	StartedAt *time.Time `json:"started_at,omitempty"`
-	FinishedAt *time.Time `json:"finished_at,omitempty"`
+	FinishedAt NullableTime `json:"finished_at,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Message NullableString `json:"message,omitempty"`
 	FailedDatasets []GetFederationHistory200ResponseDataInnerFailedDatasetsInner `json:"failed_datasets,omitempty"`
@@ -109,36 +109,46 @@ func (o *GetFederationHistory200ResponseDataInner) SetStartedAt(v time.Time) {
 	o.StartedAt = &v
 }
 
-// GetFinishedAt returns the FinishedAt field value if set, zero value otherwise.
+// GetFinishedAt returns the FinishedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetFederationHistory200ResponseDataInner) GetFinishedAt() time.Time {
-	if o == nil || IsNil(o.FinishedAt) {
+	if o == nil || IsNil(o.FinishedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.FinishedAt
+	return *o.FinishedAt.Get()
 }
 
 // GetFinishedAtOk returns a tuple with the FinishedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetFederationHistory200ResponseDataInner) GetFinishedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.FinishedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FinishedAt, true
+	return o.FinishedAt.Get(), o.FinishedAt.IsSet()
 }
 
 // HasFinishedAt returns a boolean if a field has been set.
 func (o *GetFederationHistory200ResponseDataInner) HasFinishedAt() bool {
-	if o != nil && !IsNil(o.FinishedAt) {
+	if o != nil && o.FinishedAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFinishedAt gets a reference to the given time.Time and assigns it to the FinishedAt field.
+// SetFinishedAt gets a reference to the given NullableTime and assigns it to the FinishedAt field.
 func (o *GetFederationHistory200ResponseDataInner) SetFinishedAt(v time.Time) {
-	o.FinishedAt = &v
+	o.FinishedAt.Set(&v)
+}
+// SetFinishedAtNil sets the value for FinishedAt to be an explicit nil
+func (o *GetFederationHistory200ResponseDataInner) SetFinishedAtNil() {
+	o.FinishedAt.Set(nil)
+}
+
+// UnsetFinishedAt ensures that no value is present for FinishedAt, not even an explicit nil
+func (o *GetFederationHistory200ResponseDataInner) UnsetFinishedAt() {
+	o.FinishedAt.Unset()
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -263,8 +273,8 @@ func (o GetFederationHistory200ResponseDataInner) ToMap() (map[string]interface{
 	if !IsNil(o.StartedAt) {
 		toSerialize["started_at"] = o.StartedAt
 	}
-	if !IsNil(o.FinishedAt) {
-		toSerialize["finished_at"] = o.FinishedAt
+	if o.FinishedAt.IsSet() {
+		toSerialize["finished_at"] = o.FinishedAt.Get()
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
