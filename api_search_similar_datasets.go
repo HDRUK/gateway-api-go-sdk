@@ -25,26 +25,27 @@ type SearchSimilarDatasetsAPIService service
 type ApiSearchSimilarDatasetsRequest struct {
 	ctx context.Context
 	ApiService *SearchSimilarDatasetsAPIService
-	searchSimilarDatasetsRequest *SearchSimilarDatasetsRequest
+	searchSimilarDatasetsV2Request *SearchSimilarDatasetsV2Request
 }
 
-// Submit dataset id
-func (r ApiSearchSimilarDatasetsRequest) SearchSimilarDatasetsRequest(searchSimilarDatasetsRequest SearchSimilarDatasetsRequest) ApiSearchSimilarDatasetsRequest {
-	r.searchSimilarDatasetsRequest = &searchSimilarDatasetsRequest
+func (r ApiSearchSimilarDatasetsRequest) SearchSimilarDatasetsV2Request(searchSimilarDatasetsV2Request SearchSimilarDatasetsV2Request) ApiSearchSimilarDatasetsRequest {
+	r.searchSimilarDatasetsV2Request = &searchSimilarDatasetsV2Request
 	return r
 }
 
-func (r ApiSearchSimilarDatasetsRequest) Execute() (*SearchSimilarDatasets200Response, *http.Response, error) {
+func (r ApiSearchSimilarDatasetsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SearchSimilarDatasetsExecute(r)
 }
 
 /*
-SearchSimilarDatasets Search@similarDatasets
+SearchSimilarDatasets Search for similar datasets (deprecated)
 
-Returns top three gateway datasets most similar to the provided dataset
+Deprecated: use /api/v2/search/similar/datasets, which this endpoint now serves. Responses carry Deprecation, Sunset and Link headers; it stops working after the Sunset date (17 May 2027).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchSimilarDatasetsRequest
+
+Deprecated
 */
 func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasets(ctx context.Context) ApiSearchSimilarDatasetsRequest {
 	return ApiSearchSimilarDatasetsRequest{
@@ -54,18 +55,17 @@ func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasets(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return SearchSimilarDatasets200Response
-func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsExecute(r ApiSearchSimilarDatasetsRequest) (*SearchSimilarDatasets200Response, *http.Response, error) {
+// Deprecated
+func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsExecute(r ApiSearchSimilarDatasetsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchSimilarDatasets200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchSimilarDatasetsAPIService.SearchSimilarDatasets")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v1/search/similar/datasets"
@@ -73,8 +73,109 @@ func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsExecute(r ApiSear
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.searchSimilarDatasetsRequest == nil {
-		return localVarReturnValue, nil, reportError("searchSimilarDatasetsRequest is required and must be specified")
+	if r.searchSimilarDatasetsV2Request == nil {
+		return nil, reportError("searchSimilarDatasetsV2Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.searchSimilarDatasetsV2Request
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiSearchSimilarDatasetsV2Request struct {
+	ctx context.Context
+	ApiService *SearchSimilarDatasetsAPIService
+	searchSimilarDatasetsV2Request *SearchSimilarDatasetsV2Request
+}
+
+func (r ApiSearchSimilarDatasetsV2Request) SearchSimilarDatasetsV2Request(searchSimilarDatasetsV2Request SearchSimilarDatasetsV2Request) ApiSearchSimilarDatasetsV2Request {
+	r.searchSimilarDatasetsV2Request = &searchSimilarDatasetsV2Request
+	return r
+}
+
+func (r ApiSearchSimilarDatasetsV2Request) Execute() (*SearchSimilarDatasetsV2200Response, *http.Response, error) {
+	return r.ApiService.SearchSimilarDatasetsV2Execute(r)
+}
+
+/*
+SearchSimilarDatasetsV2 Search for similar datasets
+
+Returns up to three gateway datasets sharing the most terms with the provided dataset's keywords and title. The provided dataset is never included.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiSearchSimilarDatasetsV2Request
+*/
+func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsV2(ctx context.Context) ApiSearchSimilarDatasetsV2Request {
+	return ApiSearchSimilarDatasetsV2Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SearchSimilarDatasetsV2200Response
+func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsV2Execute(r ApiSearchSimilarDatasetsV2Request) (*SearchSimilarDatasetsV2200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SearchSimilarDatasetsV2200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchSimilarDatasetsAPIService.SearchSimilarDatasetsV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/search/similar/datasets"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.searchSimilarDatasetsV2Request == nil {
+		return localVarReturnValue, nil, reportError("searchSimilarDatasetsV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -95,7 +196,7 @@ func (a *SearchSimilarDatasetsAPIService) SearchSimilarDatasetsExecute(r ApiSear
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchSimilarDatasetsRequest
+	localVarPostBody = r.searchSimilarDatasetsV2Request
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
